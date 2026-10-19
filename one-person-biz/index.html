@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOE LABS · 模型 03: THE ONE-PERSON BUSINESS 一人公司商业资产闭环与变现定位 | Dan Koe × 梭哈.AI (@SUOHA_AI)</title>
+    <meta name="description" content="KOE LABS 思想模型实验室·模型03。100% 还原 Dan Koe《The One-Person Business Model》与2026新范式，通过 12 个深度商业拷问全景透视 4 大核心维度，诊断一人公司进化象限，生成专属 90 天破局行动清单与 1080P 高清商业定位资产海报。">
+    <!-- OpenGraph & Twitter Cards -->
+    <meta property="og:title" content="KOE LABS · 模型 03: THE ONE-PERSON BUSINESS 一人公司商业闭环诊断">
+    <meta property="og:description" content="Dan Koe：你就是细分赛道。解决自己的痛点（定位），分享如何做到的（内容），打包解决方案（交付）。12题全景测算一人公司成熟度与商业飞轮。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://suoha888.github.io/human-3-quiz/one-person-biz/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@SUOHA_AI">
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <style>
+        :root {
+            --bg-ivory: #FAF7F0;
+            --bg-wheat: #F3EAD6;
+            --ink-primary: #141311;
+            --ink-secondary: #4A453D;
+            --ink-muted: #7E766A;
+            --border-grid: #DFD5BE;
+            --accent-amber: #8A5212;
+            --accent-gold: #B87333;
+            --accent-vermilion: #C84B28;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { box-sizing: border-box; }
+        .hidden { display: none !important; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: var(--bg-ivory);
+            color: var(--ink-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-image: 
+                linear-gradient(to right, rgba(223, 213, 190, 0.35) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(223, 213, 190, 0.35) 1px, transparent 1px);
+            background-size: 32px 32px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif { font-family: "Songti SC", "Noto Serif SC", "Source Han Serif SC", STSong, "Times New Roman", serif; }
+        .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+
+        .container-nav {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .container-main {
+            max-width: 54rem;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem 1rem;
+            flex: 1;
+        }
+
+        .editorial-surface {
+            background-color: rgba(255, 255, 255, 0.94);
+            border: 1.5px solid var(--ink-primary);
+            border-radius: 24px;
+            padding: 2.25rem 2rem;
+            box-shadow: 0 10px 25px -5px rgba(20, 19, 17, 0.08);
+            position: relative;
+        }
+
+        @media (max-width: 640px) {
+            .editorial-surface { padding: 1.5rem 1.25rem; border-radius: 20px; }
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .grid-2 { grid-template-columns: minmax(0, 1fr); }
+        }
+
+        .option-tile {
+            width: 100%;
+            text-align: left;
+            background: #FAF7F0;
+            border: 1.5px solid var(--border-grid);
+            border-radius: 16px;
+            padding: 1.15rem 1.25rem;
+            margin-bottom: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+        .option-tile:hover {
+            border-color: var(--accent-amber);
+            background: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px -2px rgba(138, 82, 18, 0.12);
+        }
+        .option-tile.selected {
+            border-color: var(--accent-amber);
+            background: #FDFBF7;
+            box-shadow: 0 0 0 1.5px var(--accent-amber);
+        }
+
+        .btn-dark {
+            background-color: var(--ink-primary);
+            color: #FAF7F0;
+            padding: 0.95rem 2.25rem;
+            border-radius: 9999px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border: 1.5px solid var(--ink-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-dark:hover {
+            background-color: var(--accent-amber);
+            border-color: var(--accent-amber);
+            transform: translateY(-1px);
+        }
+
+        .btn-light {
+            background-color: #F3EAD6;
+            color: var(--ink-primary);
+            padding: 0.85rem 1.75rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1.5px solid #D8C9A8;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-light:hover { background-color: #E6D8B8; border-color: #C5B58F; }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            background: rgba(20, 19, 17, 0.78);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeUp 0.35s var(--ease-out-expo) forwards; }
+    </style>
+</head>
+<body>
+
+    <!-- 顶层大本营导航条 (KOE LABS 思想实验室) -->
+    <div style="background: #EFE7D2; border-bottom: 1.5px solid #D8C9A8; padding: 7px 1rem; font-size: 12px; color: #4A453D; position: relative; z-index: 50;">
+        <div style="max-width: 56rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="mono" style="font-weight: 800; color: #8A5212; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 5px;">
+                    <span style="font-size: 13px;">🔬</span> KOE LABS · 超级个体进化实验室
+                </span>
+                <span style="color: #C5B99F;">|</span>
+                <span style="color: #7E766A; font-size: 11px;">DAN KOE 思想工程化大本营</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                <a href="https://suoha888.github.io/human-3-quiz/" style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 9999px; text-decoration: none; font-size: 11px; font-weight: 600; background: #FAF7F0; color: #4A453D; border: 1px solid #DFD5BE; transition: all 0.2s;">
+                    <span style="color: #7E766A;">模型 01</span> 推文《Human 3.0》象限诊断
+                </a>
+                <a href="https://suoha888.github.io/human-3-quiz/anti-vision/" style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 9999px; text-decoration: none; font-size: 11px; font-weight: 600; background: #FAF7F0; color: #C84B28; border: 1px solid #DFD5BE; transition: all 0.2s;">
+                    <span style="color: #C84B28;">模型 02</span> 长文《The Anti-Vision》止损协议
+                </a>
+                <a href="https://suoha888.github.io/human-3-quiz/one-person-biz/" style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 9999px; text-decoration: none; font-size: 11px; font-weight: 700; background: #8A5212; color: #FFFFFF; border: 1px solid #8A5212; box-shadow: 0 1px 3px rgba(138,82,18,0.25);">
+                    <span>模型 03</span> 长文《One-Person Biz》一人公司 <span style="font-size: 9px; opacity: 0.9;">(当前)</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 顶部品牌栏 -->
+    <header style="border-bottom: 1px solid #DFD5BE; background: rgba(250,247,240,0.92); position: sticky; top: 0; z-index: 40; backdrop-filter: blur(8px);">
+        <div class="container-nav">
+            <div id="nav-home-logo" onclick="resetToHome()" style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+                <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 42px; height: 42px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="serif" style="font-weight: 700; font-size: 1.15rem; color: #141311;">ONE-PERSON BIZ</span>
+                        <span class="mono" style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: #F3EAD6; border: 1px solid #DFD5BE; color: #8A5212; font-weight: 700;">模型 03 · 12题全景</span>
+                    </div>
+                    <div style="font-size: 11px; color: #7E766A; margin-top: 2px;">原著：@thedankoe · 商业资产闭环与变现定位</div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                <a href="https://github.com/suoha888/human-3-quiz" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 5px 12px; border-radius: 9999px; background: #FAF7F0; border: 1px solid #DFD5BE; text-decoration: none; color: #141311; font-size: 12px; font-weight: 600;">
+                    <svg height="15" width="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+                    <span>系列开源仓 ⭐</span>
+                </a>
+
+                <a href="https://x.com/SUOHA_AI" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 0.45rem; padding: 5px 12px; border-radius: 9999px; background: #F3EAD6; border: 1px solid #D8C9A8; text-decoration: none; color: #141311;">
+                    <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" alt="梭哈.AI" style="width: 28px; height: 28px; border-radius: 9999px; object-fit: cover; border: 1.5px solid #C84B28;">
+                    <div style="text-align: left;">
+                        <div class="mono" style="font-size: 9px; color: #7E766A; line-height: 1;">制作出品</div>
+                        <div style="font-size: 12px; font-weight: 700; color: #141311; margin-top: 1px;">梭哈.AI <span class="mono" style="font-size: 10px; font-weight: 400; color: #4A453D;">@SUOHA_AI</span></div>
+                    </div>
+                </a>
+
+                <button type="button" id="btn-nav-reset" onclick="resetToHome()" style="padding: 7px 13px; border-radius: 9999px; border: 1px solid #DFD5BE; background: transparent; font-size: 12px; font-weight: 600; color: #4A453D; cursor: pointer;">
+                    重置 ↺
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体内容区 -->
+    <main class="container-main">
+
+        <!-- 1. 首页 -->
+        <section id="screen-home" class="editorial-surface fade-in">
+            <!-- 原著锚点引用框 -->
+            <div style="padding: 1.15rem 1.35rem; border-radius: 18px; background: #FAF7F0; border: 1.5px solid #DFD5BE; margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <span class="mono" style="font-size: 11px; font-weight: 700; color: #8A5212;">DAN KOE (@thedankoe) 原著核心商业框架</span>
+                    <a href="https://thedankoe.com/letters/the-one-person-business-model-how-to-monetize-yourself/" target="_blank" rel="noopener" style="font-size: 11px; color: #7E766A; text-decoration: underline;">查看长文原帖 ↗</a>
+                </div>
+                <blockquote style="margin: 0; font-size: 0.96rem; font-style: italic; color: #141311; line-height: 1.65; border-left: 3px solid #8A5212; padding-left: 0.85rem;">
+                    “The one person business is for those that value self-reliance, time freedom, and location freedom... <strong>You are the niche.</strong> Solve your own problems (brand), share how you did it (content), and package the system (offer). Work 2-4 hours a day, automate the rest.”
+                </blockquote>
+            </div>
+
+            <!-- 主标题区 -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <div class="mono" style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #8A5212; background: #F3EAD6; padding: 4px 12px; border-radius: 9999px; margin-bottom: 0.75rem;">
+                    THE ONE-PERSON BUSINESS MODEL · 一人公司商业闭环诊断
+                </div>
+                <h1 class="serif" style="font-size: 2.2rem; font-weight: 800; color: #141311; margin: 0 0 0.85rem 0; line-height: 1.25;">
+                    你的技能是在出卖时间，<br>还是在构建可脱钩的商业资产？
+                </h1>
+                <p style="font-size: 1.05rem; color: #4A453D; max-width: 42rem; margin: 0 auto; line-height: 1.65;">
+                    100% 还原 Dan Koe 经典一人公司商业模型与 2026 AI 进化新范式。通过 12 个真实商业切片拷问，深度测算你的 <strong>4 大核心资产维度</strong>，诊断你处于 4 大进化象限的哪个阶段，并自动推导出专属的 <strong>一人公司 90 天破局行动清单</strong>。
+                </p>
+            </div>
+
+            <!-- 4 大核心维度解析卡片 -->
+            <div class="grid-2" style="margin-bottom: 2rem;">
+                <div style="padding: 1.1rem 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1.5px solid #DFD5BE;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                        <span style="font-size: 1.25rem;">🎯</span>
+                        <span class="mono" style="font-weight: 700; color: #8A5212; font-size: 0.95rem;">BRANDING · 个人赛道定位</span>
+                    </div>
+                    <p style="margin: 0; font-size: 0.88rem; color: #4A453D; line-height: 1.55;">
+                        “You Are The Niche”。摒弃传统冰冷画像，用自己的真实痛点做原型，锁定健康/财富/关系/幸福 4 大永恒市场。
+                    </p>
+                </div>
+
+                <div style="padding: 1.1rem 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1.5px solid #DFD5BE;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                        <span style="font-size: 1.25rem;">✍️</span>
+                        <span class="mono" style="font-weight: 700; color: #8A5212; font-size: 0.95rem;">CONTENT · 内容引擎复利</span>
+                    </div>
+                    <p style="margin: 0; font-size: 0.88rem; color: #4A453D; line-height: 1.55;">
+                        Domain of Mastery 专精架构：1门变现硬技能 + 2门互补通识。赋能低 1 级的初学者，让信息在受众脑海中沉淀复利。
+                    </p>
+                </div>
+
+                <div style="padding: 1.1rem 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1.5px solid #DFD5BE;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                        <span style="font-size: 1.25rem;">📦</span>
+                        <span class="mono" style="font-weight: 700; color: #8A5212; font-size: 0.95rem;">OFFER · 阶梯交付矩阵</span>
+                    </div>
+                    <p style="margin: 0; font-size: 0.88rem; color: #4A453D; line-height: 1.55;">
+                        从 MVO 最小可行变现（$500-$1000 咨询），演进到数字化工作流资产，并在 2026 进化为“AI微工具与交互式学习体验”。
+                    </p>
+                </div>
+
+                <div style="padding: 1.1rem 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1.5px solid #DFD5BE;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                        <span style="font-size: 1.25rem;">⚡</span>
+                        <span class="mono" style="font-weight: 700; color: #8A5212; font-size: 0.95rem;">FUNNEL · 私域与分发系统</span>
+                    </div>
+                    <p style="margin: 0; font-size: 0.88rem; color: #4A453D; line-height: 1.55;">
+                        公域捕获注意力，Newsletter 邮件列表拥有无租金数字资产。坦荡推广价值，实现每日 2-4 小时高能创作与时间脱钩。
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA 操作区 -->
+            <div style="text-align: center; padding-top: 0.5rem;">
+                <button type="button" id="btn-start-quiz" onclick="startAssessment()" class="btn-dark">
+                    <span>开始 12 题一人公司商业闭环诊断</span>
+                    <span style="font-size: 1.2rem;">→</span>
+                </button>
+                <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 12px; color: #7E766A;">
+                    <span>✓ 100% 还原 Dan Koe 商业原著</span>
+                    <span>✓ 纯本地运算 · 零隐私上传</span>
+                    <span>✓ 自动生成 1080P 专属商业资产全景海报</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 答题区 -->
+        <section id="screen-quiz" class="editorial-surface hidden">
+            <!-- 答题进度条 -->
+            <div style="margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 12px; margin-bottom: 0.5rem;">
+                    <span id="quiz-pillar-badge" class="mono" style="font-weight: 700; color: #8A5212; background: #F3EAD6; padding: 2px 8px; border-radius: 4px;">
+                        维度 1/4: BRANDING 个人定位
+                    </span>
+                    <span id="quiz-progress-text" class="mono" style="color: #7E766A; font-weight: 600;">
+                        QUESTION 01 / 12
+                    </span>
+                </div>
+                <div style="width: 100%; height: 6px; background: #EFE7D2; border-radius: 9999px; overflow: hidden;">
+                    <div id="quiz-progress-bar" style="width: 8.33%; height: 100%; background: #8A5212; transition: width 0.3s ease;"></div>
+                </div>
+            </div>
+
+            <!-- 题目容器 -->
+            <div id="quiz-card" style="margin-bottom: 1.75rem;">
+                <div id="question-guidance" style="font-size: 12px; color: #8A5212; font-style: italic; margin-bottom: 0.5rem; border-left: 2px solid #8A5212; padding-left: 0.5rem;">
+                    Dan Koe 原则：...
+                </div>
+                <h2 id="question-title" class="serif" style="font-size: 1.45rem; font-weight: 800; color: #141311; margin: 0 0 1.25rem 0; line-height: 1.4;">
+                    题目加载中...
+                </h2>
+                <div id="options-container">
+                    <!-- 动态注入 4 个选项 -->
+                </div>
+            </div>
+
+            <!-- 底部导航按钮 -->
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid #DFD5BE;">
+                <button type="button" id="btn-prev-q" onclick="prevQuestion()" class="btn-light" style="padding: 0.65rem 1.4rem; font-size: 0.9rem;">
+                    ← 上一题
+                </button>
+                <div style="font-size: 12px; color: #7E766A;">
+                    点击选项自动跳转下一题
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 诊断报告区 -->
+        <section id="screen-result" class="editorial-surface hidden">
+            <!-- 报告顶部徽章与评分 -->
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1.5px solid #DFD5BE; margin-bottom: 1.5rem;">
+                <div>
+                    <span id="result-maturity-badge" class="mono" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 9999px; background: #F3EAD6; color: #8A5212; border: 1px solid #D8C9A8;">
+                        成熟度：破局跃迁期
+                    </span>
+                    <span id="result-arch-tag" class="mono" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 9999px; background: #FAF7F0; color: #141311; border: 1px solid #DFD5BE; margin-left: 6px;">
+                        象限：一人垄断型
+                    </span>
+                    <h2 id="result-arch-title" class="serif" style="font-size: 1.95rem; font-weight: 800; color: #141311; margin: 0.6rem 0 0 0; line-height: 1.25;">
+                        一人垄断型 · 超级个体飞轮
+                    </h2>
+                </div>
+
+                <div style="text-align: right; background: #F3EAD6; border: 2px solid #141311; padding: 0.75rem 1.5rem; border-radius: 18px;">
+                    <div class="mono" style="font-size: 11px; color: #7E766A; font-weight: 700;">一人公司成熟度指数</div>
+                    <div style="display: flex; align-items: baseline; justify-content: flex-end; gap: 2px;">
+                        <span id="result-overall-score" class="serif" style="font-size: 2.75rem; font-weight: 900; color: #8A5212; line-height: 1;">88</span>
+                        <span style="font-size: 1.1rem; color: #4A453D; font-weight: 700;">/ 100</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 象限深度解析卡片 -->
+            <div style="padding: 1.25rem 1.5rem; border-radius: 18px; background: #FAF7F0; border: 1.5px solid #DFD5BE; margin-bottom: 1.75rem;">
+                <div style="font-size: 12px; font-weight: 700; color: #8A5212; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px;">
+                    <span>📊</span>
+                    <span>一人公司商业资产全景诊断与短板剖析</span>
+                </div>
+                <p id="result-arch-desc" style="font-size: 0.96rem; color: #141311; line-height: 1.65; margin: 0 0 0.85rem 0;">
+                    诊断描述...
+                </p>
+                <div style="padding: 0.85rem 1.1rem; border-radius: 12px; background: #FFFFFF; border: 1px dashed #D8C9A8;">
+                    <div style="font-size: 12px; font-weight: 700; color: #C84B28; margin-bottom: 0.25rem;">
+                        ⚠️ 核心致命瓶颈：
+                    </div>
+                    <div id="result-bottleneck-text" style="font-size: 0.9rem; color: #4A453D; line-height: 1.5;">
+                        瓶颈分析...
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 大核心资产维度得分条 -->
+            <div style="margin-bottom: 2rem;">
+                <h3 class="serif" style="font-size: 1.2rem; font-weight: 700; color: #141311; margin: 0 0 1rem 0;">
+                    4 大商业资产维度能力雷达分解
+                </h3>
+                <div class="grid-2" id="dimension-bars-container">
+                    <!-- 动态注入 4 大维度条 -->
+                </div>
+            </div>
+
+            <!-- 90天破局行动指南卡片 -->
+            <div style="padding: 1.35rem 1.5rem; border-radius: 18px; background: #FAF7F0; border: 2px solid #141311; margin-bottom: 2rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <div class="serif" style="font-size: 1.25rem; font-weight: 800; color: #141311; display: flex; align-items: center; gap: 8px;">
+                        <span>🚀</span>
+                        <span>DAN KOE 一人公司 90 天破局行动路线图</span>
+                    </div>
+                    <span class="mono" style="font-size: 11px; color: #8A5212; font-weight: 700; background: #F3EAD6; padding: 2px 8px; border-radius: 4px;">
+                        EXECUTION PLAYBOOK
+                    </span>
+                </div>
+
+                <div id="roadmap-container" style="display: flex; flex-direction: column; gap: 0.85rem;">
+                    <!-- 动态注入 3 个阶段 -->
+                </div>
+            </div>
+
+            <!-- 底部操作与海报触发区 -->
+            <div style="text-align: center; padding-top: 1rem; border-top: 1px solid #DFD5BE; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <button type="button" id="btn-gen-poster" onclick="generateAndShowPoster()" class="btn-dark" style="background: #8A5212; border-color: #8A5212;">
+                    <span>生成 1080P 专属商业资产全景海报 🖼️</span>
+                </button>
+                <button type="button" id="btn-copy-result" onclick="copyResultText()" class="btn-light">
+                    <span>复制诊断结果 📋</span>
+                </button>
+                <button type="button" onclick="resetToHome()" class="btn-light">
+                    <span>重新诊断 ↺</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 4. 1080P Canvas 海报弹窗 Modal -->
+    <div id="poster-modal" class="modal-backdrop hidden">
+        <div style="background: #FAF7F0; border: 2px solid #141311; border-radius: 20px; max-width: 32rem; width: 100%; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35);">
+            <div style="padding: 1rem 1.25rem; border-bottom: 1.5px solid #DFD5BE; display: flex; align-items: center; justify-content: space-between; background: #F3EAD6;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.1rem;">🖼️</span>
+                    <span class="serif" style="font-weight: 700; font-size: 1.05rem; color: #141311;">1080P 专属商业资产定位全景海报</span>
+                </div>
+                <button type="button" id="btn-close-modal-x" onclick="closePosterModal()" style="background: none; border: none; font-size: 1.3rem; line-height: 1; cursor: pointer; color: #7E766A;">✕</button>
+            </div>
+
+            <div style="padding: 1rem; overflow-y: auto; text-align: center; background: #FAF7F0;">
+                <img id="poster-preview-img" src="" alt="Poster Preview" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 1.5px solid #141311;">
+            </div>
+
+            <div style="padding: 1rem 1.25rem; border-top: 1.5px solid #DFD5BE; background: #F3EAD6; display: flex; align-items: center; justify-content: flex-end; gap: 0.75rem;">
+                <button type="button" id="btn-close-modal-cancel" onclick="closePosterModal()" class="btn-light" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+                    关闭
+                </button>
+                <button type="button" id="btn-download-poster" onclick="triggerPosterDownload()" class="btn-dark" style="background: #8A5212; border-color: #8A5212; padding: 0.6rem 1.4rem; font-size: 0.9rem;">
+                    下载高清海报 💾
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部版权栏 -->
+    <footer style="border-top: 1.5px solid #DFD5BE; background: #FAF7F0; padding: 1.75rem 1rem; font-size: 12px; color: #7E766A; text-align: center; margin-top: auto;">
+        <div style="max-width: 54rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.6rem; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center;">
+                <span class="mono" style="font-weight: 700; color: #141311;">KOE LABS · MODEL 03</span>
+                <span>•</span>
+                <span>原著理论：Dan Koe (<a href="https://x.com/thedankoe" target="_blank" rel="noopener" style="color: #141311; text-decoration: underline;">@thedankoe</a>)</span>
+                <span>•</span>
+                <span>制作出品：梭哈.AI (<a href="https://x.com/SUOHA_AI" target="_blank" rel="noopener" style="color: #8A5212; font-weight: 700; text-decoration: underline;">@SUOHA_AI</a>)</span>
+            </div>
+            <div>
+                代码完全开源于 GitHub · 欢迎 Star 与 Fork · 仅供个人商业认知复利自省，非投资建议 (DYOR)
+            </div>
+        </div>
+    </footer>
+
+    <!-- 核心业务逻辑脚本 -->
+    <script>
+        // 12 道 100% 还原 Dan Koe 商业原著与 2026 AI 新范式的核心问题
+        var questions = [
+            // PILLAR 1: BRANDING (个人定位与细分赛道)
+            {
+                pillar: "BRANDING",
+                pillarName: "BRANDING · 个人定位与细分赛道",
+                guidance: "Dan Koe：My way, The Experience Model, turns YOU into the customer avatar... The unique combination of your topics IS your niche.",
+                title: "01. 定位原型：在互联网上，你的个人定位是如何构建的？",
+                options: [
+                    { score: 100, label: "A", text: "我以自己的真实痛点、转型经历与目标为原型（The Experience Model）。我本身就是细分赛道，无人可完全替代。" },
+                    { score: 70, label: "B", text: "我有明确的个人兴趣与专业技能结合点，但有时仍会陷入“我是不是不够权威”的冒充者综合征。" },
+                    { score: 40, label: "C", text: "套用传统企业定位理论，死磕狭窄的行业垂类或迎合特定客户画像，把自己封死在单一技能标签里。" },
+                    { score: 10, label: "D", text: "完全没有个人定位，别人做什么火我就跟风模仿什么，在互联网上随时可以被任何人替代。" }
+                ]
+            },
+            {
+                pillar: "BRANDING",
+                pillarName: "BRANDING · 个人定位与细分赛道",
+                guidance: "Dan Koe：The 4 eternal markets are where burning, profitable problems exist: Health, Wealth, Relationships, Happiness.",
+                title: "02. 永恒市场：你解决的问题，是否扎根在人类底层刚需中？",
+                options: [
+                    { score: 100, label: "A", text: "牢牢扎根于 4 大永恒市场之一（健康/财富/亲密关系/认知幸福），切中高客单价值交换的底层刚需。" },
+                    { score: 70, label: "B", text: "涉及到了永恒市场，但切入角度偏向边缘娱乐或伪需求，没有直击用户的深层焦虑或终极目标。" },
+                    { score: 40, label: "C", text: "仅停留在纯技术外包或廉价代操接单，没有上升到帮助用户实现个人目标或生活方式转型。" },
+                    { score: 10, label: "D", text: "完全不清楚自己在解决什么痛点，做的事情可有可无，找不到任何商业变现付费意愿。" }
+                ]
+            },
+            {
+                pillar: "BRANDING",
+                pillarName: "BRANDING · 个人定位与细分赛道",
+                guidance: "Dan Koe：You have 18-35+ years of unique experience. The problem? You do not see the value in that experience... People of depth get paid most.",
+                title: "03. 经历资产化：你如何看待并提取自己过去十几年的生活与职业经验？",
+                options: [
+                    { score: 100, label: "A", text: "深刻理解自己踩过的坑、解决过的困惑就是最具价值的数字资产，能将其系统化打包为他人避坑的指南针。" },
+                    { score: 70, label: "B", text: "觉得自己有些经历挺特别，但缺乏提炼框架，不知道如何转化为具有普遍启发性的结构化认知。" },
+                    { score: 40, label: "C", text: "严重贬低自己的经历，总觉得自己的生活平淡无奇，认为只有赚了几百万的大佬才有资格公开发声。" },
+                    { score: 10, label: "D", text: "过去全在浑浑噩噩随波逐流，从未主动进行过经验复盘、技能沉淀与认知迭代。" }
+                ]
+            },
+
+            // PILLAR 2: CONTENT (内容引擎与心智复利)
+            {
+                pillar: "CONTENT",
+                pillarName: "CONTENT · 内容引擎与认知复利",
+                guidance: "Dan Koe：In Digital Economics, I teach the Domain Of Mastery: 1 monetizable skill + 2 complementary interests... That is how you get paid.",
+                title: "04. 专精领域架构：你的内容创作是否具备高维度的知识生态系统？",
+                options: [
+                    { score: 100, label: "A", text: "构建了清晰的“1门硬核核心技能 + 2门互补通识兴趣”（Domain of Mastery），既有专业硬深度又有跨界广度。" },
+                    { score: 70, label: "B", text: "只有单一专业技能（如仅写代码或仅做设计），缺乏横向的哲学、心理或商业通识连接，容易沦为单一工匠。" },
+                    { score: 40, label: "C", text: "关注话题极其分散碎片化，今天聊科技明天聊八卦，受众无法形成对你的核心心智认知与专业信任。" },
+                    { score: 10, label: "D", text: "从不进行系统化输出，只是在社交网络上被动消费信息、情绪吐槽与发泄碎片言论。" }
+                ]
+            },
+            {
+                pillar: "CONTENT",
+                pillarName: "CONTENT · 内容引擎与认知复利",
+                guidance: "Dan Koe：90% of the market are beginners... You will find the best results helping people 1 level under you. Send an elevator down.",
+                title: "05. 受众共鸣与初学者视角：你创作内容时的语言范式与沟通目标是什么？",
+                options: [
+                    { score: 100, label: "A", text: "懂得用最通俗易懂的语言讲透底层原理，专注赋能比自己低 1 级的初学者，主动搭建带他们上楼的“电梯”。" },
+                    { score: 70, label: "B", text: "偶尔能写出好内容，但常常忍不住堆砌生僻术语和复杂模型，陷入“专家视角的自我感动”中。" },
+                    { score: 40, label: "C", text: "害怕被行业同行挑刺，内容写得像学术论文或教科书，极其晦涩枯燥且毫无传播力与人情味。" },
+                    { score: 10, label: "D", text: "毫无受众意识与共情能力，表达颠三倒四，不知道如何把想法有效传递给他人。" }
+                ]
+            },
+            {
+                pillar: "CONTENT",
+                pillarName: "CONTENT · 内容引擎与认知复利",
+                guidance: "Dan Koe：Your brand is formed through 1-3 months of content. Content compounds in people's minds until your entire message clicks.",
+                title: "06. 内容复利周期：面对内容数据波动，你的创作节奏与战略定力如何？",
+                options: [
+                    { score: 100, label: "A", text: "坚信内容心智复利，每周保持高质量稳定节奏，让核心理念在读者脑海中经过数月持续共振与沉淀。" },
+                    { score: 70, label: "B", text: "能写但缺乏耐心，发布几篇若数据不爆就容易心灰意冷，断断续续无法形成飞轮效应。" },
+                    { score: 40, label: "C", text: "纯追热点做廉价流量，今天爆款明天断更，受众记住的是热点本身，完全记不住你这个人与品牌。" },
+                    { score: 10, label: "D", text: "完全没有持续创作输出的习惯，甚至从未公开发布过深度长文或结构化思考。" }
+                ]
+            },
+
+            // PILLAR 3: OFFER (变现产品与交付矩阵)
+            {
+                pillar: "OFFER",
+                pillarName: "OFFER · 变现产品与交付矩阵",
+                guidance: "Dan Koe：You NEED something to iterate on... The MVO is a single-skill freelance service or a pack of 4 consult calls for $500-$1000.",
+                title: "07. 最小可行变现（MVO）：你是否在市场中拥有可立即收款的变现载体？",
+                options: [
+                    { score: 100, label: "A", text: "早已推出专属的最小可行变现（MVO，如 $500-$1000 咨询/指导或单项解决方案），在真实交付中持续迭代升级。" },
+                    { score: 70, label: "B", text: "有明确的咨询或产品雏形，但总在纠结“还不够完美”而迟迟不敢开价推向市场接受检验。" },
+                    { score: 40, label: "C", text: "停留在廉价计件接单或免费做人情，没有打包成可标准化交付的高客单解决方案。" },
+                    { score: 10, label: "D", text: "没有任何收费意识，觉得谈钱可耻，或者根本不知道如何把自己掌握的知识变成商品。" }
+                ]
+            },
+            {
+                pillar: "OFFER",
+                pillarName: "OFFER · 变现产品与交付矩阵",
+                guidance: "Dan Koe：To increase the value of your consulting, outline a curriculum, worksheets, and Notion dashboards... These turn into products you sell.",
+                title: "08. 产品阶梯化升级：你的业务是否具备从“出卖时间”到“可复制资产”的演进路径？",
+                options: [
+                    { score: 100, label: "A", text: "构建了清晰的阶梯矩阵：高客单咨询验证需求 → 沉淀为数字化模版/工作流 → 进化为自动化数字资产。" },
+                    { score: 70, label: "B", text: "目前只能提供 1v1 纯时间服务，虽然收入尚可，但一旦停止工作收入立即停滞，缺乏无边际成本资产。" },
+                    { score: 40, label: "C", text: "试图直接做宏大复杂的综合大课或重量级软件，脱离用户反馈闭门造车，最后无人问津。" },
+                    { score: 10, label: "D", text: "完全没有产品概念，只能依赖雇主发工资，停留在工业社会的单点雇佣关系中。" }
+                ]
+            },
+            {
+                pillar: "OFFER",
+                pillarName: "OFFER · 变现产品与交付矩阵",
+                guidance: "Dan Koe 2026：Static courses don't cut it anymore... Selling learning experiences and micro software rather than static courses.",
+                title: "09. 2026 AI新交付：面对 AI 时代知识泛滥，你的交付形态是否完成了智能化升级？",
+                options: [
+                    { score: 100, label: "A", text: "主动用 AI、自动化脚本与交互式轻工具重构知识资产，交付可互动的实战体验（Micro-SaaS/轻工具），而非死板文档。" },
+                    { score: 70, label: "B", text: "认识到传统 PDF 和录播课逐渐贬值，开始尝试把提示词或流程打包，但尚未形成软件化/交互化体验。" },
+                    { score: 40, label: "C", text: "依然在售卖过时的长篇录播课或泛滥成灾的网盘资料包，完课率极低且用户极易流失。" },
+                    { score: 10, label: "D", text: "对 AI 与新技术抱有抵触或恐惧心理，完全不懂如何利用技术杠杆放大个人交付能力。" }
+                ]
+            },
+
+            // PILLAR 4: FUNNEL (分发通道与自由飞轮)
+            {
+                pillar: "FUNNEL",
+                pillarName: "FUNNEL · 分发通道与自由飞轮",
+                guidance: "Dan Koe：Social media for building leverage... No-code tools and email lists that can’t be taken away like social media.",
+                title: "10. 私域数字房产：你是否拥有不受平台算法绑架的专属流量蓄水池？",
+                options: [
+                    { score: 100, label: "A", text: "拥有自己的独立私域阵地（个人博客/Substack/邮件通讯列表），不依赖单一平台算法，商业资产牢牢掌握在自己手中。" },
+                    { score: 70, label: "B", text: "在社交平台上拥有一定粉丝量，但绝大部分读者沉淀在公域算法池中，私域承接通道转化薄弱。" },
+                    { score: 40, label: "C", text: "纯粹依靠第三方中心化平台给量，一旦平台改版限流或封号，所有受众与商业联系瞬间归零。" },
+                    { score: 10, label: "D", text: "既无公域流量入口，更无任何私域承接手段，在互联网上如同隐形人。" }
+                ]
+            },
+            {
+                pillar: "FUNNEL",
+                pillarName: "FUNNEL · 分发通道与自由飞轮",
+                guidance: "Dan Koe：You need to promote yourself on a consistent basis. If you don’t promote your offer, you aren’t going to make money.",
+                title: "11. 主动推广与商业坦荡：你如何向你的受众推荐你的高价值商业方案？",
+                options: [
+                    { score: 100, label: "A", text: "能够坦然、自信且高频地在优质内容末尾植入商业解决方案，深知这是双向利他的价值交换。" },
+                    { score: 70, label: "B", text: "能持续输出高质量干货，但一到变现推广就极度羞耻和别扭，总是偷偷摸摸甚至主动藏起购买链接。" },
+                    { score: 40, label: "C", text: "要么死活不推广，要么急功近利疯狂发硬广垃圾信息伤害受众信任，缺乏优雅的转化漏斗设计。" },
+                    { score: 10, label: "D", text: "认为“酒香不怕巷子深”，期望什么都不推广就能有客户主动送上门来。" }
+                ]
+            },
+            {
+                pillar: "FUNNEL",
+                pillarName: "FUNNEL · 分发通道与自由飞轮",
+                guidance: "Dan Koe：Work less. Earn more. Enjoy life... A work schedule that best suits the individual – usually 2-4 hours of work a day.",
+                title: "12. 时间脱钩与生活方式设计：你的日常工作节奏，是否实现了创造力与自由的统一？",
+                options: [
+                    { score: 100, label: "A", text: "每天只需 2-4 小时高专注深度创造，业务由自动化流程与内容资产驱动，拥有充分的时间与地点自由。" },
+                    { score: 70, label: "B", text: "收入不错但工作时间依然很长（8-10小时+），尚未彻底建立起自动化运转的飞轮系统。" },
+                    { score: 40, label: "C", text: "被琐碎的外包客户沟通、改稿与重复劳动完全填满，虽然名为自由职业，实则比全职上班更疲惫。" },
+                    { score: 10, label: "D", text: "陷入严重的“出卖时间换取温饱”的生存泥潭，身心俱疲，对未来生活毫无掌控感。" }
+                ]
+            }
+        ];
+
+        // 4 大进化象限定义
+        var archetypes = {
+            SOLO_MONOPOLY: {
+                id: "SOLO_MONOPOLY",
+                tag: "象限 IV · 一人垄断型",
+                title: "一人垄断型 · 超级个体飞轮",
+                badge: "自由垄断期",
+                desc: "恭喜！你已经彻底打通了 Dan Koe 一人公司模式的核心闭环。你深刻践行“你就是细分赛道”，将个人真实经历提炼为难以复制的品牌资产；通过高质量的内容复利与初学者视角构建了强大的心智护城河；搭建了从 MVO 咨询到数字资产的阶梯交付矩阵；并通过邮件私域与自动化工具实现了商业与时间的真正脱钩。每天仅需 2-4 小时高能创造即可驱动整个系统自转。",
+                bottleneck: "在 2026 AI 生产力大爆发阶段，警惕静态知识的通缩。重点在于把知识资产进一步软件化、微工具化（Micro-SaaS/轻工具），用 Agent 赋能交互体验，进一步放大无边际复利边际。",
+                roadmap: [
+                    { phase: "PHASE 1 (Day 1-30)", goal: "资产微工具化重构", act: "梳理现有高客单咨询与工作流体系，用 Cursor/Replit 等工具将其包装为轻量化交互式 AI 微工具或自动化工作流模版。" },
+                    { phase: "PHASE 2 (Day 31-60)", goal: "私域沉淀与跨语境分发", act: "优化 Newsletter 深度邮件自动化工作流，打通全球化多渠道分发矩阵，建立不可剥夺的终身读者池。" },
+                    { phase: "PHASE 3 (Day 61-90)", goal: "超级个体网络与生态垄断", act: "连接同等维度的顶尖超级个体，开展联名产品与生态合作，将业务由单点垄断升级为网络效应。" }
+                ]
+            },
+            SERVICE_TRAP: {
+                id: "SERVICE_TRAP",
+                tag: "象限 I · 技能工匠型",
+                title: "技能工匠型 · 钟点工陷阱",
+                badge: "严重受困期",
+                desc: "你拥有过硬的专业单点技能（如优秀的编程、设计、剪辑或文案功底），但在商业模式上依然停留在工业社会的“以时间换金钱”外包逻辑。缺乏个人品牌护城河，客户只认技能比拼低价，不认你这个人；手停口停，一旦停止接单收入立即归零；每天被甲方的琐碎需求、改稿与沟通消耗殆尽，没有时间进行自我提升与内容资产积累。",
+                bottleneck: "陷入了“时间计费”的恶性循环。必须立刻停止纯出卖时间的零散外包接单，启动【MVO 咨询化包装 + 每日 2 小时内容写作】，将执行力转化为可沉淀的品牌势能。",
+                roadmap: [
+                    { phase: "PHASE 1 (Day 1-30)", goal: "摆脱低端外包，确立 MVO", act: "将零散技能打包为固定交付的【最小可行咨询/解决方案】（定价 $500-$1000），拒绝零散计件修改，设定明确服务边界。" },
+                    { phase: "PHASE 2 (Day 31-60)", goal: "构建专精领域，启动内容飞轮", act: "提炼“1门核心硬技能 + 2门跨界兴趣”的三维知识框架，每周发布 2-3 篇聚焦初学者痛点的深度拆解与教程。" },
+                    { phase: "PHASE 3 (Day 61-90)", goal: "交付标准化与时间减半", act: "将 1v1 交付过程中的核心步骤抽象为 Notion 模版与标准 SOP，将工作时间压缩至 4 小时以内，释放时间构建数字产品。" }
+                ]
+            },
+            GHOST_EXPERT: {
+                id: "GHOST_EXPERT",
+                tag: "象限 II · 隐身专家型",
+                title: "隐身专家型 · 流量荒漠者",
+                badge: "突破萌芽期",
+                desc: "你肚子里有真才实学、深厚的行业积淀与绝佳的实战心得，但在互联网公域中却几乎处于“隐身”状态。你患有严重的冒充者综合征或对社交媒体发声怀有偏见，害怕被同行评头论足，不敢公开发布自己的思考。这导致你的高价值认知无法被市场定价，只能眼睁睁看着认知水平远不如你、但敢于在公域高调输出的人赚得盆满钵满。",
+                bottleneck: "缺乏公域注意力捕获能力与公开表达的勇气。Dan Koe 提醒你：商业本质是价值交换，进入竞技场（Step into the arena）才能获得真正的实战经验，不要等到万事完美才开始。",
+                roadmap: [
+                    { phase: "PHASE 1 (Day 1-30)", goal: "克服冒充者心态，迈入竞技场", act: "以“初学者带路人”的谦卑视角，公开记录过去解决过的 10 个真实难题，放下专家包袱，持续发推/写长文。" },
+                    { phase: "PHASE 2 (Day 31-60)", goal: "建立 Newsletter 私域蓄水池", act: "开设个人独立博客或 Substack 邮件列表，在每篇深度分析文末附带订阅入口，将公域偶遇转化为私域终身连接。" },
+                    { phase: "PHASE 3 (Day 61-90)", goal: "推出首个高客单咨询 Offer", act: "在私域读者中开启 4 次 1v1 深度咨询预约，用实战通话验证需求，直接开启高客单变现。" }
+                ]
+            },
+            TRAFFIC_HOLLOW: {
+                id: "TRAFFIC_HOLLOW",
+                tag: "象限 III · 空心网红型",
+                title: "空心网红型 · 变现无门者",
+                badge: "失衡转化期",
+                desc: "你具备出色的公域嗅觉与流量抓取能力，深谙网络热点与传播心理，在社交网络上互动火爆、涨粉迅速。但你最大的阿喀琉斯之踵是：缺乏属于自己的核心交付产品（Offer）与深度商业闭环。你的收入主要依赖低质广告、推拿外包或廉价返佣，既伤害粉丝信任又时刻处于流量波动的巨大焦虑中。",
+                bottleneck: "空有注意力杠杆，缺乏承接与产品化交付能力。必须停止无意义的追逐泛流量，围绕自身优势搭建【高价值阶梯式 Offer 矩阵】，将虚浮的赞赏转化为坚实的资产。",
+                roadmap: [
+                    { phase: "PHASE 1 (Day 1-30)", goal: "梳理核心价值，搭建最小 Offer", act: "停止接伤粉低劣广告，提炼自己最被受众高频求助的核心能力，推出首款 $500 级深度陪跑或实战诊断方案。" },
+                    { phase: "PHASE 2 (Day 31-60)", goal: "知识产品化与漏斗承接", act: "将实战中的高频问答制作成结构化工作流模版或交互式知识库，作为中低客单承接层，提升流量转化率。" },
+                    { phase: "PHASE 3 (Day 61-90)", goal: "自动化私域资产与会员沉淀", act: "把公域流量通过诱饵系统引导至 Newsletter 与私域社群，打造高留存、高复购的超级个体生态。" }
+                ]
+            }
+        };
+
+        // 当前答题状态
+        var currentQuestionIndex = 0;
+        var userAnswers = new Array(questions.length).fill(null);
+        var latestReportData = null;
+        var generatedPosterDataURL = null;
+
+        // 页面切换
+        function showScreen(screenId) {
+            document.getElementById('screen-home').classList.add('hidden');
+            document.getElementById('screen-quiz').classList.add('hidden');
+            document.getElementById('screen-result').classList.add('hidden');
+            var target = document.getElementById(screenId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('fade-in');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 开始测试
+        function startAssessment() {
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            showScreen('screen-quiz');
+            renderQuestion();
+        }
+
+        // 重置回到首页
+        function resetToHome() {
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            latestReportData = null;
+            generatedPosterDataURL = null;
+            showScreen('screen-home');
+        }
+
+        // 渲染单题
+        function renderQuestion() {
+            var q = questions[currentQuestionIndex];
+            var qNum = currentQuestionIndex + 1;
+            var totalQ = questions.length;
+
+            document.getElementById('quiz-pillar-badge').innerText = q.pillarName;
+            document.getElementById('quiz-progress-text').innerText = "QUESTION " + (qNum < 10 ? "0" + qNum : qNum) + " / " + totalQ;
+            document.getElementById('quiz-progress-bar').style.width = ((qNum / totalQ) * 100) + "%";
+
+            document.getElementById('question-guidance').innerText = q.guidance;
+            document.getElementById('question-title').innerText = q.title;
+
+            var optsContainer = document.getElementById('options-container');
+            optsContainer.innerHTML = '';
+
+            q.options.forEach(function(opt, idx) {
+                var btn = document.createElement('div');
+                btn.className = "option-tile" + (userAnswers[currentQuestionIndex] === idx ? " selected" : "");
+                btn.onclick = function() { selectOption(idx); };
+
+                var leftContent = document.createElement('div');
+                leftContent.style.display = "flex";
+                leftContent.style.alignItems = "flex-start";
+                leftContent.style.gap = "0.75rem";
+
+                var badge = document.createElement('span');
+                badge.className = "mono";
+                badge.style.display = "inline-flex";
+                badge.style.alignItems = "center";
+                badge.style.justifyContent = "center";
+                badge.style.width = "26px";
+                badge.style.height = "26px";
+                badge.style.borderRadius = "9999px";
+                badge.style.backgroundColor = (userAnswers[currentQuestionIndex] === idx ? "#8A5212" : "#F3EAD6");
+                badge.style.color = (userAnswers[currentQuestionIndex] === idx ? "#FAF7F0" : "#141311");
+                badge.style.fontWeight = "700";
+                badge.style.fontSize = "12px";
+                badge.style.flexShrink = "0";
+                badge.innerText = opt.label;
+
+                var textSpan = document.createElement('span');
+                textSpan.style.fontSize = "0.95rem";
+                textSpan.style.lineHeight = "1.55";
+                textSpan.style.color = "#141311";
+                textSpan.innerText = opt.text;
+
+                leftContent.appendChild(badge);
+                leftContent.appendChild(textSpan);
+
+                var rightIndicator = document.createElement('div');
+                rightIndicator.style.flexShrink = "0";
+                rightIndicator.style.fontSize = "1.1rem";
+                rightIndicator.style.color = (userAnswers[currentQuestionIndex] === idx ? "#8A5212" : "#C5B99F");
+                rightIndicator.innerText = (userAnswers[currentQuestionIndex] === idx ? "●" : "○");
+
+                btn.appendChild(leftContent);
+                btn.appendChild(rightIndicator);
+                optsContainer.appendChild(btn);
+            });
+
+            var btnPrev = document.getElementById('btn-prev-q');
+            if (currentQuestionIndex === 0) {
+                btnPrev.style.visibility = 'hidden';
+            } else {
+                btnPrev.style.visibility = 'visible';
+            }
+        }
+
+        // 选择选项
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            renderQuestion();
+
+            setTimeout(function() {
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    renderQuestion();
+                } else {
+                    calculateAndShowResults();
+                }
+            }, 180);
+        }
+
+        // 上一题
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        }
+
+        // 计算诊断结果
+        function calculateAndShowResults() {
+            var brandingSum = 0, contentSum = 0, offerSum = 0, funnelSum = 0;
+
+            for (var i = 0; i < questions.length; i++) {
+                var ansIdx = userAnswers[i] !== null ? userAnswers[i] : 1;
+                var sc = questions[i].options[ansIdx].score;
+                var pil = questions[i].pillar;
+
+                if (pil === "BRANDING") brandingSum += sc;
+                else if (pil === "CONTENT") contentSum += sc;
+                else if (pil === "OFFER") offerSum += sc;
+                else if (pil === "FUNNEL") funnelSum += sc;
+            }
+
+            var brandingScore = Math.round(brandingSum / 3);
+            var contentScore = Math.round(contentSum / 3);
+            var offerScore = Math.round(offerSum / 3);
+            var funnelScore = Math.round(funnelSum / 3);
+            var overallScore = Math.round((brandingScore + contentScore + offerScore + funnelScore) / 4);
+
+            // 象限判定逻辑
+            var archKey = "SOLO_MONOPOLY";
+            if (overallScore >= 75 && brandingScore >= 60 && contentScore >= 60 && offerScore >= 60 && funnelScore >= 60) {
+                archKey = "SOLO_MONOPOLY";
+            } else {
+                // 找出最弱与次弱短板
+                var minScore = Math.min(brandingScore, contentScore, offerScore, funnelScore);
+                if (offerScore <= 50) {
+                    if (contentScore >= 60) {
+                        archKey = "TRAFFIC_HOLLOW"; // 内容强但产品极弱
+                    } else {
+                        archKey = "SERVICE_TRAP"; // 单纯出卖时间
+                    }
+                } else if (contentScore <= 50 || funnelScore <= 50) {
+                    if (brandingScore >= 50 || offerScore >= 50) {
+                        archKey = "GHOST_EXPERT"; // 肚里有货但公域隐形
+                    } else {
+                        archKey = "SERVICE_TRAP";
+                    }
+                } else if (brandingScore <= 50) {
+                    archKey = "SERVICE_TRAP";
+                } else {
+                    if (overallScore >= 65) archKey = "SOLO_MONOPOLY";
+                    else archKey = "SERVICE_TRAP";
+                }
+            }
+
+            var arch = archetypes[archKey];
+
+            latestReportData = {
+                overallScore: overallScore,
+                brandingScore: brandingScore,
+                contentScore: contentScore,
+                offerScore: offerScore,
+                funnelScore: funnelScore,
+                arch: arch,
+                dateStr: new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })
+            };
+
+            // 渲染结果页
+            document.getElementById('result-maturity-badge').innerText = "成熟度：" + arch.badge;
+            document.getElementById('result-arch-tag').innerText = arch.tag;
+            document.getElementById('result-arch-title').innerText = arch.title;
+            document.getElementById('result-overall-score').innerText = overallScore;
+            document.getElementById('result-arch-desc').innerText = arch.desc;
+            document.getElementById('result-bottleneck-text').innerText = arch.bottleneck;
+
+            // 渲染 4 维度进度条
+            var dims = [
+                { name: "BRANDING · 个人赛道定位", score: brandingScore, desc: brandingScore >= 80 ? "定位清晰，以自己为原型" : (brandingScore >= 50 ? "有基础但仍陷冒充者综合征" : "严重缺乏独立赛道定位") },
+                { name: "CONTENT · 内容引擎复利", score: contentScore, desc: contentScore >= 80 ? "三维架构清晰，赋能初学者" : (contentScore >= 50 ? "缺乏架构，容易被数据绑架" : "碎片输出，毫无心智沉淀") },
+                { name: "OFFER · 阶梯交付矩阵", score: offerScore, desc: offerScore >= 80 ? "拥有 MVO 与自动化产品资产" : (offerScore >= 50 ? "仅靠 1v1 出卖时间，天花板明显" : "无变现载体，缺乏产品化能力") },
+                { name: "FUNNEL · 私域与分发系统", score: funnelScore, desc: funnelScore >= 80 ? "私域资产沉淀，工作与时间脱钩" : (funnelScore >= 50 ? "公域依赖重，私域承接薄弱" : "无分发通道，互联网隐形人") }
+            ];
+
+            var barsContainer = document.getElementById('dimension-bars-container');
+            barsContainer.innerHTML = '';
+            dims.forEach(function(d) {
+                var card = document.createElement('div');
+                card.style.padding = "1rem 1.15rem";
+                card.style.borderRadius = "14px";
+                card.style.background = "#FAF7F0";
+                card.style.border = "1.5px solid #DFD5BE";
+
+                card.innerHTML = 
+                    '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">' +
+                        '<span class="mono" style="font-size:12px; font-weight:700; color:#141311;">' + d.name + '</span>' +
+                        '<span class="mono" style="font-size:13px; font-weight:800; color:#8A5212;">' + d.score + '分</span>' +
+                    '</div>' +
+                    '<div style="width:100%; height:6px; background:#EFE7D2; border-radius:9999px; overflow:hidden; margin-bottom:0.45rem;">' +
+                        '<div style="width:' + d.score + '%; height:100%; background:#8A5212;"></div>' +
+                    '</div>' +
+                    '<div style="font-size:11px; color:#7E766A;">' + d.desc + '</div>';
+                barsContainer.appendChild(card);
+            });
+
+            // 渲染 90 天路线图
+            var roadmapContainer = document.getElementById('roadmap-container');
+            roadmapContainer.innerHTML = '';
+            arch.roadmap.forEach(function(r) {
+                var step = document.createElement('div');
+                step.style.padding = "0.95rem 1.1rem";
+                step.style.borderRadius = "12px";
+                step.style.background = "#FFFFFF";
+                step.style.border = "1px solid #DFD5BE";
+
+                step.innerHTML = 
+                    '<div style="display:flex; align-items:center; gap:8px; margin-bottom:0.35rem;">' +
+                        '<span class="mono" style="font-size:11px; font-weight:800; background:#8A5212; color:#FFFFFF; padding:2px 7px; border-radius:4px;">' + r.phase + '</span>' +
+                        '<span class="serif" style="font-weight:700; font-size:1rem; color:#141311;">' + r.goal + '</span>' +
+                    '</div>' +
+                    '<p style="margin:0; font-size:0.88rem; color:#4A453D; line-height:1.55;">' + r.act + '</p>';
+                roadmapContainer.appendChild(step);
+            });
+
+            showScreen('screen-result');
+        }
+
+        // 复制诊断结果文本
+        function copyResultText() {
+            if (!latestReportData) return;
+            var d = latestReportData;
+            var lines = [
+                "【KOE LABS · 一人公司商业资产闭环与变现定位诊断】",
+                "原著理论：Dan Koe (@thedankoe) | 制作出品：梭哈.AI (@SUOHA_AI)",
+                "────────────────────────",
+                "一人公司成熟度指数：" + d.overallScore + " / 100 (" + d.arch.badge + ")",
+                "诊断象限：" + d.arch.tag + " - " + d.arch.title,
+                "",
+                "📊 4 大核心维度雷达得分：",
+                "• BRANDING · 个人赛道定位：" + d.brandingScore + "分",
+                "• CONTENT · 内容引擎复利：" + d.contentScore + "分",
+                "• OFFER · 阶梯交付矩阵：" + d.offerScore + "分",
+                "• FUNNEL · 私域与分发系统：" + d.funnelScore + "分",
+                "",
+                "⚠️ 核心瓶颈：" + d.arch.bottleneck,
+                "",
+                "🚀 Dan Koe 90天破局第一步：" + d.arch.roadmap[0].phase + " - " + d.arch.roadmap[0].goal,
+                "在线自测链接：https://suoha888.github.io/human-3-quiz/one-person-biz/",
+                "开源项目：https://github.com/suoha888/human-3-quiz"
+            ];
+            var text = lines.join("\n");
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert("诊断报告已成功复制到剪贴板！可直接发送给你的朋友或发布在推特上。");
+                }).catch(function() {
+                    prompt("请手动复制以下文本：", text);
+                });
+            } else {
+                prompt("请手动复制以下文本：", text);
+            }
+        }
+
+        // 1080P Canvas 高清海报生成器 (全景自适应排版 + 双头像 + 经典暖象牙羊皮纸风)
+        function generateAndShowPoster() {
+            if (!latestReportData) return;
+            var d = latestReportData;
+            var btn = document.getElementById('btn-gen-poster');
+            var oldHtml = btn ? btn.innerHTML : "";
+            if (btn) btn.innerHTML = "<span>正在渲染 1080P 资产海报... ⏳</span>";
+
+            var W = 1080;
+            var canvas = document.createElement('canvas');
+            canvas.width = W;
+            var ctx = canvas.getContext('2d');
+
+            function wrapText(context, text, maxWidth) {
+                var words = text.split('');
+                var lines = [];
+                var currentLine = '';
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = currentLine + words[i];
+                    var metrics = context.measureText(testLine);
+                    if (metrics.width > maxWidth && i > 0) {
+                        lines.push(currentLine);
+                        currentLine = words[i];
+                    } else {
+                        currentLine = testLine;
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            }
+
+            function drawParas(context, lines, x, y, lineHeight, paraGap) {
+                var curY = y;
+                for (var i = 0; i < lines.length; i++) {
+                    context.fillText(lines[i], x, curY);
+                    curY += lineHeight;
+                }
+                return curY;
+            }
+
+            function drawRoundRect(context, x, y, width, height, radius, fillStyle, strokeStyle, lineWidth) {
+                context.beginPath();
+                context.moveTo(x + radius, y);
+                context.lineTo(x + width - radius, y);
+                context.quadraticCurveTo(x + width, y, x + width, y + radius);
+                context.lineTo(x + width, y + height - radius);
+                context.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                context.lineTo(x + radius, y + height);
+                context.quadraticCurveTo(x, y + height, x, y + height - radius);
+                context.lineTo(x, y + radius);
+                context.quadraticCurveTo(x, y, x + radius, y);
+                context.closePath();
+                if (fillStyle) {
+                    context.fillStyle = fillStyle;
+                    context.fill();
+                }
+                if (strokeStyle) {
+                    context.strokeStyle = strokeStyle;
+                    context.lineWidth = lineWidth || 1;
+                    context.stroke();
+                }
+            }
+
+            function drawCircleAvatar(context, img, cx, cy, r, fallbackText, fallbackBg) {
+                context.save();
+                context.beginPath();
+                context.arc(cx, cy, r, 0, Math.PI * 2);
+                context.closePath();
+                context.clip();
+                if (img && img.complete && img.naturalWidth > 0) {
+                    try {
+                        context.drawImage(img, cx - r, cy - r, r * 2, r * 2);
+                    } catch (e) {
+                        context.fillStyle = fallbackBg || "#141311";
+                        context.fill();
+                        context.fillStyle = "#FAF7F0";
+                        context.font = "bold " + Math.round(r * 0.9) + "px sans-serif";
+                        context.textAlign = "center";
+                        context.textBaseline = "middle";
+                        context.fillText(fallbackText, cx, cy);
+                    }
+                } else {
+                    context.fillStyle = fallbackBg || "#141311";
+                    context.fill();
+                    context.fillStyle = "#FAF7F0";
+                    context.font = "bold " + Math.round(r * 0.9) + "px sans-serif";
+                    context.textAlign = "center";
+                    context.textBaseline = "middle";
+                    context.fillText(fallbackText, cx, cy);
+                }
+                context.restore();
+                context.beginPath();
+                context.arc(cx, cy, r, 0, Math.PI * 2);
+                context.strokeStyle = "#141311";
+                context.lineWidth = 2.5;
+                context.stroke();
+            }
+
+            // 预计算排版高度
+            var innerW = W - 152; // 928px
+            ctx.font = "bold 44px 'Songti SC', 'Noto Serif SC', serif";
+            var heroTitleLines = wrapText(ctx, d.arch.title, innerW - 240);
+            ctx.font = "22px 'PingFang SC', sans-serif";
+            var heroDescLines = wrapText(ctx, d.arch.desc, innerW);
+
+            ctx.font = "20px 'PingFang SC', sans-serif";
+            var bottleLines = wrapText(ctx, d.arch.bottleneck, innerW - 60);
+
+            // 90天路线图文本折行
+            var rmapLines = [];
+            d.arch.roadmap.forEach(function(r) {
+                ctx.font = "19px 'PingFang SC', sans-serif";
+                var lines = wrapText(ctx, r.act, innerW - 60);
+                rmapLines.push({ phase: r.phase, goal: r.goal, lines: lines, h: 42 + lines.length * 28 });
+            });
+
+            var sec1H = 120;
+            var sec2H = 140 + heroTitleLines.length * 52 + heroDescLines.length * 34;
+            var sec3H = 80 + bottleLines.length * 30;
+            var sec4H = 260; // 4个维度得分条
+            var sec5H = 90;
+            rmapLines.forEach(function(r) { sec5H += (r.h + 16); });
+            var footerH = 100;
+
+            var totalH = 80 + sec1H + 30 + sec2H + 28 + sec3H + 28 + sec4H + 28 + sec5H + 30 + footerH + 40;
+            if (totalH < 1920) totalH = 1920;
+            canvas.height = totalH;
+
+            // 图像载入逻辑
+            var img1 = new Image();
+            img1.crossOrigin = "anonymous";
+            img1.src = "https://unavatar.io/x/thedankoe";
+
+            var img2 = new Image();
+            img2.crossOrigin = "anonymous";
+            img2.src = "https://unavatar.io/x/SUOHA_AI";
+
+            function buildPosterDataURL(useImages) {
+                // 背景暖象牙
+                ctx.fillStyle = "#FAF7F0";
+                ctx.fillRect(0, 0, W, totalH);
+
+                // 网格底纹
+                ctx.strokeStyle = "rgba(223, 213, 190, 0.4)";
+                ctx.lineWidth = 1;
+                for (var x = 0; x <= W; x += 36) {
+                    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, totalH); ctx.stroke();
+                }
+                for (var y = 0; y <= totalH; y += 36) {
+                    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+                }
+
+                // 外框线
+                ctx.strokeStyle = "#141311";
+                ctx.lineWidth = 4;
+                ctx.strokeRect(36, 36, W - 72, totalH - 72);
+
+                // Header
+                var curY = 76;
+                drawRoundRect(ctx, 76, curY, innerW, 100, 20, "#FFFFFF", "#141311", 2);
+
+                if (useImages) drawCircleAvatar(ctx, img1, 126, curY + 50, 32, "Dan", "#141311");
+                else drawCircleAvatar(ctx, null, 126, curY + 50, 32, "Dan", "#141311");
+
+                ctx.textAlign = "left";
+                ctx.textBaseline = "middle";
+                ctx.fillStyle = "#8A5212";
+                ctx.font = "bold 16px monospace";
+                ctx.fillText("KOE LABS · MODEL 03 · DAN KOE (@thedankoe)", 176, curY + 36);
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 24px 'PingFang SC', sans-serif";
+                ctx.fillText("THE ONE-PERSON BUSINESS · 一人公司商业资产定位", 176, curY + 66);
+
+                // 右侧出品人
+                drawRoundRect(ctx, W - 76 - 320, curY + 12, 308, 76, 16, "#F3EAD6", "#D8C9A8", 1.5);
+                if (useImages) drawCircleAvatar(ctx, img2, W - 76 - 280, curY + 50, 26, "梭", "#C84B28");
+                else drawCircleAvatar(ctx, null, W - 76 - 280, curY + 50, 26, "梭", "#C84B28");
+
+                ctx.fillStyle = "#7E766A";
+                ctx.font = "bold 13px monospace";
+                ctx.fillText("TOOL BUILT BY 制作出品", W - 76 - 240, curY + 38);
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 20px 'PingFang SC', sans-serif";
+                ctx.fillText("梭哈.AI @SUOHA_AI", W - 76 - 240, curY + 64);
+
+                curY += 130;
+
+                // Section 2: Hero Archetype Card
+                drawRoundRect(ctx, 76, curY, innerW, sec2H - 30, 24, "#F3EAD6", "#141311", 2.5);
+
+                // 评分徽章
+                var scoreCardW = 200;
+                var scoreCardX = W - 76 - scoreCardW - 24;
+                drawRoundRect(ctx, scoreCardX, curY + 24, scoreCardW, 160, 20, "#FFFFFF", "#141311", 2.5);
+                ctx.textAlign = "center";
+                ctx.fillStyle = "#7E766A";
+                ctx.font = "bold 13px monospace";
+                ctx.fillText("SOLO MATURITY INDEX", scoreCardX + scoreCardW / 2, curY + 52);
+                ctx.fillStyle = "#8A5212";
+                ctx.font = "bold 68px 'Songti SC', serif";
+                ctx.fillText(d.overallScore, scoreCardX + scoreCardW / 2, curY + 118);
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 14px 'PingFang SC', sans-serif";
+                ctx.fillText("12题商业闭环全景测算", scoreCardX + scoreCardW / 2, curY + 160);
+                ctx.textAlign = "left";
+
+                // 象限名称与描述
+                var leftBadgeY = curY + 32;
+                ctx.font = "bold 16px 'PingFang SC', sans-serif";
+                var tagW = ctx.measureText(d.arch.tag).width + 28;
+                drawRoundRect(ctx, 106, leftBadgeY, tagW, 36, 8, "#8A5212", null);
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillText(d.arch.tag, 120, leftBadgeY + 18);
+
+                var badgeW = ctx.measureText(d.arch.badge).width + 28;
+                drawRoundRect(ctx, 106 + tagW + 10, leftBadgeY, badgeW, 36, 8, "#FFFFFF", "#DFD5BE", 1.5);
+                ctx.fillStyle = "#8A5212";
+                ctx.fillText(d.arch.badge, 106 + tagW + 24, leftBadgeY + 18);
+
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 42px 'Songti SC', 'Noto Serif SC', serif";
+                var curTextY = drawParas(ctx, heroTitleLines, 106, leftBadgeY + 70, 52, 0);
+
+                ctx.fillStyle = "#4A453D";
+                ctx.font = "21px 'PingFang SC', sans-serif";
+                drawParas(ctx, heroDescLines, 106, curTextY + 18, 34, 0);
+
+                curY += (sec2H + 6);
+
+                // Section 3: Bottleneck Warning
+                drawRoundRect(ctx, 76, curY, innerW, sec3H - 20, 18, "#FFFFFF", "#C84B28", 2);
+                ctx.fillStyle = "#C84B28";
+                ctx.font = "bold 20px 'PingFang SC', sans-serif";
+                ctx.fillText("⚠️ 核心致命商业瓶颈与短板剖析：", 106, curY + 34);
+
+                ctx.fillStyle = "#141311";
+                ctx.font = "19.5px 'PingFang SC', sans-serif";
+                drawParas(ctx, bottleLines, 106, curY + 74, 30, 0);
+
+                curY += sec3H;
+
+                // Section 4: 4 Dimensions Radar Bars
+                drawRoundRect(ctx, 76, curY, innerW, 230, 20, "#FFFFFF", "#141311", 2);
+                ctx.fillStyle = "#8A5212";
+                ctx.font = "bold 18px monospace";
+                ctx.fillText("📊 4 大核心商业资产维度分解 (THE 4 PILLARS)", 106, curY + 34);
+
+                var barGridY = curY + 68;
+                var dimsPoster = [
+                    { name: "BRANDING 个人定位", score: d.brandingScore },
+                    { name: "CONTENT 内容复利", score: d.contentScore },
+                    { name: "OFFER 阶梯矩阵", score: d.offerScore },
+                    { name: "FUNNEL 私域飞轮", score: d.funnelScore }
+                ];
+
+                dimsPoster.forEach(function(dim, idx) {
+                    var col = idx % 2;
+                    var row = Math.floor(idx / 2);
+                    var bx = 106 + col * (innerW / 2 - 20);
+                    var by = barGridY + row * 70;
+                    var bwidth = (innerW / 2 - 50);
+
+                    ctx.fillStyle = "#141311";
+                    ctx.font = "bold 16px 'PingFang SC', sans-serif";
+                    ctx.fillText(dim.name, bx, by);
+
+                    ctx.textAlign = "right";
+                    ctx.fillStyle = "#8A5212";
+                    ctx.font = "bold 17px monospace";
+                    ctx.fillText(dim.score + "分", bx + bwidth, by);
+                    ctx.textAlign = "left";
+
+                    drawRoundRect(ctx, bx, by + 12, bwidth, 10, 5, "#EFE7D2", null);
+                    drawRoundRect(ctx, bx, by + 12, bwidth * (dim.score / 100), 10, 5, "#8A5212", null);
+                });
+
+                curY += 256;
+
+                // Section 5: 90 Days Roadmap
+                drawRoundRect(ctx, 76, curY, innerW, sec5H - 20, 24, "#F3EAD6", "#141311", 2.5);
+                ctx.fillStyle = "#8A5212";
+                ctx.font = "bold 20px monospace";
+                ctx.fillText("🚀 DAN KOE 一人公司 90 天破局行动路线图", 106, curY + 36);
+
+                var curRoadY = curY + 74;
+                rmapLines.forEach(function(r) {
+                    drawRoundRect(ctx, 106, curRoadY, innerW - 60, r.h, 14, "#FFFFFF", "#D8C9A8", 1.5);
+                    drawRoundRect(ctx, 126, curRoadY + 12, 120, 26, 6, "#8A5212", null);
+                    ctx.fillStyle = "#FFFFFF";
+                    ctx.font = "bold 13px monospace";
+                    ctx.fillText(r.phase, 136, curRoadY + 25);
+
+                    ctx.fillStyle = "#141311";
+                    ctx.font = "bold 19px 'PingFang SC', sans-serif";
+                    ctx.fillText(r.goal, 260, curRoadY + 25);
+
+                    ctx.fillStyle = "#4A453D";
+                    ctx.font = "18px 'PingFang SC', sans-serif";
+                    drawParas(ctx, r.lines, 126, curRoadY + 56, 28, 0);
+
+                    curRoadY += (r.h + 16);
+                });
+
+                // Footer
+                var footerY = totalH - 80;
+                ctx.beginPath(); ctx.moveTo(76, footerY); ctx.lineTo(W - 76, footerY);
+                ctx.strokeStyle = "#DFD5BE"; ctx.lineWidth = 1.5; ctx.stroke();
+
+                ctx.fillStyle = "#7E766A";
+                ctx.font = "16px 'PingFang SC', sans-serif";
+                ctx.fillText("KOE LABS · Dan Koe 思想模型开源实验室 | 免费在线自测：suoha888.github.io/human-3-quiz/one-person-biz/", 76, footerY + 32);
+                ctx.textAlign = "right";
+                ctx.fillText("制作出品：梭哈.AI @SUOHA_AI (DYOR)", W - 76, footerY + 32);
+                ctx.textAlign = "left";
+
+                return canvas.toDataURL("image/png");
+            }
+
+            try {
+                generatedPosterDataURL = buildPosterDataURL(true);
+            } catch (err) {
+                console.warn("CORS fallback for canvas poster:", err);
+                generatedPosterDataURL = buildPosterDataURL(false);
+            }
+
+            if (btn) btn.innerHTML = oldHtml;
+            var previewImg = document.getElementById('poster-preview-img');
+            if (previewImg) previewImg.src = generatedPosterDataURL;
+            var modal = document.getElementById('poster-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closePosterModal() {
+            var modal = document.getElementById('poster-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function triggerPosterDownload() {
+            if (!generatedPosterDataURL) return;
+            var link = document.createElement('a');
+            var d = latestReportData || { overallScore: 88, arch: { id: "SOLO_MONOPOLY" } };
+            link.download = "KOE_LABS_ONE_PERSON_BIZ_12Q_" + d.arch.id + "_" + d.overallScore + "分.png";
+            link.href = generatedPosterDataURL;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // 双重事件绑定保障
+        document.addEventListener('DOMContentLoaded', function() {
+            var btnStart = document.getElementById('btn-start-quiz');
+            if (btnStart) btnStart.onclick = startAssessment;
+            var btnReset = document.getElementById('btn-nav-reset');
+            if (btnReset) btnReset.onclick = resetToHome;
+            var btnHomeLogo = document.getElementById('nav-home-logo');
+            if (btnHomeLogo) btnHomeLogo.onclick = resetToHome;
+            var btnPoster = document.getElementById('btn-gen-poster');
+            if (btnPoster) btnPoster.onclick = generateAndShowPoster;
+            var btnCopy = document.getElementById('btn-copy-result');
+            if (btnCopy) btnCopy.onclick = copyResultText;
+            var btnCloseX = document.getElementById('btn-close-modal-x');
+            if (btnCloseX) btnCloseX.onclick = closePosterModal;
+            var btnCloseCancel = document.getElementById('btn-close-modal-cancel');
+            if (btnCloseCancel) btnCloseCancel.onclick = closePosterModal;
+            var btnDownload = document.getElementById('btn-download-poster');
+            if (btnDownload) btnDownload.onclick = triggerPosterDownload;
+        });
+    </script>
+</body>
+</html>
