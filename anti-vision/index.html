@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANTI-VISION — 人生反向愿景与止损底线协议 | Dan Koe × 梭哈.AI (@SUOHA_AI)</title>
-    <meta name="description" content="基于 Dan Koe《The Anti-Vision》理论，通过 8 个致命反向拷问直面你最厌恶的平庸终局，测算沉沦危险指数，自动倒推不可逾越的 5 大每日防御红线。">
+    <title>KOE LABS · 模型 02: THE ANTI-VISION 反向愿景与止损底线协议 | Dan Koe × 梭哈.AI (@SUOHA_AI)</title>
+    <meta name="description" content="KOE LABS 思想模型实验室·模型02。基于 Dan Koe《The Anti-Vision》与经典长文，通过 8 个致命反向拷问直面 4 大平庸终局，测算沉沦危险指数，自动倒推 5 大每日防御红线。">
     <!-- OpenGraph & Twitter Cards -->
-    <meta property="og:title" content="ANTI-VISION 人生反向愿景与止损底线协议 | Dan Koe × 梭哈.AI">
-    <meta property="og:description" content="如果你不痛恨当下的平庸，你就会继续容忍它。8 个反向致命拷问，测出沉沦危险指数，生成专属 1080P 警戒令海报。">
+    <meta property="og:title" content="KOE LABS · 模型 02: ANTI-VISION 人生反向愿景与止损底线协议">
+    <meta property="og:description" content="Dan Koe：如果你不痛恨当下的平庸，你就会继续容忍它。8 个反向致命拷问，测出 4 维沉沦危险指数，生成专属 1080P 警戒令海报。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://suoha888.github.io/anti-vision-protocol/">
+    <meta property="og:url" content="https://suoha888.github.io/human-3-quiz/anti-vision/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@SUOHA_AI">
     <script src="https://cdn.tailwindcss.com" async></script>
@@ -39,93 +39,123 @@
             color: var(--ink-primary);
             font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
             background-image: 
-                radial-gradient(at 10% 12%, rgba(243, 230, 200, 0.85) 0px, transparent 55%),
-                radial-gradient(at 90% 88%, rgba(235, 215, 175, 0.75) 0px, transparent 55%);
-            background-attachment: fixed;
+                linear-gradient(to right, rgba(223, 213, 190, 0.35) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(223, 213, 190, 0.35) 1px, transparent 1px);
+            background-size: 32px 32px;
             -webkit-font-smoothing: antialiased;
-            line-break: strict;
-            word-break: break-word;
         }
 
-        .serif { font-family: "Songti SC", "Noto Serif SC", Georgia, serif; }
-        .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+        .serif { font-family: "Songti SC", "Noto Serif SC", "Source Han Serif SC", STSong, "Times New Roman", serif; }
+        .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
 
-        .container-nav { max-width: 58rem; margin: 0 auto; padding: 0 1rem; height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
-        .container-main { max-width: 48rem; width: 100%; margin: 0 auto; padding: 2rem 1rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .container-nav {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .container-main {
+            max-width: 54rem;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem 1rem;
+            flex: 1;
+        }
+
         .editorial-surface {
-            background: rgba(255, 255, 255, 0.96);
-            border: 1.5px solid var(--border-grid);
-            border-radius: 32px;
-            padding: 2rem;
-            box-shadow: 0 24px 48px -16px rgba(20, 19, 17, 0.08), 0 4px 12px -2px rgba(20, 19, 17, 0.03);
-        }
-        @media (min-width: 640px) {
-            .editorial-surface { padding: 2.75rem; }
-            .container-main { padding: 3rem 2rem; }
+            background-color: rgba(255, 255, 255, 0.94);
+            border: 1.5px solid var(--ink-primary);
+            border-radius: 24px;
+            padding: 2.25rem 2rem;
+            box-shadow: 0 10px 25px -5px rgba(20, 19, 17, 0.08);
+            position: relative;
         }
 
-        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-        @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) {
+            .editorial-surface { padding: 1.5rem 1.25rem; border-radius: 20px; }
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .grid-2 { grid-template-columns: minmax(0, 1fr); }
+        }
 
         .option-tile {
             width: 100%;
             text-align: left;
-            padding: 1.25rem 1.5rem;
-            border-radius: 16px;
             background: #FAF7F0;
-            border: 1.5px solid #E2D9C3;
+            border: 1.5px solid var(--border-grid);
+            border-radius: 16px;
+            padding: 1.15rem 1.25rem;
+            margin-bottom: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 1rem;
-            cursor: pointer;
-            transition: all 0.2s var(--ease-out-expo);
-            margin-bottom: 0.85rem;
+            gap: 0.75rem;
         }
         .option-tile:hover {
-            background: #F5EBD4;
             border-color: var(--accent-vermilion);
+            background: #FFFFFF;
             transform: translateY(-2px);
-            box-shadow: 0 14px 28px -10px rgba(200, 75, 40, 0.16);
+            box-shadow: 0 6px 16px -2px rgba(200, 75, 40, 0.12);
         }
         .option-tile.selected {
-            background: #F3EAD6;
             border-color: var(--accent-vermilion);
+            background: #FDF9F3;
             box-shadow: 0 0 0 1.5px var(--accent-vermilion);
         }
 
         .btn-dark {
-            background-color: #141311;
+            background-color: var(--ink-primary);
             color: #FAF7F0;
-            padding: 1rem 2.25rem;
+            padding: 0.95rem 2.25rem;
             border-radius: 9999px;
             font-size: 1.05rem;
             font-weight: 700;
-            border: none;
+            border: 1.5px solid var(--ink-primary);
             cursor: pointer;
             transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
-        .btn-dark:hover { background-color: #C84B28; }
+        .btn-dark:hover {
+            background-color: var(--accent-vermilion);
+            border-color: var(--accent-vermilion);
+            transform: translateY(-1px);
+        }
 
         .btn-light {
             background-color: #F3EAD6;
-            color: #141311;
-            padding: 1rem 2rem;
+            color: var(--ink-primary);
+            padding: 0.85rem 1.75rem;
             border-radius: 9999px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
             border: 1.5px solid #D8C9A8;
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        .btn-light:hover { background-color: #E6D8B8; }
+        .btn-light:hover { background-color: #E6D8B8; border-color: #C5B58F; }
 
         .modal-backdrop {
             position: fixed;
             inset: 0;
-            z-index: 50;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(4px);
+            z-index: 60;
+            background: rgba(20, 19, 17, 0.78);
+            backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -142,30 +172,29 @@
 </head>
 <body>
 
-    <!-- 顶部系列总览导航条 (Dan Koe 思想工程化工具箱) -->
-    <div style="background: #EFE7D2; border-bottom: 1px solid #DFD5BE; padding: 7px 1rem; font-size: 12px; color: #4A453D; position: relative; z-index: 50;">
+    <!-- 顶层大本营导航条 (KOE LABS 思想实验室) -->
+    <div style="background: #EFE7D2; border-bottom: 1.5px solid #D8C9A8; padding: 7px 1rem; font-size: 12px; color: #4A453D; position: relative; z-index: 50;">
         <div style="max-width: 56rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
             <div style="display: flex; align-items: center; gap: 8px;">
-                <span class="mono" style="font-weight: 700; color: #8A5212; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">
-                    <span>📚</span> DAN KOE 超级个体系列工具箱
+                <span class="mono" style="font-weight: 800; color: #8A5212; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 5px;">
+                    <span style="font-size: 13px;">🔬</span> KOE LABS · 超级个体进化实验室
                 </span>
                 <span style="color: #C5B99F;">|</span>
-                <span style="color: #7E766A; font-size: 11px;">开源系列大本营</span>
+                <span style="color: #7E766A; font-size: 11px;">DAN KOE 思想工程化大本营</span>
             </div>
             <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
                 <a href="https://suoha888.github.io/human-3-quiz/" style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 9999px; text-decoration: none; font-size: 11px; font-weight: 600; background: #FAF7F0; color: #4A453D; border: 1px solid #DFD5BE; transition: all 0.2s;">
-                    <span style="color: #7E766A;">01</span> HUMAN 3.0 全象限诊断
+                    <span style="color: #7E766A;">模型 01</span> 推文《Human 3.0》象限诊断
                 </a>
                 <a href="https://suoha888.github.io/human-3-quiz/anti-vision/" style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 9999px; text-decoration: none; font-size: 11px; font-weight: 700; background: #C84B28; color: #FFFFFF; border: 1px solid #C84B28; box-shadow: 0 1px 3px rgba(200,75,40,0.25);">
-                    <span>02</span> ANTI-VISION 止损底线协议 <span style="font-size: 9px; opacity: 0.85;">(当前子文档)</span>
+                    <span>模型 02</span> 长文《The Anti-Vision》止损协议 <span style="font-size: 9px; opacity: 0.9;">(当前)</span>
                 </a>
-                <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 9999px; background: rgba(223,213,190,0.4); border: 1px dashed #C5B99F; color: #9E9482; font-size: 11px;">
-                    <span>03</span> ONE-PERSON BIZ (筹备中)
+                <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 9999px; background: rgba(223,213,190,0.45); border: 1px dashed #C5B99F; color: #8A7E6C; font-size: 11px;">
+                    <span>模型 03</span> 《One-Person Biz》一人公司(制作中)
                 </span>
             </div>
         </div>
     </div>
-
 
     <!-- 顶部品牌栏 -->
     <header style="border-bottom: 1px solid #DFD5BE; background: rgba(250,247,240,0.92); position: sticky; top: 0; z-index: 40; backdrop-filter: blur(8px);">
@@ -174,21 +203,21 @@
                 <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 42px; height: 42px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311;">
                 <div>
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <span class="serif" style="font-weight: 700; font-size: 1.15rem; color: #141311;">ANTI-VISION</span>
-                        <span class="mono" style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: #F3EAD6; border: 1px solid #DFD5BE; color: #4A453D; font-weight: 700;">DAN KOE 思想模型 · 第2章</span>
+                        <span class="serif" style="font-weight: 700; font-size: 1.15rem; color: #141311;">THE ANTI-VISION</span>
+                        <span class="mono" style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: #F3EAD6; border: 1px solid #DFD5BE; color: #4A453D; font-weight: 700;">模型 02 · 止损底线</span>
                     </div>
-                    <div style="font-size: 11px; color: #7E766A; margin-top: 2px;">原著：@thedankoe</div>
+                    <div style="font-size: 11px; color: #7E766A; margin-top: 2px;">原著：@thedankoe · 厌恶驱动哲学</div>
                 </div>
             </div>
 
             <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
-                <a href="https://suoha888.github.io/human-3-quiz/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 5px 12px; border-radius: 9999px; background: #FAF7F0; border: 1px solid #DFD5BE; text-decoration: none; color: #8A5212; font-size: 12px; font-weight: 700;">
-                    <span>← 回看第1章: HUMAN 3.0</span>
+                <a href="https://suoha888.github.io/human-3-quiz/" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 5px 12px; border-radius: 9999px; background: #FAF7F0; border: 1px solid #DFD5BE; text-decoration: none; color: #8A5212; font-size: 12px; font-weight: 700;">
+                    <span>← 切回模型 01: HUMAN 3.0</span>
                 </a>
 
-                <a href="https://github.com/suoha888/anti-vision-protocol" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 5px 12px; border-radius: 9999px; background: #FAF7F0; border: 1px solid #DFD5BE; text-decoration: none; color: #141311; font-size: 12px; font-weight: 600;">
+                <a href="https://github.com/suoha888/human-3-quiz" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 5px 12px; border-radius: 9999px; background: #FAF7F0; border: 1px solid #DFD5BE; text-decoration: none; color: #141311; font-size: 12px; font-weight: 600;">
                     <svg height="15" width="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
-                    <span>GitHub ⭐</span>
+                    <span>系列开源仓 ⭐</span>
                 </a>
 
                 <a href="https://x.com/SUOHA_AI" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 0.45rem; padding: 5px 12px; border-radius: 9999px; background: #F3EAD6; border: 1px solid #D8C9A8; text-decoration: none; color: #141311;">
@@ -211,76 +240,90 @@
 
         <!-- 1. 首页 -->
         <section id="screen-home" class="editorial-surface fade-in">
-            <div class="grid-2" style="padding-bottom: 1.5rem; border-bottom: 1px solid #E5DEC9; margin-bottom: 1.75rem;">
+            <!-- 原著锚点引用框 -->
+            <div style="padding: 1.15rem 1.35rem; border-radius: 18px; background: #FAF7F0; border: 1.5px solid #DFD5BE; margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <span class="mono" style="font-size: 11px; font-weight: 700; color: #C84B28;">DAN KOE (@thedankoe) 原著原帖核心定义</span>
+                    <a href="https://x.com/thedankoe/status/1883175496483250551" target="_blank" rel="noopener" style="font-size: 11px; color: #7E766A; text-decoration: underline;">查看推文原帖 ↗</a>
+                </div>
+                <blockquote style="margin: 0; font-size: 0.96rem; font-style: italic; color: #141311; line-height: 1.65; border-left: 3px solid #C84B28; padding-left: 0.85rem;">
+                    “Anti-vision is the future you refuse to accept: <strong>The dumb mind. The robotic work. The soft body. The numb relationships.</strong> Let a terrible image build up in your mind. Remind yourself of it every day. Then, channel everything you have into the complete opposite.”
+                </blockquote>
+                <div style="font-size: 12px; color: #7E766A; margin-top: 6px;">
+                    —— 反向愿景是你绝不接受的未来：迟钝的心智、机械的工作、软弱的身体、麻木的关系。把这幅恐怖画面深烙在脑海里，每天提醒自己，然后倾尽全力走向完全相反的方向。
+                </div>
+            </div>
+
+            <div class="grid-2" style="padding-bottom: 1.25rem; border-bottom: 1px solid #E5DEC9; margin-bottom: 1.5rem;">
                 <a href="https://x.com/thedankoe" target="_blank" rel="noopener" style="padding: 1rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: center; gap: 0.85rem; text-decoration: none; color: inherit;">
-                    <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 54px; height: 54px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311; flex-shrink: 0;">
+                    <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 50px; height: 50px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311; flex-shrink: 0;">
                     <div>
                         <div class="mono" style="font-size: 11px; color: #C84B28; font-weight: 700;">理论模型原著</div>
-                        <div style="font-size: 1.05rem; font-weight: 700; color: #141311;">Dan Koe (@thedankoe)</div>
+                        <div style="font-size: 1.02rem; font-weight: 700; color: #141311;">Dan Koe (@thedankoe)</div>
                         <div style="font-size: 12px; color: #7E766A; margin-top: 2px;">《The Anti-Vision》厌恶驱动哲学</div>
                     </div>
                 </a>
 
                 <a href="https://x.com/SUOHA_AI" target="_blank" rel="noopener" style="padding: 1rem; border-radius: 16px; background: rgba(243,234,214,0.75); border: 1px solid #D8C9A8; display: flex; align-items: center; gap: 0.85rem; text-decoration: none; color: inherit;">
-                    <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" alt="梭哈.AI" style="width: 54px; height: 54px; border-radius: 9999px; object-fit: cover; border: 2px solid #C84B28; flex-shrink: 0;">
+                    <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" alt="梭哈.AI" style="width: 50px; height: 50px; border-radius: 9999px; object-fit: cover; border: 2px solid #C84B28; flex-shrink: 0;">
                     <div>
-                        <div class="mono" style="font-size: 11px; color: #8A5212; font-weight: 700;">交互系统制作出品</div>
-                        <div style="font-size: 1.05rem; font-weight: 700; color: #141311;">梭哈.AI (@SUOHA_AI)</div>
-                        <div style="font-size: 12px; color: #4A453D; margin-top: 2px;">超级个体进化工具箱 · 第2章</div>
+                        <div class="mono" style="font-size: 11px; color: #8A5212; font-weight: 700;">KOE LABS 制作出品</div>
+                        <div style="font-size: 1.02rem; font-weight: 700; color: #141311;">梭哈.AI (@SUOHA_AI)</div>
+                        <div style="font-size: 12px; color: #4A453D; margin-top: 2px;">超级个体进化工具箱 · 模型 02</div>
                     </div>
                 </a>
             </div>
 
-            <div style="margin-bottom: 1.75rem;">
-                <p class="mono" style="font-size: 13px; letter-spacing: 0.16em; color: #C84B28; font-weight: 700; margin: 0 0 0.75rem 0;">
-                    THE ANTI-VISION PROTOCOL · 人生反向愿景与止损底线
+            <div style="margin-bottom: 1.5rem;">
+                <p class="mono" style="font-size: 13px; letter-spacing: 0.14em; color: #C84B28; font-weight: 700; margin: 0 0 0.5rem 0;">
+                    MODEL 02 · THE ANTI-VISION PROTOCOL 人生反向愿景与止损底线
                 </p>
-                <h1 class="serif" style="font-size: clamp(1.85rem, 4.5vw, 2.85rem); font-weight: 700; color: #141311; line-height: 1.24; margin: 0 0 1rem 0;">
+                <h1 class="serif" style="font-size: clamp(1.85rem, 4.2vw, 2.75rem); font-weight: 700; color: #141311; line-height: 1.25; margin: 0 0 1rem 0;">
                     如果你不痛恨当下的平庸，<br>你就会继续容忍它。
                 </h1>
-                <div style="font-size: 1.05rem; color: #4A453D; line-height: 1.8;">
+                <div style="font-size: 1.02rem; color: #4A453D; line-height: 1.8;">
                     <p style="margin: 0 0 0.75rem 0;">
-                        99% 的人立目标之所以失败，是因为那些假大空的“美好愿景”根本无法对抗当下的诱惑与惰性。<strong style="color: #141311;">人类远古进化出的大脑，对“逃离极端厌恶和痛苦”的动力，远大于对“美好目标”的渴望。</strong>
+                        99% 的人立目标之所以失败，是因为那些假大空的“美好愿景”根本无法对抗当下的即时诱惑与惰性。<strong style="color: #141311;">人类远古进化出的大脑，对“逃离极端厌恶和痛苦”的动力，远大于对“美好目标”的渴望。</strong>
                     </p>
                     <p style="margin: 0;">
-                        Dan Koe 提出：必须先极其露骨、残忍地写下你绝对无法接受的【反向愿景（Anti-Vision）】。用 <strong style="color: #C84B28;">8 个直击神经的反向拷问</strong>，测出你的“沉沦危险指数”，并自动倒推不可动摇的 <strong style="color: #141311;">5 大每日防御红线</strong>。
+                        Dan Koe 提出：必须极其露骨地写下你绝不接受的 4 大平庸终局（<strong>迟钝心智、机械工作、软弱肉体、麻木社交</strong>）。本工具工程化还原长文《How to fix your entire life in 1 day》中的 8 大反向深挖拷问，测算你的沉沦风险指数，并自动倒推 5 大每日防御红线。
                     </p>
                 </div>
             </div>
 
             <div class="grid-2" style="margin-bottom: 1.75rem;">
-                <div style="padding: 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 1rem;">
-                    <span class="serif" style="font-size: 1.5rem; font-weight: 700; color: #C84B28; line-height: 1;">01</span>
+                <div style="padding: 1.15rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 0.85rem;">
+                    <span class="mono" style="font-size: 1.35rem; font-weight: 700; color: #C84B28; line-height: 1;">01</span>
                     <div>
-                        <div style="font-weight: 700; font-size: 1.02rem; color: #141311;">撕下虚伪伪装 · 慢性忍耐取证</div>
-                        <div style="font-size: 0.88rem; color: #4A453D; margin-top: 4px; line-height: 1.6;">揪出你早已习惯并默默容忍的日常妥协与平庸。</div>
+                        <div style="font-weight: 700; font-size: 0.98rem; color: #141311;">The Dumb Mind · 迟钝心智审判</div>
+                        <div style="font-size: 0.88rem; color: #4A453D; margin-top: 3px; line-height: 1.55;">取证算法多巴胺劫持、脑雾与逃避深度创造的认知惰性。</div>
                     </div>
                 </div>
-                <div style="padding: 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 1rem;">
-                    <span class="serif" style="font-size: 1.5rem; font-weight: 700; color: #C84B28; line-height: 1;">02</span>
+                <div style="padding: 1.15rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 0.85rem;">
+                    <span class="mono" style="font-size: 1.35rem; font-weight: 700; color: #C84B28; line-height: 1;">02</span>
                     <div>
-                        <div style="font-weight: 700; font-size: 1.02rem; color: #141311;">直面 5 年后的恐怖周二镜像</div>
-                        <div style="font-size: 0.88rem; color: #4A453D; margin-top: 4px; line-height: 1.6;">如果毫无改变，推演那个令你生理性作呕的未来终局。</div>
+                        <div style="font-weight: 700; font-size: 0.98rem; color: #141311;">The Soft Body · 软弱肉体警报</div>
+                        <div style="font-size: 0.88rem; color: #4A453D; margin-top: 3px; line-height: 1.55;">推演代谢崩溃、高糖外卖透支与生物硬件早衰的恐怖周二。</div>
                     </div>
                 </div>
-                <div style="padding: 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 1rem;">
-                    <span class="serif" style="font-size: 1.5rem; font-weight: 700; color: #C84B28; line-height: 1;">03</span>
+                <div style="padding: 1.15rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 0.85rem;">
+                    <span class="mono" style="font-size: 1.35rem; font-weight: 700; color: #C84B28; line-height: 1;">03</span>
                     <div>
-                        <div style="font-weight: 700; font-size: 1.02rem; color: #141311;">刺破“隐秘自我保护”的遮羞布</div>
-                        <div style="font-size: 0.88rem; color: #4A453D; margin-top: 4px; line-height: 1.6;">看清你迟迟不敢行动，潜意识里到底在保护什么虚荣。</div>
+                        <div style="font-weight: 700; font-size: 0.98rem; color: #141311;">The Robotic Work · 机械齿轮牢笼</div>
+                        <div style="font-size: 0.88rem; color: #4A453D; margin-top: 3px; line-height: 1.55;">刺破为死工资出卖终身时间的幻觉，直面被替代的恐惧。</div>
                     </div>
                 </div>
-                <div style="padding: 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 1rem;">
-                    <span class="serif" style="font-size: 1.5rem; font-weight: 700; color: #C84B28; line-height: 1;">04</span>
+                <div style="padding: 1.15rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 0.85rem;">
+                    <span class="mono" style="font-size: 1.35rem; font-weight: 700; color: #C84B28; line-height: 1;">04</span>
                     <div>
-                        <div style="font-weight: 700; font-size: 1.02rem; color: #141311;">自动倒推 5 大每日防御红线</div>
-                        <div style="font-size: 0.88rem; color: #4A453D; margin-top: 4px; line-height: 1.6;">将负向厌恶转化为不可动摇的正向戒律与 1080P 警戒海报。</div>
+                        <div style="font-weight: 700; font-size: 0.98rem; color: #141311;">The Numb Relationships · 麻木社交内耗</div>
+                        <div style="font-size: 0.88rem; color: #4A453D; margin-top: 3px; line-height: 1.55;">倒推每日不可动摇的止损红线，生成 1080P 高清警戒壁纸。</div>
                     </div>
                 </div>
             </div>
 
             <div style="padding-top: 1.25rem; border-top: 1px solid #E5DEC9; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
-                <span style="font-size: 0.9rem; color: #7E766A;">共 8 题反向挖掘 · 测算沉沦危险指数（自动生成 1080P 专属警戒令海报）</span>
+                <span style="font-size: 0.9rem; color: #7E766A;">共 8 题反向拷问 · 测算 4 维沉沦风险（自动生成 1080P 专属警戒令海报）</span>
                 <button type="button" id="btn-start-quiz" onclick="startAssessment()" class="btn-dark">
                     开始我的反向愿景挖掘 →
                 </button>
@@ -306,6 +349,7 @@
             <div id="q-container" class="editorial-surface fade-in">
                 <div style="margin-bottom: 1.5rem;">
                     <h2 id="q-heading" class="serif" style="font-size: clamp(1.35rem, 3vw, 1.75rem); font-weight: 700; color: #141311; line-height: 1.4; margin: 0 0 0.5rem 0;"></h2>
+                    <div id="q-original-quote" style="font-size: 0.88rem; font-style: italic; color: #8A5212; margin-bottom: 0.4rem; padding-left: 0.5rem; border-left: 2px solid #C84B28;"></div>
                     <p id="q-subtitle" style="font-size: 0.95rem; color: #7E766A; margin: 0; line-height: 1.6;"></p>
                 </div>
 
@@ -315,7 +359,7 @@
                     <button type="button" id="btn-prev-question" onclick="prevQuestion()" style="font-weight: 600; color: #4A453D; background: transparent; border: none; cursor: pointer; padding: 4px 0;">
                         ← 返回上一题
                     </button>
-                    <span>请直面内心最真实、甚至不体面的回答，切勿粉饰</span>
+                    <span>Dan Koe：请直面内心最真实、甚至不体面的回答，切勿粉饰</span>
                 </div>
             </div>
         </section>
@@ -329,8 +373,8 @@
                     <div style="display: flex; align-items: center; gap: 0.75rem;">
                         <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 44px; height: 44px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311;">
                         <div>
-                            <div class="mono" style="font-size: 10px; color: #C84B28; font-weight: 700;">DAN KOE (@thedankoe) FRAMEWORK · PART II</div>
-                            <div style="font-size: 0.95rem; font-weight: 700; color: #141311;">THE ANTI-VISION · 人生止损底线警戒书</div>
+                            <div class="mono" style="font-size: 10px; color: #C84B28; font-weight: 700;">KOE LABS · MODEL 02 · DAN KOE FRAMEWORK</div>
+                            <div style="font-size: 0.95rem; font-weight: 700; color: #141311;">THE ANTI-VISION · 4维反向愿景与止损警戒书</div>
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.6rem; background: #FAF7F0; padding: 6px 14px; border-radius: 16px; border: 1px solid #DFD5BE;">
@@ -354,16 +398,29 @@
                     </div>
 
                     <div style="background: #F3EAD6; border: 2px solid #141311; border-radius: 24px; padding: 1.25rem 1.5rem; text-align: center; min-width: 156px;">
-                        <span class="mono" style="font-size: 11px; color: #4A453D; font-weight: 700; display: block;">DECAY RISK</span>
-                        <span id="res-score-num" class="serif" style="font-size: 3.25rem; font-weight: 700; color: #C84B28; display: block; margin: 4px 0;">82%</span>
-                        <span id="res-sub-code" class="mono" style="font-size: 11px; color: #141311; font-weight: 700; display: block;">沉沦危险指数</span>
+                        <span class="mono" style="font-size: 11px; color: #4A453D; font-weight: 700; display: block;">TOTAL DECAY RISK</span>
+                        <span id="res-score-num" class="serif" style="font-size: 3.25rem; font-weight: 700; color: #C84B28; display: block; margin: 4px 0;">88%</span>
+                        <span id="res-sub-code" class="mono" style="font-size: 11px; color: #141311; font-weight: 700; display: block;">综合沉沦危险指数</span>
+                    </div>
+                </div>
+
+                <!-- Dan Koe 4大反向愿景终局维度细分 (100% 对应原推文) -->
+                <div style="padding: 1.25rem 1.5rem; border-radius: 20px; background: #FAF7F0; border: 1.5px solid #DFD5BE; margin-bottom: 1.75rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem;">
+                        <span class="mono" style="font-size: 12px; font-weight: 700; color: #C84B28;">
+                            📊 DAN KOE 4 大厌恶终局维度崩盘诊断 (THE 4 PILLARS BREAKDOWN)
+                        </span>
+                        <span style="font-size: 11px; color: #7E766A;">基于原帖 4 大反向支柱测算</span>
+                    </div>
+                    <div id="res-pillars-breakdown" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem;">
+                        <!-- 由 JS 渲染 4 个维度的条形与危险占比 -->
                     </div>
                 </div>
 
                 <!-- 5年恐怖镜像推演卡片 -->
                 <div style="padding: 1.5rem; border-radius: 24px; background: rgba(243,234,214,0.88); border: 1.5px solid #D8C9A8; margin-bottom: 1.75rem;">
                     <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 13px; font-weight: 700; color: #9A5210; margin-bottom: 0.75rem;">
-                        <span>⚠️ 你的 5 年后反向愿景全景推演（The Brutal 5-Year Tuesday）</span>
+                        <span>⚠️ 你的 5 年后反向愿景推演（The Brutal 5-Year Tuesday）</span>
                         <span id="res-mirror-tag" class="mono" style="background: rgba(255,255,255,0.9); padding: 4px 10px; border-radius: 6px; border: 1px solid #D8C9A8; color: #141311;"></span>
                     </div>
                     <h3 id="res-mirror-title" class="serif" style="font-size: 1.35rem; font-weight: 700; color: #141311; margin: 0 0 0.75rem 0; line-height: 1.38;"></h3>
@@ -375,9 +432,9 @@
                 <div style="padding: 1.5rem; border-radius: 24px; background: #FFFFFF; border: 2px solid #141311; margin-bottom: 1.5rem;">
                     <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; border-bottom: 1px solid #ECE5D5; padding-bottom: 0.85rem; margin-bottom: 1.25rem;">
                         <span class="mono" style="font-size: 13px; color: #C84B28; font-weight: 700;">
-                            🛑 THE NON-NEGOTIABLES · 针对你的 5 大每日防御红线
+                            🛑 THE DAILY LEVERS · 针对你的 5 大每日止损防御红线
                         </span>
-                        <span style="font-size: 12px; color: #7E766A;">基于负向厌恶推导 · 绝不向平庸妥协</span>
+                        <span style="font-size: 12px; color: #7E766A;">Dan Koe：用日常确定性行动击碎平庸惯性</span>
                     </div>
                     <div id="res-rules-list"></div>
                     <div id="res-emergency-act" style="margin-top: 1.25rem; padding: 1rem 1.15rem; border-radius: 14px; background: #FAF7F0; border: 1px solid #E2D9C3; font-size: 0.9rem; color: #141311; line-height: 1.7;"></div>
@@ -391,7 +448,7 @@
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" style="width: 28px; height: 28px; border-radius: 9999px; border: 1px solid #C84B28;">
-                        <span>本互动工具由 <strong style="color: #141311;">梭哈.AI (@SUOHA_AI)</strong> 制作出品</span>
+                        <span>本交互工具由 <strong style="color: #141311;">梭哈.AI (@SUOHA_AI)</strong> 制作出品</span>
                     </div>
                 </div>
             </div>
@@ -417,7 +474,7 @@
             <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #DFD5BE; padding-bottom: 0.75rem; margin-bottom: 1rem;">
                 <div>
                     <div class="serif" style="font-weight: 700; font-size: 1.1rem; color: #141311;">✦ 你的专属 ANTI-VISION 警戒令海报</div>
-                    <div style="font-size: 12px; color: #7E766A; margin-top: 2px;">已自适应流式排版 · 电脑端点击下方保存，手机端长按图片即可保存壁纸</div>
+                    <div style="font-size: 12px; color: #7E766A; margin-top: 2px;">包含 4 维终局细分柱状图 · 电脑端点击保存，手机长按即可保存壁纸</div>
                 </div>
                 <button type="button" id="btn-close-modal-x" onclick="closePosterModal()" style="width: 32px; height: 32px; border-radius: 9999px; background: #F3EAD6; border: none; color: #141311; font-weight: 700; cursor: pointer;">✕</button>
             </div>
@@ -438,14 +495,14 @@
 
     <!-- 底部页脚 -->
     <footer style="padding: 1.75rem 1.25rem; border-top: 1px solid #DFD5BE; background: rgba(243,234,214,0.55); font-size: 13px; color: #4A453D;">
-        <div style="max-width: 48rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+        <div style="max-width: 54rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
             <a href="https://x.com/thedankoe" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 0.6rem; color: inherit; text-decoration: none;">
                 <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 34px; height: 34px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311;">
                 <span>理论源自 <strong style="color: #141311; text-decoration: underline;">Dan Koe (@thedankoe)</strong>《The Anti-Vision》</span>
             </a>
             <div style="display: flex; align-items: center; gap: 1rem;">
-                <a href="https://github.com/suoha888/anti-vision-protocol" target="_blank" rel="noopener" style="color: #4A453D; text-decoration: none;">
-                    开源仓库 GitHub
+                <a href="https://github.com/suoha888/human-3-quiz" target="_blank" rel="noopener" style="color: #4A453D; text-decoration: none;">
+                    KOE LABS 开源大本营
                 </a>
                 <a href="https://x.com/SUOHA_AI" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 0.6rem; color: inherit; text-decoration: none;">
                     <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" alt="梭哈.AI" style="width: 34px; height: 34px; border-radius: 9999px; object-fit: cover; border: 2px solid #C84B28;">
@@ -456,128 +513,146 @@
     </footer>
 
     <script>
+        // ==================== 100% 贴合 Dan Koe 长文与推文的 8 大反向拷问 ====================
         var ANTI_QUIZ_ITEMS = [
             {
                 phase: "EXCAVATION I · CHRONIC TOLERANCE 慢性容忍",
                 q: "你目前已经习以为常、甚至学会默默容忍的生活平庸是什么？",
+                quote: "“What is the dull and persistent dissatisfaction you’ve learned to live with? If you don’t hate it, you will tolerate it.”",
                 sub: "Dan Koe：如果你不痛恨当下的平庸，你就会一辈子继续容忍它。",
                 opts: [
-                    { risk: 85, archetype: "FATIGUE", badge: "生理透支态", shortTag: "每天起床身心俱疲、靠咖啡浓茶硬撑续命", text: "每天早晨醒来都像灌了铅一样疲惫，全天被脑雾笼罩，只能靠重度咖啡因与外卖刺激硬撑。" },
-                    { risk: 90, archetype: "NUMB", badge: "算法麻痹态", shortTag: "间歇性打鸡血、持续性刷手机麻痹自己", text: "间歇性立下宏伟志向，但一遇到无聊或压力就下意识刷短视频打游戏，夜里陷入空虚内耗。" },
-                    { risk: 75, archetype: "COMPLY", badge: "社交迎合态", shortTag: "在言不由衷的社交里随波逐流、压抑自我", text: "在不想去的饭局和八卦闲聊里强颜欢笑，害怕得罪人或格格不入，不敢公开表达真实想法。" },
-                    { risk: 80, archetype: "PRISON", badge: "齿轮出卖态", shortTag: "守着饿不死也发不了财的死工资出卖时间", text: "日复一日干着随时能被替代的琐事，纯粹出卖时间换取死工资，对周一感到生理性排斥。" }
+                    { risk: 85, pillar: "SOFT_BODY", badge: "The Soft Body · 身体透支", shortTag: "每天身心俱疲、靠咖啡浓茶硬撑续命", text: "每天早晨醒来都像灌了铅一样疲惫，全天被脑雾笼罩，只能靠重度咖啡因与外卖刺激硬撑。" },
+                    { risk: 90, pillar: "DUMB_MIND", badge: "The Dumb Mind · 算法麻痹", shortTag: "间歇性打鸡血、持续性刷手机麻痹自己", text: "间歇性立下宏伟志向，但一遇到无聊或压力就下意识刷短视频打游戏，夜里陷入空虚内耗。" },
+                    { risk: 78, pillar: "NUMB_RELATIONS", badge: "The Numb Relationships · 社交迎合", shortTag: "在言不由衷的社交里随波逐流、压抑自我", text: "在不想去的饭局和八卦闲聊里强颜欢笑，害怕得罪人或格格不入，不敢公开表达真实想法。" },
+                    { risk: 84, pillar: "ROBOTIC_WORK", badge: "The Robotic Work · 齿轮出卖", shortTag: "守着死工资出卖时间、排斥周一", text: "日复一日干着随时能被替代的琐事，纯粹出卖时间换取死工资，对周一感到生理性排斥。" }
                 ]
             },
             {
-                phase: "EXCAVATION II · THE 5-YEAR TUESDAY 恐怖镜像",
+                phase: "EXCAVATION II · THE 5-YEAR TUESDAY 恐怖周二镜像",
                 q: "如果未来 5 年你没有任何改变，想象一个普通的周二，最让你毛骨悚然的画面是？",
+                quote: "“If absolutely nothing changes for the next five years, describe an average Tuesday.”",
                 sub: "不带任何美化地推演你的终局轨迹，直面那个让你生理作呕的未来版本。",
                 opts: [
-                    { risk: 90, archetype: "FATIGUE", badge: "肉体坍塌", shortTag: "身材走样、体检单亮红灯、眼神浑浊空洞", text: "身材不可逆地松弛走样，体检单上多出好几项红字，眼神失去所有锐气，未老先衰。" },
-                    { risk: 95, archetype: "NUMB", badge: "同龄碾压", shortTag: "曾经的同龄后辈已做成资产破局，自己原地踏步", text: "曾经起点不如你的后辈早已做成高杠杆资产与个人IP，而你依然困在原地抱怨大环境。" },
-                    { risk: 85, archetype: "PRISON", badge: "抗风险归零", shortTag: "存款经不起任何风浪，被房贷生活死死锁死", text: "依然住在逼仄狭小的出租屋，存款经不起家庭任何一次意外，在公司被欺凌也不敢辞职。" },
-                    { risk: 80, archetype: "COMPLY", badge: "灵气彻底磨灭", shortTag: "沦为只会聊八卦、房贷与打折券的平庸长辈", text: "年轻时那个充满好奇心的灵魂彻底死去，饭桌上除了房贷、育儿焦虑和八卦再无其他话题。" }
+                    { risk: 90, pillar: "SOFT_BODY", badge: "The Soft Body · 肉体坍塌", shortTag: "身材走样、体检单亮红灯、眼神浑浊空洞", text: "身材不可逆地松弛走样，体检单上多出好几项红字，眼神失去所有锐气，未老先衰。" },
+                    { risk: 95, pillar: "DUMB_MIND", badge: "The Dumb Mind · 同龄碾压", shortTag: "后辈已做成资产IP，自己仍在原地抱怨", text: "曾经起点不如你的后辈早已做成高杠杆资产与个人IP，而你依然困在原地抱怨大环境。" },
+                    { risk: 88, pillar: "ROBOTIC_WORK", badge: "The Robotic Work · 牢笼死锁", shortTag: "存款经不起风浪，被房贷生活死死锁死", text: "依然住在逼仄狭小的出租屋，存款经不起任何风浪，在公司被微管理欺凌也不敢辞职。" },
+                    { risk: 82, pillar: "NUMB_RELATIONS", badge: "The Numb Relationships · 灵气磨灭", shortTag: "沦为只会聊房贷、八卦与打折券的平庸长辈", text: "年轻时那个充满好奇心的灵魂彻底死去，饭桌上除了房贷、育儿焦虑和八卦再无其他话题。" }
                 ]
             },
             {
-                phase: "EXCAVATION III · EMBARRASSING TRUTH 隐秘懦弱",
-                q: "每次你打算开启新计划（写作、健身、做独立产品）却半途而废，那个最丢人的真实原因是？",
+                phase: "EXCAVATION III · 10-YEAR DECADAL REGRET 10年不可逆遗憾",
+                q: "将这个时间拉长到 10 年：如果不破局，你最痛恨自己错过了什么？",
+                quote: "“Now do it but for ten years. What have you missed? What opportunities closed? Who gave up on you?”",
+                sub: "Dan Koe：时间是你唯一不可再生的硬通货，死守安全感往往是最高风险的赌博。",
+                opts: [
+                    { risk: 92, pillar: "DUMB_MIND", badge: "The Dumb Mind · 智力废弃", shortTag: "大脑彻底退化为被算法算法饲养的消费者", text: "失去了深度钻研一门复杂学科的心力，大脑彻底退化为只能吞咽 15 秒快感刺激的废人。" },
+                    { risk: 88, pillar: "NUMB_RELATIONS", badge: "The Numb Relationships · 错付一生", shortTag: "为了取悦不值得的人，耗尽了黄金社交资产", text: "为了取悦那些对你根本不关心的人委曲求全，错过了真正能互相成就的顶尖认知圈子。" },
+                    { risk: 85, pillar: "SOFT_BODY", badge: "The Soft Body · 活力永逝", shortTag: "身体机能全面滑坡，再也无力支撑远大野心", text: "器官机能与代谢全面退化，每天下午严重脑雾，就算有机会摆在面前也没有体力去抓。" },
+                    { risk: 90, pillar: "ROBOTIC_WORK", badge: "The Robotic Work · 资本垫脚石", shortTag: "为别人的帝国搬砖十年，自己手头资产为零", text: "整整十年都在帮别人的公司搭建护城河，离开工位的一刻，发现自己手里没有一项带版权的资产。" }
+                ]
+            },
+            {
+                phase: "EXCAVATION IV · LIVING PREVIEWS 活体前车之鉴",
+                q: "环顾你身边，那些比你年长 5-10 岁、走在你同样轨迹上的人是什么状态？",
+                quote: "“Who in your life is already living the future you just described? Someone five, ten, twenty years ahead on the same trajectory?”",
+                sub: "想到自己 10 年后成为他们的样子，你内心最本能的排斥是？",
+                opts: [
+                    { risk: 90, pillar: "SOFT_BODY", badge: "The Soft Body · 油腻枯槁", shortTag: "满身疲惫与油腻，除了抱怨生活再无半点灵气", text: "满脸疲态与世故，每天上班等下班、下班刷手机，彻底沦为毫无生命热情的行尸走肉。" },
+                    { risk: 95, pillar: "ROBOTIC_WORK", badge: "The Robotic Work · 脊梁折断", shortTag: "被债务压垮，面对羞辱连翻脸辞职都不敢", text: "被财务重担死死压垮，在公司被微管理也只能低头陪笑，彻底失去了拒绝与翻脸的权力。" },
+                    { risk: 88, pillar: "DUMB_MIND", badge: "The Dumb Mind · 酸腐犬儒", shortTag: "讽刺一切新事物，死守过时技能混吃等死", text: "自己不敢做出任何改变，却热衷于用冷嘲热讽打压年轻人的所有折腾，成为典型的酸腐看客。" },
+                    { risk: 82, pillar: "NUMB_RELATIONS", badge: "The Numb Relationships · 琐碎囚徒", shortTag: "个人意志完全消失，整个人生沦为别人需求的奴隶", text: "完全没有属于自己的精神角落，整个人生被家庭人情与外部琐事彻底填满蚕食。" }
+                ]
+            },
+            {
+                phase: "EXCAVATION V · EMBARRASSING REASON 隐秘懦弱",
+                q: "每次打算搞副业、写作、健身却半途而废，那个最丢人的真实原因是？",
+                quote: "“What is the most embarrassing reason you haven’t changed? The one that makes you sound weak, scared, or lazy rather than reasonable?”",
                 sub: "那个让你听起来懦弱、害怕、懒惰，而不是“合情合理”的底层借口。",
                 opts: [
-                    { risk: 85, archetype: "NUMB", badge: "完美主义伪装", shortTag: "用“我还没准备到完美”掩盖公开交付的恐惧", text: "沉迷于记笔记搭体系，借口“还没准备到完美”，实际上只是害怕公开发布后无人问津。" },
-                    { risk: 90, archetype: "COMPLY", badge: "羞耻感锁死", shortTag: "极度在意外界评价，害怕被人评头论足看笑话", text: "潜意识里把面子看得比命还重，哪怕在互联网发一段观点都反复纠结，害怕被熟人嘲讽。" },
-                    { risk: 80, archetype: "FATIGUE", badge: "合法退回舒适圈", shortTag: "习惯性把“今天太忙太累”当成偷懒的挡箭牌", text: "只要稍微遇到一点阻力，立刻用“工作已经够累了、明天再做”来合法化自己的放弃。" },
-                    { risk: 85, archetype: "PRISON", badge: "宏大叙事甩锅", shortTag: "把个人的停滞推脱给大环境不好与红利消失", text: "热衷宏观研报与行业哀叹，用“现在谁搞谁死”的大道理，来掩盖自己执行力上的彻底瘫痪。" }
+                    { risk: 88, pillar: "DUMB_MIND", badge: "The Dumb Mind · 完美主义遮羞", shortTag: "用“我还没准备到完美”掩盖公开交付的恐惧", text: "沉迷于记笔记搭体系，借口‘还没准备到完美’，实际上只是害怕公开发布后无人问津。" },
+                    { risk: 90, pillar: "NUMB_RELATIONS", badge: "The Numb Relationships · 羞耻感锁死", shortTag: "极度在意外界评价，害怕被人评头论足看笑话", text: "潜意识里把面子看得比命还重，哪怕在互联网发一段观点都反复纠结，害怕被熟人嘲讽。" },
+                    { risk: 82, pillar: "SOFT_BODY", badge: "The Soft Body · 合法退缩", shortTag: "习惯性把“今天太忙太累”当成偷懒的挡箭牌", text: "只要稍微遇到一点阻力，立刻用‘工作已经够累了、明天再做’来合法化自己的放弃。" },
+                    { risk: 86, pillar: "ROBOTIC_WORK", badge: "The Robotic Work · 宏大叙事甩锅", shortTag: "把个人的停滞推脱给大环境不好与红利消失", text: "热衷宏观哀叹，用‘现在搞啥都是炮灰’的大道理，来掩盖自己执行力上的彻底瘫痪。" }
                 ]
             },
             {
-                phase: "EXCAVATION IV · SELF-PROTECTION 脆弱防御",
-                q: "Dan Koe 说：“所有恶习本质上都是一种自我保护”。你迟迟不肯拼尽全力，到底在保护什么？",
+                phase: "EXCAVATION VI · SELF-PROTECTION 脆弱防御",
+                q: "Dan Koe 说：“恶习本质上都是自我保护”。你迟迟不肯拼尽全力，到底在保护什么？",
+                quote: "“If your current behavior is a form of self-protection, what exactly are you protecting? And what is that protection costing you?”",
                 sub: "看清你的潜意识为了维护哪种脆弱的自尊，让你付出了整个人生的代价。",
                 opts: [
-                    { risk: 95, archetype: "NUMB", badge: "不败神话幻觉", shortTag: "保护“只要我不全力以赴，我就不算真正失败”", text: "保护虚荣的自我防御：只要我不全力以赴，失败了我就能安慰自己‘只是我没认真而已’。" },
-                    { risk: 85, archetype: "COMPLY", badge: "平庸合群安全感", shortTag: "保护身边平庸圈子的认同，害怕优秀会被孤立", text: "害怕自己一旦变得极度自律和优秀，会被身边混日子的朋友排斥或嘲讽为‘装逼’。" },
-                    { risk: 80, archetype: "FATIGUE", badge: "生理阵痛逃避", shortTag: "极度恐惧打破舒适区时必经的剧烈剥离之痛", text: "把任何走出舒适区的尝试都视为不可承受的痛苦，宁可忍受慢性的平庸，不敢承受短期的阵痛。" },
-                    { risk: 85, archetype: "PRISON", badge: "全能可能性幻觉", shortTag: "死守“我随时能干成任何事”的虚无优越感", text: "沉溺于‘我很有天赋、只是还没开始’的虚幻优越感，抗拒被具体的单一领域检验上限。" }
+                    { risk: 95, pillar: "DUMB_MIND", badge: "The Dumb Mind · 不败神话", shortTag: "保护“只要我不全力以赴，我就不算真正失败”", text: "保护虚荣的自我防御：只要我不全力以赴，失败了我就能安慰自己‘只是我没认真而已’。" },
+                    { risk: 86, pillar: "NUMB_RELATIONS", badge: "The Numb Relationships · 平庸合群", shortTag: "保护身边平庸圈子的认同，害怕优秀会被孤立", text: "害怕自己一旦变得极度自律和优秀，会被身边混日子的朋友排斥或嘲讽为‘装逼’。" },
+                    { risk: 82, pillar: "SOFT_BODY", badge: "The Soft Body · 阵痛逃避", shortTag: "极度恐惧打破舒适区时必经的剧烈剥离之痛", text: "把任何走出舒适区的尝试都视为不可承受的痛苦，宁可忍受慢性的平庸，不敢承受短期的阵痛。" },
+                    { risk: 88, pillar: "ROBOTIC_WORK", badge: "The Robotic Work · 虚假全能", shortTag: "死守“我随时能干成任何事”的虚无优越感", text: "沉溺于‘我很有天赋、只是还没开始’的虚幻优越感，抗拒被具体的单一领域检验上限。" }
                 ]
             },
             {
-                phase: "EXCAVATION V · LIVING PREVIEWS 活体前车之鉴",
-                q: "环顾你身边（公司同事、亲戚或熟人），那些比你年长 5-10 岁、走在你同样轨迹上的人是什么状态？",
-                sub: "想到自己 10 年后成为他们的样子，你内心最真实的反应是？",
-                opts: [
-                    { risk: 90, archetype: "FATIGUE", badge: "眼神麻木死灰", shortTag: "满身疲惫与油腻，除了抱怨生活再无半点灵气", text: "满脸疲态与世故，每天上班等下班、下班刷手机，彻底沦为毫无生命热情的行尸走肉。" },
-                    { risk: 95, archetype: "PRISON", badge: "脊梁骨被折断", shortTag: "房贷车贷缠身，面对不公与羞辱连辞职都不敢", text: "被财务重担死死压垮，在公司被领导PUA也只能低头陪笑，彻底失去了拒绝与翻脸的权力。" },
-                    { risk: 85, archetype: "NUMB", badge: "酸腐与犬儒", shortTag: "习惯性讽刺一切新事物，死守过时技能等死", text: "自己不敢做出任何改变，却热衷于用冷嘲热讽打压年轻人的所有折腾，成为典型的酸腐看客。" },
-                    { risk: 80, archetype: "COMPLY", badge: "生活琐碎囚徒", shortTag: "个人意志完全消失，整个人生沦为别人需求的奴隶", text: "完全没有属于自己的精神角落，整个人生被家庭、人情世故与外部琐事彻底填满蚕食。" }
-                ]
-            },
-            {
-                phase: "EXCAVATION VI · DOPAMINE BLACKHOLE 沉沦陷阱",
+                phase: "EXCAVATION VII · INTERRUPTING AUTOPILOT 打断无意识模式",
                 q: "每当你感到压力、挫败或深度无聊时，你最本能的“多巴胺逃跑动作”是什么？",
+                quote: "“What am I avoiding right now by doing what I’m doing? Breaking unconscious patterns throughout the day.”",
                 sub: "这个动作就是正在暗中偷走你注意力主权的最大蛀虫。",
                 opts: [
-                    { risk: 90, archetype: "NUMB", badge: "无限信息下滑", shortTag: "下意识点开社媒短视频无脑刷到手机发烫", text: "大脑进入失魂状态，手指在各个APP之间机械切换，明知毫无营养却无法阻止屏幕滑动。" },
-                    { risk: 85, archetype: "FATIGUE", badge: "感官高糖暴饮", shortTag: "靠重口味外卖、甜品零食或深夜暴食麻痹中枢", text: "通过高糖、高油外卖与深夜零食填补内心的空虚与焦虑，事后伴随剧烈的身体沉重感。" },
-                    { risk: 85, archetype: "PRISON", badge: "假装学习伪装", shortTag: "假装努力地去囤课程看长文，自欺欺人假装进步", text: "疯狂收藏各种硬核干货和思维导图，通过占有知识的快感产生‘我正在变强’的虚假心理安慰。" },
-                    { risk: 80, archetype: "COMPLY", badge: "社交八卦排遣", shortTag: "找人通宵打游戏、倾倒垃圾情绪或闲聊八卦", text: "拉着别人通宵打游戏或吐槽琐事，把自己的注意力沉溺在廉价的即时反馈与情绪共振中。" }
+                    { risk: 92, pillar: "DUMB_MIND", badge: "The Dumb Mind · 无限滑动", shortTag: "下意识点开社媒短视频无脑刷到手机发烫", text: "大脑进入失魂状态，手指在各个APP之间机械切换，明知毫无营养却无法阻止屏幕滑动。" },
+                    { risk: 86, pillar: "SOFT_BODY", badge: "The Soft Body · 高糖暴饮", shortTag: "靠重口味外卖、甜品零食或深夜暴食麻痹中枢", text: "通过高糖、高油外卖与深夜零食填补内心的空虚与焦虑，事后伴随剧烈的身体沉重感。" },
+                    { risk: 88, pillar: "ROBOTIC_WORK", badge: "The Robotic Work · 假装囤课", shortTag: "疯狂囤课程硬核长文，自欺欺人假装进步", text: "疯狂收藏各种硬核干货和思维导图，通过占有知识的快感产生‘我正在变强’的虚假心理安慰。" },
+                    { risk: 80, pillar: "NUMB_RELATIONS", badge: "The Numb Relationships · 倾倒情绪", shortTag: "找人闲聊八卦或倾倒负面垃圾情绪排遣", text: "拉着别人通宵吐槽琐事或打游戏，把注意力沉溺在廉价的即时反馈与情绪共振中。" }
                 ]
             },
             {
-                phase: "EXCAVATION VII · TOXIC DRAINS 能量寄生虫",
-                q: "目前哪种外部人际交往或环境噪音，正在最无声地抽干你的心智带宽？",
-                sub: "不愿主动拉黑与切割的软弱，正在成为你变强路上最大的负资产。",
+                phase: "EXCAVATION VIII · THE ANTI-VISION COMPRESSED 终局宣誓",
+                q: "如果这一生继续妥协下去，活成那个“安全但平庸的死缓版本”，你临终前最痛彻心扉的遗憾是？",
+                quote: "“Write a single sentence that captures what you refuse to let your life become. This is your anti-vision compressed.”",
+                sub: "Dan Koe：最痛苦的不是你做错了什么，而是你本可以成为谁，但你却从未敢开始。",
                 opts: [
-                    { risk: 90, archetype: "COMPLY", badge: "情绪垃圾桶", shortTag: "负能量爆棚的消极抱怨者，每次聊完都身心俱疲", text: "身边充斥着逢人就倒苦水、怨天尤人的熟人，碍于面子不敢拒绝，每次交流完都元气大伤。" },
-                    { risk: 85, archetype: "PRISON", badge: "消耗型假朋友", shortTag: "纯靠攀比与酒肉维系的浅层社交，热闹后倍感空虚", text: "为了不显得孤僻而参加言不由衷的聚会，在虚假的吹捧与优越感攀比中消磨掉宝贵的夜晚。" },
-                    { risk: 90, archetype: "FATIGUE", badge: "有毒职场内耗", shortTag: "充满微管理与内卷PUA的环境，80%心力用于防人", text: "每天必须把大部分精力用于应付办公室政治、揣摩领导脸色与防范暗箭，创造力被彻底榨干。" },
-                    { risk: 80, archetype: "NUMB", badge: "数字噪音轰炸", shortTag: "无休止的群消息、热搜争议与无意义的立场撕逼", text: "手机通知24小时闪烁，被各种碎片争议和无关紧要的新闻牵扯情绪，丧失了深度的安宁。" }
-                ]
-            },
-            {
-                phase: "EXCAVATION VIII · THE FINAL REGRET 临终清算",
-                q: "如果你这一生继续妥协下去，活成了那个“安全但平庸的死缓版本”，你临终前最痛彻心扉的遗憾是？",
-                sub: "Dan Koe：最痛苦的不是你做了什么，而是你本可以成为谁，但你却从未敢开始。",
-                opts: [
-                    { risk: 95, archetype: "PRISON", badge: "出卖终生剧本", shortTag: "把一生最充沛的黄金年华，全卖给了别人的剧本", text: "回顾一辈子，所有的精力都花在了打工、还贷和给别人打工上，从未拥有过属于自己的事业。" },
-                    { risk: 90, archetype: "NUMB", badge: "作品从未上线", shortTag: "本可以打造出惊艳的作品或产品，却因为胆怯带进坟墓", text: "脑子里明明有很多伟大的想法，却因为完美主义与害怕丢人，至死没有公开发布过一件像样作品。" },
-                    { risk: 85, archetype: "FATIGUE", badge: "躯体从未巅峰", shortTag: "一辈子困在亚健康与脑雾中，从未感受过巅峰肉体", text: "从未体会过体脂精炼、精力如泉涌的高能状态，一生都在忍受沉重的肉身与早衰的器质性退化。" },
-                    { risk: 90, archetype: "COMPLY", badge: "从未为自己活", shortTag: "一辈子都在迎合他人目光，直到闭眼都没做过自己", text: "为了父母的期待、世俗的标准与他人的眼光委屈求全了一辈子，直到临终才发现从未真正为自己活过。" }
+                    { risk: 96, pillar: "ROBOTIC_WORK", badge: "The Robotic Work · 出卖终生", shortTag: "把一生最充沛的黄金年华，全卖给了别人的剧本", text: "回顾一辈子，所有的精力都花在了打工、还贷和给别人打工上，从未拥有过属于自己的事业。" },
+                    { risk: 92, pillar: "DUMB_MIND", badge: "The Dumb Mind · 作品胎死腹中", shortTag: "本可以打造出惊艳的数字资产，却因胆怯带进坟墓", text: "脑子里明明有很多伟大的想法，却因为完美主义与害怕丢人，至死没有公开发布过一件像样作品。" },
+                    { risk: 85, pillar: "SOFT_BODY", badge: "The Soft Body · 躯体从未巅峰", shortTag: "一辈子困在亚健康与脑雾中，从未感受过巅峰肉体", text: "从未体会过体脂精炼、精力如泉涌的高能状态，一生都在忍受沉重的肉身与早衰的器质性退化。" },
+                    { risk: 90, pillar: "NUMB_RELATIONS", badge: "The Numb Relationships · 从未为自己活", shortTag: "一辈子都在迎合他人目光，直到闭眼都没做过自己", text: "为了父母的期待、世俗的标准与他人的眼光委屈求全了一辈子，直到临终才发现从未真正为自己活过。" }
                 ]
             }
         ];
 
+        // ==================== Dan Koe 4大反向愿景终局核心原型 ====================
         var ARCHETYPE_MAP = {
-            NUMB: {
-                name: "温水煮青蛙 · 算法麻痹型",
+            DUMB_MIND: {
+                pillarId: "DUMB_MIND",
+                pillarName: "The Dumb Mind 迟钝心智",
+                name: "The Dumb Mind · 迟钝心智算法麻痹型",
                 tag: "心智多巴胺重度劫持",
-                summary: "你目前最大的危机，是【温水慢熬式的钝刀子割肉】。你的雄心壮志被短视频、即时多巴胺与“明天再开始”的幻想切成碎片。头脑里有极高的审美，行动上却像被打了麻醉剂。",
-                brutalTuesday: "5年后的一个周二：你依然在闹钟响过5次后痛苦挣扎起床，手机在昨夜刷到凌晨1点多导致双眼干涩发炎。在工位上假装忙碌地摸鱼，眼睁睁看着当年起点和你一样的后辈在互联网做出了爆款产品与高杠杆资产，而你只能在深夜关灯后，咬着牙痛恨自己的拖延与懦弱，第二天却依然机械重复。",
-                defenseTrap: "📌 你的脆弱自我防御：你用【我还没准备到完美】做遮羞布，实际上潜意识在保护‘只要我不真正交付，我就永远不算失败’的虚荣幻觉。这种脆弱的自尊，正在让你付出一生沦为看客的惨烈代价！",
-                emergencyAction: "⚡ 24小时紧急止损微行动：今天立刻卸载手机里使用时长第一的短视频/摸鱼软件（或退出账号）；今晚22:30将手机关机锁进抽屉，只留纸笔出门在黑暗中散步25分钟，把内心的焦虑全部倒在纸上。"
+                summary: "Dan Koe 警告的核心危机：【The Dumb Mind · 无法深度思考的迟钝心智】。你的雄心壮志被算法信息流、短视频即时多巴胺与“明天再开始”的自欺切成碎片。头脑里有极高审美，行动上却像被打了全身麻醉。",
+                brutalTuesday: "5年后的一个普通周二：你在闹钟响过5次后头痛欲裂地爬起床，昨晚刷手机到凌晨导致双眼布满血丝。在工位上机械地切着网页摸鱼，眼睁睁看着当年起点和你一样的同龄人在互联网建起了高杠杆数字资产与个人专栏，而你只能在深夜关灯后痛恨自己的懦弱拖延，第二天却依然机械循环。",
+                defenseTrap: "📌 你的脆弱自我防御（Dan Koe 揭露）：你用【我还没准备到完美】做遮羞布，实际上潜意识在保护‘只要我不真正交付，我就永远不算失败’的虚荣幻觉。这种脆弱自尊，正让你付出一生沦为看客的惨痛代价！",
+                emergencyAction: "⚡ 24小时紧急止损微行动：今天立刻卸载手机使用时长第1的摸鱼APP；今晚22:30将手机锁进抽屉，只留纸笔出门在黑暗中散步25分钟，把内心的焦虑全部倒在纸上。"
             },
-            FATIGUE: {
-                name: "生理透支型 · 悬崖飞车手",
+            SOFT_BODY: {
+                pillarId: "SOFT_BODY",
+                pillarName: "The Soft Body 软弱肉体",
+                name: "The Soft Body · 软弱肉体生理透支型",
                 tag: "生物硬件濒临熔断",
-                summary: "你正在试图在【一台底盘漏油、发动机缺机油的拖拉机上硬飙到180码】。长期的睡眠亏空、高油高糖外卖与咖啡因透支，已经让你的前额叶陷入严重的慢性炎症与脑雾。",
-                brutalTuesday: "5年后的一个周二：体检报告上新增了脂肪肝、颈椎曲度变直和多项代谢红字。你大腹便便、面色枯黄，爬三层楼就气喘吁吁。曾经清澈的眼神变得浑浊浮肿，下午两点脑子像一团浆糊，必须靠两杯冰美式强行打起精神，身体像一台濒临报废的机器在慢性抗议。",
-                defenseTrap: "📌 你的脆弱自我防御：你习惯用【工作已经够辛苦了，吃点好的/熬个夜怎么了】来合法化自己的放纵。你以为自己在搞钱，其实正在用不可逆的生命硬件换取微不足道的短期产出！",
+                summary: "Dan Koe 警告的核心危机：【The Soft Body · 缺乏生命力的脆弱肉体】。你正在试图在【一台底盘漏油、发动机缺机油的拖拉机上硬飙到180码】。长期的睡眠亏空、高油高糖外卖与咖啡因透支，已经让你的前额叶陷入严重的慢性炎症与脑雾。",
+                brutalTuesday: "5年后的一个普通周二：体检报告上新增了脂肪肝、颈椎反弓和多项代谢红字。你大腹便便、面色枯黄，爬三层楼就气喘吁吁。曾经清澈的眼神变得浑浊浮肿，下午两点脑子像一团浆糊，必须靠两杯冰美式强行打起精神，身体像一台濒临报废的机器在慢性抗议。",
+                defenseTrap: "📌 你的脆弱自我防御（Dan Koe 揭露）：你习惯用【工作已经够辛苦了，吃点好的/熬个夜怎么了】来合法化自己的放纵。你以为自己在搞钱，其实正在用不可逆的生命硬件换取微不足道的短期产出！",
                 emergencyAction: "⚡ 24小时紧急止损微行动：今天下午14:00后严禁摄入任何咖啡因或功能饮料；今晚22:45前必须熄灯断电躺在床上；现在立刻喝完一大杯温水，花3分钟把办公桌面清理到只剩电脑。"
             },
-            PRISON: {
-                name: "齿轮出卖型 · 黄金牢笼囚徒",
+            ROBOTIC_WORK: {
+                pillarId: "ROBOTIC_WORK",
+                pillarName: "The Robotic Work 机械工作",
+                name: "The Robotic Work · 机械齿轮黄金牢笼型",
                 tag: "高风险时间奴役态",
-                summary: "你陷入了典型的【战术连轴转掩盖战略无能】。你拼命出卖死时间换取工资或应付低价值琐事，看似一刻未停，实际上是在用机械的忙碌逃避真正建立【高杠杆数字资产】的长期课题。",
-                brutalTuesday: "5年后的一个周二：你被房贷、生活成本和死工资死死困在工位上，面对公司不合理的压榨和领导的微管理，你连辞职翻脸的底气都没有。年纪越来越大，随时面临被AI和年轻后辈降薪替代的恐慌，你发现自己把一生中最宝贵的黄金时间，全给别人做了垫脚石。",
-                defenseTrap: "📌 你的脆弱自我防御：你用【大环境不好、我没有资源和时间】来当成不开始副业的借口。你用每天被琐事填满的‘疲惫感’，自欺欺人地证明自己‘问心无愧’，实则是战略上的彻底懒惰！",
+                summary: "Dan Koe 警告的核心危机：【The Robotic Work · 机械出卖时间的工位奴隶】。你陷入了典型的【战术连轴转掩盖战略无能】。你拼命出卖死时间换取工资，看似一刻未停，实际上是在用机械忙碌逃避真正建立【高杠杆个人资产与一人公司】的长期课题。",
+                brutalTuesday: "5年后的一个普通周二：你被房贷、生活成本和死工资死死困在工位上，面对公司不合理的压榨和领导的微管理，你连辞职翻脸的底气都没有。年纪越来越大，随时面临被AI和年轻后辈降薪替代的恐慌，你发现自己把一生中最宝贵的黄金时间，全给别人做了垫脚石。",
+                defenseTrap: "📌 你的脆弱自我防御（Dan Koe 揭露）：你用【大环境不好、我没有资源和时间】来当成不开始副业的借口。你用每天被琐事填满的‘疲惫感’，自欺欺人地证明自己‘问心无愧’，实则是战略上的彻底懒惰！",
                 emergencyAction: "⚡ 24小时紧急止损微行动：明天早晨醒来后的第一个小时（6:30-7:30），严禁打开工作微信和邮件，雷打不动地推进一件【100%属于你自己的独立作品草稿或个人专栏】，绝不出卖每天的第一精力！"
             },
-            COMPLY: {
-                name: "社交迎合型 · 能量被吸血者",
+            NUMB_RELATIONS: {
+                pillarId: "NUMB_RELATIONS",
+                pillarName: "The Numb Relationships 麻木社交",
+                name: "The Numb Relationships · 麻木合群社交内耗型",
                 tag: "独立人格严重缺位",
-                summary: "你的生命正在被【无效社交、消极负能量与外界目光】大口大口地撕咬蚕食。你害怕被孤立、害怕得罪人、习惯委屈自己去迎合他人的情绪垃圾，活成了别人眼里的老好人，却丢了自己的灵魂。",
-                brutalTuesday: "5年后的一个周二：你依然在满是负能量和消极抱怨的聚会中陪笑，身边没有任何一个能同频共振、彼此激发的知己。你为了维持虚假的人际面子委屈了自己整整半生，到头来发现那些你拼命讨好的人，在你真正落难时根本不会伸出一只手。",
-                defenseTrap: "📌 你的脆弱自我防御：你把【懦弱不敢拒绝】美化为‘性格温和善良’。你害怕一旦变得锐利优秀会被身边平庸的圈子抛弃，于是主动把自己的智商与能量拉低到和他们一样的泥潭里！",
+                summary: "Dan Koe 警告的核心危机：【The Numb Relationships · 虚伪言不由衷的麻木关系】。你的生命正在被【无效社交、消极负能量与外界目光】大口大口地撕咬蚕食。你害怕被孤立、害怕得罪人、习惯委屈自己去迎合他人的情绪垃圾，活成了别人眼里的老好人，却丢了自己的灵魂。",
+                brutalTuesday: "5年后的一个普通周二：你依然在满是负能量和消极抱怨的聚会中陪笑，身边没有任何一个能同频共振、彼此激发的知己。你为了维持虚假的人际面子委屈了自己整整半生，到头来发现那些你拼命讨好的人，在你真正落难时根本不会伸出一只手。",
+                defenseTrap: "📌 你的脆弱自我防御（Dan Koe 揭露）：你把【懦弱不敢拒绝】美化为‘性格温和善良’。你害怕一旦变得锐利优秀会被身边平庸的圈子抛弃，于是主动把自己的智商与能量拉低到和他们一样的泥潭里！",
                 emergencyAction: "⚡ 24小时紧急止损微行动：今天主动推掉一场言不由衷的聚餐或闲聊；翻开微信，把最近两周内持续向你倾倒负能量垃圾的某个人直接‘免打扰+折叠’，收回你的注意力主权！"
             }
         };
@@ -619,6 +694,7 @@
             document.getElementById('q-num-cur').innerText = '0' + (curStep + 1);
             document.getElementById('q-progress-fill').style.width = (((curStep + 1) / 8) * 100) + '%';
             document.getElementById('q-heading').innerText = item.q;
+            document.getElementById('q-original-quote').innerText = item.quote;
             document.getElementById('q-subtitle').innerText = item.sub;
 
             var letters = ['A', 'B', 'C', 'D'];
@@ -631,7 +707,7 @@
                 var btn = document.createElement('button');
                 btn.type = 'button';
                 btn.className = 'option-tile' + (isSel ? ' selected' : '');
-                btn.innerHTML =
+                btn.innerHTML = 
                     '<div style="flex: 1;">' +
                         '<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">' +
                             '<span class="mono" style="font-size: 12px; width: 24px; height: 24px; border-radius: 9999px; background: ' + (isSel ? '#C84B28' : '#141311') + '; color: #FAF7F0; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">' + letters[idx] + '</span>' +
@@ -677,19 +753,27 @@
             });
 
             var totalRisk = 0;
-            var counts = { NUMB: 0, FATIGUE: 0, PRISON: 0, COMPLY: 0 };
+            var pillarScores = { DUMB_MIND: 0, SOFT_BODY: 0, ROBOTIC_WORK: 0, NUMB_RELATIONS: 0 };
+            var pillarCounts = { DUMB_MIND: 0, SOFT_BODY: 0, ROBOTIC_WORK: 0, NUMB_RELATIONS: 0 };
+
             chosenObjs.forEach(function(o) {
                 totalRisk += o.risk;
-                counts[o.archetype] = (counts[o.archetype] || 0) + 1;
+                pillarScores[o.pillar] = (pillarScores[o.pillar] || 0) + o.risk;
+                pillarCounts[o.pillar] = (pillarCounts[o.pillar] || 0) + 1;
             });
 
             var avgRisk = Math.round(totalRisk / 8);
-            var sortedArchs = Object.keys(counts).sort(function(a, b) {
-                return counts[b] - counts[a];
+
+            // Determine dominant acute pillar
+            var sortedPillars = Object.keys(pillarCounts).sort(function(a, b) {
+                if (pillarCounts[b] !== pillarCounts[a]) {
+                    return pillarCounts[b] - pillarCounts[a];
+                }
+                return pillarScores[b] - pillarScores[a];
             });
 
-            var primaryKey = sortedArchs[0];
-            var archData = ARCHETYPE_MAP[primaryKey] || ARCHETYPE_MAP.NUMB;
+            var primaryKey = sortedPillars[0];
+            var archData = ARCHETYPE_MAP[primaryKey] || ARCHETYPE_MAP.DUMB_MIND;
 
             var riskBadge = avgRisk >= 88 ? "CRITICAL · 极度高危沉沦态" : (avgRisk >= 80 ? "HIGH RISK · 严重内耗警报" : "WARNING · 慢性滑落警戒");
 
@@ -697,7 +781,7 @@
                 {
                     num: "01",
                     title: "【晨起黄金注意力绝对戒严令】",
-                    rule: "每天醒来后的前 60 分钟，绝对禁止触摸手机屏幕或查看任何外界消息。这 60 分钟是唯一属于你自己的高维造资产时间，绝不出卖给外界噪音。"
+                    rule: "每天醒来后的前 60 分钟，绝对禁止触摸手机屏幕或查看任何外界消息。这 60 分钟是属于你自己的高维造资产时间，绝不出卖给外界噪音。"
                 },
                 {
                     num: "02",
@@ -721,18 +805,44 @@
                 }
             ];
 
+            // Render Results
             document.getElementById('res-risk-badge').innerText = riskBadge;
             document.getElementById('res-archetype-badge').innerText = archData.tag;
             document.getElementById('res-title').innerText = archData.name;
             document.getElementById('res-desc').innerHTML = '<p style="margin: 0;">' + archData.summary + '</p>';
             document.getElementById('res-score-num').innerText = avgRisk + '%';
-            document.getElementById('res-sub-code').innerText = "沉沦危险指数";
+            document.getElementById('res-sub-code').innerText = "综合沉沦危险指数";
 
-            document.getElementById('res-mirror-tag').innerText = "主要诱因: " + archData.tag;
-            document.getElementById('res-mirror-title').innerText = "5年后的噩梦镜像正在向你走来：";
+            // Render 4 Pillars Breakdown
+            var pillarDisplay = [
+                { id: "DUMB_MIND", name: "The Dumb Mind 迟钝心智", count: pillarCounts.DUMB_MIND, icon: "🧠" },
+                { id: "SOFT_BODY", name: "The Soft Body 软弱肉体", count: pillarCounts.SOFT_BODY, icon: "⚡" },
+                { id: "ROBOTIC_WORK", name: "The Robotic Work 机械工作", count: pillarCounts.ROBOTIC_WORK, icon: "⛓️" },
+                { id: "NUMB_RELATIONS", name: "The Numb Relationships 麻木社交", count: pillarCounts.NUMB_RELATIONS, icon: "🎭" }
+            ];
+
+            var breakdownHtml = pillarDisplay.map(function(p) {
+                var pct = Math.round((p.count / 8) * 100);
+                var isPrimary = (p.id === primaryKey);
+                return '<div style="padding: 10px 14px; border-radius: 12px; background: ' + (isPrimary ? '#FDF6EA' : '#FFFFFF') + '; border: 1.5px solid ' + (isPrimary ? '#C84B28' : '#DFD5BE') + ';">' +
+                    '<div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; margin-bottom: 6px;">' +
+                        '<span>' + p.icon + ' ' + p.name + '</span>' +
+                        '<span class="mono" style="color: ' + (isPrimary ? '#C84B28' : '#4A453D') + ';">' + pct + '% 崩盘重灾</span>' +
+                    '</div>' +
+                    '<div style="width: 100%; height: 6px; background: #EAE3D2; border-radius: 9999px; overflow: hidden;">' +
+                        '<div style="width: ' + pct + '%; height: 100%; background: ' + (isPrimary ? '#C84B28' : '#8A5212') + ';"></div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+            document.getElementById('res-pillars-breakdown').innerHTML = breakdownHtml;
+
+            // Render 5-Year Tuesday & Defense Trap
+            document.getElementById('res-mirror-tag').innerText = "急性崩盘区: " + archData.pillarName;
+            document.getElementById('res-mirror-title').innerText = "5年后的恐怖噩梦正在向你走来：";
             document.getElementById('res-mirror-body').innerHTML = '<p style="margin: 0; line-height: 1.8;">' + archData.brutalTuesday + '</p>';
             document.getElementById('res-defense-trap').innerHTML = archData.defenseTrap;
 
+            // Render Rules
             var rulesListHtml = nonNegotiables.map(function(item) {
                 return '<div style="margin-bottom: 1rem; padding: 1rem; border-radius: 14px; background: #FAF7F0; border: 1px solid #E2D9C3;">' +
                     '<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">' +
@@ -744,7 +854,7 @@
             }).join('');
             document.getElementById('res-rules-list').innerHTML = rulesListHtml;
 
-            document.getElementById('res-emergency-act').innerHTML =
+            document.getElementById('res-emergency-act').innerHTML = 
                 '<strong style="color: #C84B28; display: block; margin-bottom: 4px;">⚡ 24小时止损急救方案：</strong>' +
                 '<div>' + archData.emergencyAction + '</div>';
 
@@ -752,6 +862,7 @@
                 avgRisk: avgRisk,
                 riskBadge: riskBadge,
                 archData: archData,
+                pillarDisplay: pillarDisplay,
                 nonNegotiables: nonNegotiables,
                 chosenObjs: chosenObjs
             };
@@ -760,13 +871,13 @@
         function copyResultText() {
             if (!latestReportData) return;
             var d = latestReportData;
-            var text = "刚测了 Dan Koe 的【ANTI-VISION 反向愿景与止损底线协议】：\n" +
-                "⚠️ 沉沦危险指数：" + d.avgRisk + "%（" + d.riskBadge + "）\n" +
-                "🏷️ 核心毒性原型：【" + d.archData.name + "】\n" +
-                "📌 致命自我防御：" + d.archData.tag + "\n" +
-                "🛑 5大不可动摇防御红线已建立：醒来首小时数字戒严 / 绝不摸手机 / 48h公开交付\n\n" +
-                "🔥 2分钟直面内心反向愿景 & 生成1080P警戒海报：https://suoha888.github.io/anti-vision-protocol/\n" +
-                "制作出品：@SUOHA_AI";
+            var text = "刚在【KOE LABS】测了 Dan Koe 的【模型 02: THE ANTI-VISION 反向愿景与止损底线协议】：\n" +
+                "⚠️ 综合沉沦危险指数：" + d.avgRisk + "%（" + d.riskBadge + "）\n" +
+                "🏷️ 核心急性崩盘原型：【" + d.archData.name + "】\n" +
+                "📌 Dan Koe 揭露的隐秘自我保护：" + d.archData.tag + "\n" +
+                "🛑 5大不可动摇防御红线已生成：醒来首小时数字戒严 / 绝不摸手机 / 48h公开交付\n\n" +
+                "🔥 2分钟直面内心反向愿景 & 生成1080P警戒海报：https://suoha888.github.io/human-3-quiz/anti-vision/\n" +
+                "制作出品：@SUOHA_AI (KOE LABS 开源系列)";
 
             function notifySuccess() {
                 var btn = document.getElementById('btn-copy-result');
@@ -990,7 +1101,7 @@
                 ctx.textBaseline = "top";
                 ctx.fillStyle = "#C84B28";
                 ctx.font = "bold 17px monospace";
-                ctx.fillText("DAN KOE (@thedankoe) FRAMEWORK · PART II", 166, 82);
+                ctx.fillText("KOE LABS · MODEL 02 · DAN KOE (@thedankoe)", 166, 82);
                 ctx.fillStyle = "#141311";
                 ctx.font = "bold 26px 'PingFang SC', sans-serif";
                 ctx.fillText("THE ANTI-VISION · 人生止损底线警戒令", 166, 110);
@@ -1025,115 +1136,103 @@
 
                 ctx.fillStyle = "#4A453D";
                 ctx.font = "22px 'PingFang SC', sans-serif";
-                drawParas(ctx, heroDescLines, 76, curHeroY + 12, 35, 10);
+                drawParas(ctx, heroDescLines, 76, curHeroY + 14, 35, 10);
 
-                // Risk Num Box
-                drawRoundRect(ctx, 786, sec2Y, 218, 200, 30, "#F3EAD6", "#141311", 3.5);
+                var badgeW = 200;
+                var badgeX = W - 76 - badgeW;
+                drawRoundRect(ctx, badgeX, sec2Y, badgeW, 192, 24, "#F3EAD6", "#141311", 3);
                 ctx.textAlign = "center";
                 ctx.fillStyle = "#4A453D";
-                ctx.font = "bold 15px monospace";
-                ctx.fillText("DECAY RISK", 895, sec2Y + 44);
+                ctx.font = "bold 14px monospace";
+                ctx.fillText("TOTAL DECAY RISK", badgeX + badgeW / 2, sec2Y + 24);
                 ctx.fillStyle = "#C84B28";
-                ctx.font = "bold 76px 'Songti SC', serif";
-                ctx.fillText(d.avgRisk + "%", 895, sec2Y + 120);
+                ctx.font = "bold 74px 'Songti SC', 'Noto Serif SC', serif";
+                ctx.fillText(d.avgRisk + "%", badgeX + badgeW / 2, sec2Y + 54);
                 ctx.fillStyle = "#141311";
-                ctx.font = "bold 18px monospace";
-                ctx.fillText("沉沦危险指数", 895, sec2Y + 160);
+                ctx.font = "bold 15px 'PingFang SC', sans-serif";
+                ctx.fillText("综合沉沦危险指数", badgeX + badgeW / 2, sec2Y + 142);
                 ctx.textAlign = "left";
 
-                // Sec 3: 5-Year Brutal Tuesday
-                drawRoundRect(ctx, 76, sec3Y, W - 152, sec3CardH, 28, "#F3EAD6", "#D8C9A8", 2);
-                var c3Y = sec3Y + 30;
-                ctx.fillStyle = "#9A5210";
-                ctx.font = "bold 20px 'PingFang SC', sans-serif";
-                ctx.fillText("⚠️ 你的 5 年后反向愿景全景推演 (The Brutal 5-Year Tuesday)", 108, c3Y);
+                // Section 3: Mirror Card
+                drawRoundRect(ctx, 76, sec3Y, innerW, sec3CardH, 24, "#F3EAD6", "#D8C9A8", 2);
+                ctx.fillStyle = "#8A5212";
+                ctx.font = "bold 18px 'PingFang SC', sans-serif";
+                ctx.fillText("⚠️ 你的 5 年后反向愿景全景推演（The Brutal 5-Year Tuesday）", 106, sec3Y + 30);
 
-                c3Y += 46;
                 ctx.fillStyle = "#141311";
-                ctx.font = "bold 26px 'Songti SC', 'Noto Serif SC', serif";
-                ctx.fillText("噩梦镜像正在向你走来：", 108, c3Y);
+                ctx.font = "bold 26px 'Songti SC', serif";
+                ctx.fillText("5 年后的普通周二噩梦：", 106, sec3Y + 68);
 
-                c3Y += 40;
                 ctx.fillStyle = "#4A453D";
                 ctx.font = "21px 'PingFang SC', sans-serif";
-                c3Y = drawParas(ctx, mirrorLines, 108, c3Y, 34, 10);
+                var endMirrorY = drawParas(ctx, mirrorLines, 106, sec3Y + 112, 34, 10);
 
-                c3Y += 20;
-                drawRoundRect(ctx, 108, c3Y, innerW, trapBoxH, 18, "#FFFFFF", "#DFD5BE", 1.5);
+                var trapBoxY = endMirrorY + 20;
+                drawRoundRect(ctx, 106, trapBoxY, innerW - 60, trapBoxH, 16, "#FFFFFF", "#DFD5BE", 1.5);
                 ctx.fillStyle = "#141311";
                 ctx.font = "19.5px 'PingFang SC', sans-serif";
-                drawParas(ctx, trapLines, 132, c3Y + 22, 30, 8);
+                drawParas(ctx, trapLines, 126, trapBoxY + 22, 30, 8);
 
-                // Sec 4: 5 Non-Negotiables
-                drawRoundRect(ctx, 76, sec4Y, W - 152, sec4CardH, 28, "#FFFFFF", "#141311", 3.5);
-                var c4Y = sec4Y + 30;
+                // Section 4: Daily Levers Rules
+                drawRoundRect(ctx, 76, sec4Y, innerW, sec4CardH, 24, "#FFFFFF", "#141311", 3);
                 ctx.fillStyle = "#C84B28";
                 ctx.font = "bold 20px monospace";
-                ctx.fillText("🛑 THE NON-NEGOTIABLES · 针对你的 5 大每日防御红线", 108, c4Y);
+                ctx.fillText("🛑 THE DAILY LEVERS · 针对你的 5 大每日防御红线", 106, sec4Y + 30);
 
-                c4Y += 44;
+                var curRuleY = sec4Y + 76;
                 ruleLineList.forEach(function(r) {
-                    drawRoundRect(ctx, 108, c4Y, innerW, r.h, 14, "#FAF7F0", "#E2D9C3", 1.5);
-                    ctx.fillStyle = "#C84B28";
-                    ctx.font = "bold 15px monospace";
-                    ctx.fillText("RULE " + r.num, 128, c4Y + 16);
+                    drawRoundRect(ctx, 106, curRuleY, innerW - 60, r.h, 14, "#FAF7F0", "#E2D9C3", 1.5);
+                    drawRoundRect(ctx, 126, curRuleY + 14, 80, 26, 6, "#C84B28", null);
+                    ctx.fillStyle = "#FFFFFF";
+                    ctx.font = "bold 13px monospace";
+                    ctx.fillText("RULE " + r.num, 137, curRuleY + 18);
+
                     ctx.fillStyle = "#141311";
                     ctx.font = "bold 20px 'PingFang SC', sans-serif";
-                    ctx.fillText(r.title, 210, c4Y + 14);
+                    ctx.fillText(r.title, 220, curRuleY + 16);
 
                     ctx.fillStyle = "#4A453D";
                     ctx.font = "19px 'PingFang SC', sans-serif";
-                    drawParas(ctx, r.lines, 128, c4Y + 44, 30, 0);
-                    c4Y += (r.h + 16);
+                    drawParas(ctx, r.lines, 126, curRuleY + 50, 30, 0);
+
+                    curRuleY += (r.h + 16);
                 });
 
-                // Emergency action box
-                drawRoundRect(ctx, 108, c4Y, innerW, emH, 14, "#FAF7F0", "#D8C9A8", 1.5);
+                drawRoundRect(ctx, 106, curRuleY + 8, innerW - 60, emH, 14, "#FAF7F0", "#D8C9A8", 1.5);
                 ctx.fillStyle = "#C84B28";
-                ctx.font = "bold 19.5px 'PingFang SC', sans-serif";
-                ctx.fillText("⚡ 24小时止损急救方案：", 128, c4Y + 16);
+                ctx.font = "bold 18px 'PingFang SC', sans-serif";
+                ctx.fillText("⚡ 24 小时止损急救微行动：", 126, curRuleY + 24);
                 ctx.fillStyle = "#141311";
                 ctx.font = "19px 'PingFang SC', sans-serif";
-                drawParas(ctx, emLines, 128, c4Y + 44, 32, 0);
+                drawParas(ctx, emLines, 126, curRuleY + 54, 30, 0);
 
                 // Footer
-                drawCircleAvatar(ctx, img1, 104, footerY, 24, "DK", "#141311");
-                ctx.fillStyle = "#4A453D";
-                ctx.font = "bold 20px 'PingFang SC', sans-serif";
-                ctx.fillText("理论原著：Dan Koe (@thedankoe)《The Anti-Vision》", 140, footerY - 11);
+                ctx.beginPath(); ctx.moveTo(76, footerY); ctx.lineTo(W - 76, footerY);
+                ctx.strokeStyle = "#DFD5BE"; ctx.lineWidth = 1.5; ctx.stroke();
 
-                drawCircleAvatar(ctx, img2, 624, footerY, 24, "梭", "#C84B28");
-                ctx.fillStyle = "#141311";
-                ctx.font = "bold 20px 'PingFang SC', sans-serif";
-                ctx.fillText("互动系统制作出品：梭哈.AI (@SUOHA_AI)", 660, footerY - 11);
-
+                ctx.fillStyle = "#7E766A";
+                ctx.font = "16px 'PingFang SC', sans-serif";
+                ctx.fillText("KOE LABS · Dan Koe 思想模型开源实验室 | 免费在线自测：suoha888.github.io/human-3-quiz/anti-vision/", 76, footerY + 24);
                 ctx.textAlign = "right";
-                ctx.fillStyle = "#8A5212";
-                ctx.font = "bold 16px monospace";
-                ctx.fillText("在线体验: suoha888.github.io/anti-vision-protocol", W - 104, footerY + 22);
+                ctx.fillText("制作出品：梭哈.AI @SUOHA_AI (DYOR)", W - 76, footerY + 24);
                 ctx.textAlign = "left";
 
-                try {
-                    return canvas.toDataURL("image/png");
-                } catch (e) {
-                    if (useExtImg) {
-                        return buildPosterDataURL(false);
-                    }
-                    throw e;
-                }
-            } // end buildPosterDataURL
+                return canvas.toDataURL("image/png");
+            }
 
             try {
                 generatedPosterDataURL = buildPosterDataURL(true);
-                document.getElementById('poster-preview-img').src = generatedPosterDataURL;
-                document.getElementById('poster-modal').classList.remove('hidden');
             } catch (err) {
-                console.error("生成海报失败:", err);
-                alert("生成海报时遇到异常，请重试");
-            } finally {
-                if (btn) btn.innerHTML = oldHtml;
+                console.warn("CORS fallback for canvas poster:", err);
+                generatedPosterDataURL = buildPosterDataURL(false);
             }
-        } // end generateAndShowPoster
+
+            if (btn) btn.innerHTML = oldHtml;
+            var previewImg = document.getElementById('poster-preview-img');
+            if (previewImg) previewImg.src = generatedPosterDataURL;
+            var modal = document.getElementById('poster-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
 
         function closePosterModal() {
             var modal = document.getElementById('poster-modal');
@@ -1142,57 +1241,33 @@
 
         function triggerPosterDownload() {
             if (!generatedPosterDataURL) return;
-            var a = document.createElement('a');
-            a.download = "ANTI-VISION-止损底线警戒令-梭哈AI.png";
-            a.href = generatedPosterDataURL;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            var link = document.createElement('a');
+            var d = latestReportData || { avgRisk: 88, archData: { pillarId: "ANTI_VISION" } };
+            link.download = "KOE_LABS_ANTI_VISION_" + d.archData.pillarId + "_" + d.avgRisk + "分.png";
+            link.href = generatedPosterDataURL;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
-        function bindAllEvents() {
+        document.addEventListener('DOMContentLoaded', function() {
             var btnStart = document.getElementById('btn-start-quiz');
             if (btnStart) btnStart.onclick = startAssessment;
-
-            var btnPrev = document.getElementById('btn-prev-question');
-            if (btnPrev) btnPrev.onclick = prevQuestion;
-
-            var btnRestart = document.getElementById('btn-restart-quiz');
-            if (btnRestart) btnRestart.onclick = startAssessment;
-
+            var btnReset = document.getElementById('btn-nav-reset');
+            if (btnReset) btnReset.onclick = resetToHome;
+            var btnHomeLogo = document.getElementById('nav-home-logo');
+            if (btnHomeLogo) btnHomeLogo.onclick = resetToHome;
+            var btnPoster = document.getElementById('btn-gen-poster');
+            if (btnPoster) btnPoster.onclick = generateAndShowPoster;
             var btnCopy = document.getElementById('btn-copy-result');
             if (btnCopy) btnCopy.onclick = copyResultText;
-
-            var navLogo = document.getElementById('nav-home-logo');
-            if (navLogo) navLogo.onclick = resetToHome;
-            var navReset = document.getElementById('btn-nav-reset');
-            if (navReset) navReset.onclick = resetToHome;
-
-            var btnGenPoster = document.getElementById('btn-gen-poster');
-            if (btnGenPoster) btnGenPoster.onclick = generateAndShowPoster;
-
             var btnCloseX = document.getElementById('btn-close-modal-x');
             if (btnCloseX) btnCloseX.onclick = closePosterModal;
-
             var btnCloseCancel = document.getElementById('btn-close-modal-cancel');
             if (btnCloseCancel) btnCloseCancel.onclick = closePosterModal;
-
             var btnDownload = document.getElementById('btn-download-poster');
             if (btnDownload) btnDownload.onclick = triggerPosterDownload;
-
-            var modal = document.getElementById('poster-modal');
-            if (modal) {
-                modal.onclick = function(e) {
-                    if (e.target === modal) closePosterModal();
-                };
-            }
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', bindAllEvents);
-        } else {
-            bindAllEvents();
-        }
+        });
     </script>
 </body>
 </html>
