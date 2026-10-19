@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUMAN 3.0 — 你在人生这场游戏里，活成了几级玩家？ | Dan Koe × 梭哈.AI (@SUOHA_AI)</title>
+    <meta name="description" content="基于 Dan Koe 全象限进化模型，用 8 个真实日常行为场景测出你的生命段位、揪出虚假努力，生成专属 1080P 杂志级诊断海报。">
+    <!-- OpenGraph & Twitter Cards -->
+    <meta property="og:title" content="HUMAN 3.0 全象限人生段位评估 | Dan Koe × 梭哈.AI">
+    <meta property="og:description" content="测测你在心智、身体、精神、志业四个象限中活成了几级玩家？揪出虚假努力，生成 1080P 专属全息诊断报告。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://suoha888.github.io/human-3-quiz/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@SUOHA_AI">
+    <!-- 异步加载 Tailwind，内置极速 Fallback 样式 -->
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <style>
+        :root {
+            --bg-ivory: #FAF7F0;
+            --bg-wheat: #F3EAD6;
+            --ink-primary: #141311;
+            --ink-secondary: #4A453D;
+            --ink-muted: #7E766A;
+            --border-grid: #DFD5BE;
+            --accent-vermilion: #C84B28;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { box-sizing: border-box; }
+        .hidden { display: none !important; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: var(--bg-ivory);
+            color: var(--ink-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-image: 
+                radial-gradient(at 12% 10%, rgba(242, 228, 190, 0.88) 0px, transparent 55%),
+                radial-gradient(at 88% 90%, rgba(236, 219, 178, 0.75) 0px, transparent 55%);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            line-break: strict;
+            word-break: break-word;
+        }
+
+        .serif { font-family: "Songti SC", "Noto Serif SC", Georgia, serif; }
+        .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+        .container-nav { max-width: 58rem; margin: 0 auto; padding: 0 1rem; height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+        .container-main { max-width: 48rem; width: 100%; margin: 0 auto; padding: 2rem 1rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .editorial-surface {
+            background: rgba(255, 255, 255, 0.96);
+            border: 1.5px solid var(--border-grid);
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 24px 48px -16px rgba(20, 19, 17, 0.08), 0 4px 12px -2px rgba(20, 19, 17, 0.03);
+        }
+        @media (min-width: 640px) {
+            .editorial-surface { padding: 2.75rem; }
+            .container-main { padding: 3rem 2rem; }
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+
+        .option-tile {
+            width: 100%;
+            text-align: left;
+            padding: 1.25rem 1.5rem;
+            border-radius: 16px;
+            background: #FAF7F0;
+            border: 1.5px solid #E2D9C3;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.2s var(--ease-out-expo);
+            margin-bottom: 0.85rem;
+        }
+        .option-tile:hover {
+            background: #F5EBD4;
+            border-color: var(--accent-vermilion);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px -10px rgba(200, 75, 40, 0.16);
+        }
+        .option-tile.selected {
+            background: #F3EAD6;
+            border-color: var(--accent-vermilion);
+            box-shadow: 0 0 0 1.5px var(--accent-vermilion);
+        }
+
+        .btn-dark {
+            background-color: #141311;
+            color: #FAF7F0;
+            padding: 1rem 2.25rem;
+            border-radius: 9999px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-dark:hover { background-color: #C84B28; }
+
+        .btn-light {
+            background-color: #F3EAD6;
+            color: #141311;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border: 1.5px solid #D8C9A8;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-light:hover { background-color: #E6D8B8; }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeUp 0.35s var(--ease-out-expo) forwards; }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部品牌栏 -->
+    <header style="border-bottom: 1px solid #DFD5BE; background: rgba(250,247,240,0.92); position: sticky; top: 0; z-index: 40; backdrop-filter: blur(8px);">
+        <div class="container-nav">
+            <div id="nav-home-logo" onclick="resetToHome()" style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+                <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 42px; height: 42px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span class="serif" style="font-weight: 700; font-size: 1.15rem; color: #141311;">HUMAN 3.0</span>
+                        <span class="mono" style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: #F3EAD6; border: 1px solid #DFD5BE; color: #4A453D; font-weight: 700;">DAN KOE 思维模型</span>
+                    </div>
+                    <div style="font-size: 11px; color: #7E766A; margin-top: 2px;">原著：@thedankoe</div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                <a href="https://github.com/suoha888/human-3-quiz" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 6px 12px; border-radius: 9999px; background: #FAF7F0; border: 1px solid #DFD5BE; text-decoration: none; color: #141311; font-size: 12px; font-weight: 600;">
+                    <svg height="15" width="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+                    <span>GitHub ⭐</span>
+                </a>
+
+                <a href="https://x.com/SUOHA_AI" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 0.45rem; padding: 5px 12px; border-radius: 9999px; background: #F3EAD6; border: 1px solid #D8C9A8; text-decoration: none; color: #141311;">
+                    <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" alt="梭哈.AI" style="width: 28px; height: 28px; border-radius: 9999px; object-fit: cover; border: 1.5px solid #C84B28;">
+                    <div style="text-align: left;">
+                        <div class="mono" style="font-size: 9px; color: #7E766A; line-height: 1;">制作出品</div>
+                        <div style="font-size: 12px; font-weight: 700; color: #141311; margin-top: 1px;">梭哈.AI <span class="mono" style="font-size: 10px; font-weight: 400; color: #4A453D;">@SUOHA_AI</span></div>
+                    </div>
+                </a>
+
+                <button type="button" id="btn-nav-reset" onclick="resetToHome()" style="padding: 7px 13px; border-radius: 9999px; border: 1px solid #DFD5BE; background: transparent; font-size: 12px; font-weight: 600; color: #4A453D; cursor: pointer;">
+                    重置 ↺
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体内容区 -->
+    <main class="container-main">
+
+        <!-- 1. 首页 -->
+        <section id="screen-home" class="editorial-surface fade-in">
+            <div class="grid-2" style="padding-bottom: 1.5rem; border-bottom: 1px solid #E5DEC9; margin-bottom: 1.75rem;">
+                <a href="https://x.com/thedankoe" target="_blank" rel="noopener" style="padding: 1rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: center; gap: 0.85rem; text-decoration: none; color: inherit;">
+                    <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 54px; height: 54px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311; flex-shrink: 0;">
+                    <div>
+                        <div class="mono" style="font-size: 11px; color: #C84B28; font-weight: 700;">理论框架原著</div>
+                        <div style="font-size: 1.05rem; font-weight: 700; color: #141311;">Dan Koe (@thedankoe)</div>
+                        <div style="font-size: 12px; color: #7E766A; margin-top: 2px;">《HUMAN 3.0》全象限演化论</div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/SUOHA_AI" target="_blank" rel="noopener" style="padding: 1rem; border-radius: 16px; background: rgba(243,234,214,0.75); border: 1px solid #D8C9A8; display: flex; align-items: center; gap: 0.85rem; text-decoration: none; color: inherit;">
+                    <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" alt="梭哈.AI" style="width: 54px; height: 54px; border-radius: 9999px; object-fit: cover; border: 2px solid #C84B28; flex-shrink: 0;">
+                    <div>
+                        <div class="mono" style="font-size: 11px; color: #8A5212; font-weight: 700;">交互系统制作出品</div>
+                        <div style="font-size: 1.05rem; font-weight: 700; color: #141311;">梭哈.AI (@SUOHA_AI)</div>
+                        <div style="font-size: 12px; color: #4A453D; margin-top: 2px;">点击访问 X 主页关注更多工具 ↗</div>
+                    </div>
+                </a>
+            </div>
+
+            <div style="margin-bottom: 1.75rem;">
+                <p class="mono" style="font-size: 13px; letter-spacing: 0.16em; color: #C84B28; font-weight: 700; margin: 0 0 0.75rem 0;">
+                    HUMAN 3.0 · 全象限人生段位评估
+                </p>
+                <h1 class="serif" style="font-size: clamp(1.85rem, 4.5vw, 2.85rem); font-weight: 700; color: #141311; line-height: 1.24; margin: 0 0 1rem 0;">
+                    你在人生这场游戏里，<br>活成了几级玩家？
+                </h1>
+                <div style="font-size: 1.05rem; color: #4A453D; line-height: 1.8;">
+                    <p style="margin: 0 0 0.75rem 0;">
+                        大多数人终其一生困在 <strong style="color: #141311;">1.0 顺从者（NPC）</strong> 的默认剧本里，或者在 <strong style="color: #141311;">2.0 苦行者</strong> 的紧绷自律中痛苦内耗；只有前 1% 的人能打通四个象限，进入“工作即玩耍”的 <strong style="color: #C84B28;">3.0 觉醒者</strong> 境界。
+                    </p>
+                    <p style="margin: 0;">
+                        基于 Dan Koe 的全象限模型，用 <strong style="color: #141311;">8 个真实日常行为场景</strong>，测出你的生命段位、揪出“虚假努力”，并找到今天唯一能破局的那个支点。
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-2" style="margin-bottom: 1.75rem;">
+                <div style="padding: 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 1rem;">
+                    <span class="serif" style="font-size: 1.75rem; font-weight: 700; color: #C84B28; line-height: 1;">I</span>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.05rem; color: #141311;">心智象限 · Mind (个人内在)</div>
+                        <div style="font-size: 0.9rem; color: #4A453D; margin-top: 4px; line-height: 1.6;">独处时的注意力主权、元认知清晰度与知识转化闭环。</div>
+                    </div>
+                </div>
+                <div style="padding: 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 1rem;">
+                    <span class="serif" style="font-size: 1.75rem; font-weight: 700; color: #C84B28; line-height: 1;">II</span>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.05rem; color: #141311;">身体象限 · Body (个人外在)</div>
+                        <div style="font-size: 0.9rem; color: #4A453D; margin-top: 4px; line-height: 1.6;">全天生物能量基线、睡眠代谢与物理空间秩序场。</div>
+                    </div>
+                </div>
+                <div style="padding: 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 1rem;">
+                    <span class="serif" style="font-size: 1.75rem; font-weight: 700; color: #C84B28; line-height: 1;">III</span>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.05rem; color: #141311;">精神象限 · Spirit (集体内在)</div>
+                        <div style="font-size: 0.9rem; color: #4A453D; margin-top: 4px; line-height: 1.6;">亲密关系、同频共创部落（Tribe）与当下圆满感。</div>
+                    </div>
+                </div>
+                <div style="padding: 1.25rem; border-radius: 16px; background: #FAF7F0; border: 1px solid #E2D9C3; display: flex; align-items: flex-start; gap: 1rem;">
+                    <span class="serif" style="font-size: 1.75rem; font-weight: 700; color: #C84B28; line-height: 1;">IV</span>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.05rem; color: #141311;">志业象限 · Vocation (集体外在)</div>
+                        <div style="font-size: 0.9rem; color: #4A453D; margin-top: 4px; line-height: 1.6;">事业自主权、公开作品输出与高杠杆数字资产。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-top: 1.25rem; border-top: 1px solid #E5DEC9; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+                <span style="font-size: 0.9rem; color: #7E766A;">共 8 道真实行为诊断 · 动态交叉算法（自动生成 1080P 专属诊断海报）</span>
+                <button type="button" id="btn-start-quiz" onclick="startAssessment()" class="btn-dark">
+                    开始测算我的人生段位 →
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. 问答页 -->
+        <section id="screen-quiz" class="hidden">
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 0.75rem; padding: 0 4px;">
+                <span id="q-quad-pill" class="mono" style="font-size: 13px; padding: 4px 12px; border-radius: 6px; background: #F3EAD6; border: 1px solid #D8C9A8; color: #8A5212; font-weight: 700;">
+                    QUADRANT I · MIND 心智象限
+                </span>
+                <div class="serif" style="font-size: 2rem; font-weight: 700; color: #141311; line-height: 1;">
+                    <span id="q-num-cur" style="color: #C84B28;">01</span>
+                    <span style="font-size: 1.15rem; color: #7E766A; font-weight: 400;">/ 08</span>
+                </div>
+            </div>
+
+            <div style="width: 100%; height: 8px; background: #E8DFC8; border-radius: 9999px; overflow: hidden; margin-bottom: 1.5rem;">
+                <div id="q-progress-fill" style="height: 100%; background: #C84B28; width: 12.5%; transition: width 0.4s ease;"></div>
+            </div>
+
+            <div id="q-container" class="editorial-surface fade-in">
+                <div style="margin-bottom: 1.5rem;">
+                    <h2 id="q-heading" class="serif" style="font-size: clamp(1.35rem, 3vw, 1.75rem); font-weight: 700; color: #141311; line-height: 1.4; margin: 0 0 0.5rem 0;"></h2>
+                    <p id="q-subtitle" style="font-size: 0.95rem; color: #7E766A; margin: 0; line-height: 1.6;"></p>
+                </div>
+
+                <div id="q-options-list"></div>
+
+                <div style="padding-top: 1rem; margin-top: 1rem; border-top: 1px solid #ECE5D5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.88rem; color: #7E766A;">
+                    <button type="button" id="btn-prev-question" onclick="prevQuestion()" style="font-weight: 600; color: #4A453D; background: transparent; border: none; cursor: pointer; padding: 4px 0;">
+                        ← 返回上一题
+                    </button>
+                    <span>请依据过去 30 天的真实行为作答，切勿美化</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 结果页 -->
+        <section id="screen-result" class="hidden fade-in">
+            <div class="editorial-surface" style="border: 2px solid #141311; background-image: radial-gradient(at 90% 8%, #F5EBD2 0px, transparent 60%); margin-bottom: 1.75rem;">
+                
+                <!-- 眉题 -->
+                <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #DFD5BE; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 44px; height: 44px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311;">
+                        <div>
+                            <div class="mono" style="font-size: 10px; color: #C84B28; font-weight: 700;">DAN KOE (@thedankoe) FRAMEWORK</div>
+                            <div style="font-size: 0.95rem; font-weight: 700; color: #141311;">HUMAN 3.0 全象限演化诊断书</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem; background: #FAF7F0; padding: 6px 14px; border-radius: 16px; border: 1px solid #DFD5BE;">
+                        <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" alt="梭哈.AI" style="width: 34px; height: 34px; border-radius: 9999px; object-fit: cover; border: 2px solid #C84B28;">
+                        <div>
+                            <div class="mono" style="font-size: 9px; color: #7E766A;">制作出品</div>
+                            <div style="font-size: 13px; font-weight: 700; color: #141311;">梭哈.AI <span class="mono" style="font-size: 10px; font-weight: 400;">@SUOHA_AI</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 称号与总分印章 -->
+                <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; border-bottom: 1px solid #DFD5BE; padding-bottom: 1.75rem; margin-bottom: 1.75rem;">
+                    <div style="flex: 1 1 320px;">
+                        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <span id="res-tier-badge" class="mono" style="font-size: 13px; padding: 4px 12px; border-radius: 6px; background: #F3EAD6; border: 1px solid #D8C9A8; color: #8A5212; font-weight: 700;"></span>
+                            <span id="res-subphase-badge" class="mono" style="font-size: 13px; padding: 4px 12px; border-radius: 6px; background: #FAF7F0; border: 1px solid #DFD5BE; color: #141311; font-weight: 600;"></span>
+                        </div>
+                        <h1 id="res-title" class="serif" style="font-size: clamp(1.75rem, 3.8vw, 2.35rem); font-weight: 700; color: #141311; margin: 0 0 0.75rem 0; line-height: 1.25;"></h1>
+                        <div id="res-desc" style="font-size: 1rem; color: #4A453D; line-height: 1.8;"></div>
+                    </div>
+
+                    <div style="background: #F3EAD6; border: 2px solid #141311; border-radius: 24px; padding: 1.25rem 1.5rem; text-align: center; min-width: 148px;">
+                        <span class="mono" style="font-size: 11px; color: #4A453D; font-weight: 700; display: block;">LIFE OS LEVEL</span>
+                        <span id="res-score-num" class="serif" style="font-size: 3.25rem; font-weight: 700; color: #141311; display: block; margin: 4px 0;">2.00</span>
+                        <span id="res-archetype-code" class="mono" style="font-size: 11px; color: #C84B28; font-weight: 700; display: block;">MAX 3.0</span>
+                    </div>
+                </div>
+
+                <!-- 星图与四象限条 -->
+                <div class="grid-2" style="align-items: center; background: #FAF7F0; border: 1px solid #DFD5BE; border-radius: 24px; padding: 1.5rem; margin-bottom: 1.75rem; gap: 1.5rem;">
+                    <div id="res-svg-holder" style="display: flex; justify-content: center;"></div>
+                    <div id="res-quad-bars"></div>
+                </div>
+
+                <!-- 跨象限交叉归因（清晰分段呈现） -->
+                <div style="padding: 1.5rem; border-radius: 24px; background: rgba(243,234,214,0.88); border: 1px solid #D8C9A8; margin-bottom: 1.75rem;">
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 13px; font-weight: 700; color: #9A5210; margin-bottom: 0.75rem;">
+                        <span>⚠️ 跨象限交叉归因 & “虚假蜕变 (False Transformation)”侦测</span>
+                        <span id="res-gap-tag" class="mono" style="background: rgba(255,255,255,0.9); padding: 4px 10px; border-radius: 6px; border: 1px solid #D8C9A8; color: #141311;"></span>
+                    </div>
+                    <h3 id="res-glitch-title" class="serif" style="font-size: 1.35rem; font-weight: 700; color: #141311; margin: 0 0 0.75rem 0; line-height: 1.38;"></h3>
+                    <div id="res-glitch-body" style="font-size: 0.98rem; color: #4A453D; line-height: 1.8; margin-bottom: 1rem;"></div>
+                    <div id="res-specific-evidence" style="padding: 1.15rem; border-radius: 16px; background: rgba(255,255,255,0.96); border: 1px solid #DFD5BE; font-size: 0.9rem; color: #141311; line-height: 1.7;"></div>
+                </div>
+
+                <!-- 24h MED 处方（清晰分段呈现） -->
+                <div style="padding: 1.5rem; border-radius: 24px; background: #FFFFFF; border: 2px solid #141311; margin-bottom: 1.5rem;">
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; border-bottom: 1px solid #ECE5D5; padding-bottom: 0.85rem; margin-bottom: 1rem;">
+                        <span class="mono" style="font-size: 13px; color: #C84B28; font-weight: 700;">
+                            ⚡ MINIMUM EFFECTIVE DOSE · 针对你当前段位的破局处方
+                        </span>
+                        <span id="res-med-target-tag" class="mono" style="font-size: 12px; padding: 4px 10px; border-radius: 6px; background: #F3EAD6; border: 1px solid #D8C9A8; color: #141311; font-weight: 600;"></span>
+                    </div>
+                    <div id="res-med-body" style="margin-bottom: 1rem;"></div>
+                    <div id="res-channel-tip" style="padding: 0.9rem 1rem; border-radius: 12px; background: #FAF7F0; border: 1px solid #E2D9C3; font-size: 0.88rem; color: #4A453D; line-height: 1.65;"></div>
+                </div>
+
+                <!-- 底部署名栏 -->
+                <div style="padding-top: 1rem; border-top: 1px solid #DFD5BE; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; font-size: 12px; color: #4A453D;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" style="width: 28px; height: 28px; border-radius: 9999px; border: 1px solid #141311;">
+                        <span>理论模型：<strong>Dan Koe (@thedankoe)</strong>《HUMAN 3.0》</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" style="width: 28px; height: 28px; border-radius: 9999px; border: 1px solid #C84B28;">
+                        <span>本互动工具由 <strong style="color: #141311;">梭哈.AI (@SUOHA_AI)</strong> 制作出品</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center;">
+                <button type="button" id="btn-gen-poster" onclick="generateAndShowPoster()" class="btn-dark">
+                    ✦ 生成 / 下载 1080P 杂志级分享海报
+                </button>
+                <button type="button" id="btn-copy-result" onclick="copyResultText()" class="btn-light">
+                    📋 复制我的诊断结论推文
+                </button>
+                <button type="button" id="btn-restart-quiz" onclick="startAssessment()" class="btn-light">
+                    重新测试 ↺
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 海报预览弹窗 -->
+    <div id="poster-modal" class="modal-backdrop hidden">
+        <div style="background: #FAF7F0; border: 2px solid #141311; border-radius: 24px; max-width: 36rem; width: 100%; padding: 1.25rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #DFD5BE; padding-bottom: 0.75rem; margin-bottom: 1rem;">
+                <div>
+                    <div class="serif" style="font-weight: 700; font-size: 1.1rem; color: #141311;">✦ 你的专属 HUMAN 3.0 高清诊断海报</div>
+                    <div style="font-size: 12px; color: #7E766A; margin-top: 2px;">已自适应流式分段排版 · 电脑端点击下方按钮下载，手机端可直接长按图片保存</div>
+                </div>
+                <button type="button" id="btn-close-modal-x" onclick="closePosterModal()" style="width: 32px; height: 32px; border-radius: 9999px; background: #F3EAD6; border: none; color: #141311; font-weight: 700; cursor: pointer;">✕</button>
+            </div>
+            <div style="max-height: 66vh; overflow-y: auto; border-radius: 16px; border: 1px solid #DFD5BE; background: rgba(243,234,214,0.4); padding: 8px; display: flex; justify-content: center; margin-bottom: 1rem;">
+                <img id="poster-preview-img" alt="HUMAN 3.0 诊断海报" style="width: 100%; height: auto; border-radius: 12px; display: block;">
+            </div>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
+                <span style="font-size: 12px; color: #7E766A;">1080P 高清印刷级长图 (适配小红书 / X / 朋友圈)</span>
+                <div style="display: flex; gap: 0.65rem;">
+                    <button type="button" id="btn-close-modal-cancel" onclick="closePosterModal()" style="padding: 10px 20px; border-radius: 9999px; border: 1px solid #DFD5BE; background: #FFFFFF; font-size: 13px; font-weight: 600; color: #4A453D; cursor: pointer;">关闭</button>
+                    <button type="button" id="btn-download-poster" onclick="triggerPosterDownload()" style="padding: 10px 24px; border-radius: 9999px; border: none; background: #C84B28; color: #FFFFFF; font-size: 13px; font-weight: 700; cursor: pointer;">
+                        ⬇ 立即保存高清 PNG 图片
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部页脚 -->
+    <footer style="padding: 1.75rem 1.25rem; border-top: 1px solid #DFD5BE; background: rgba(243,234,214,0.55); font-size: 13px; color: #4A453D;">
+        <div style="max-width: 48rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+            <a href="https://x.com/thedankoe" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 0.6rem; color: inherit; text-decoration: none;">
+                <img src="https://unavatar.io/x/thedankoe" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=DK&background=141311&color=FAF7F0&bold=true&size=128'" alt="Dan Koe" style="width: 34px; height: 34px; border-radius: 9999px; object-fit: cover; border: 2px solid #141311;">
+                <span>理论源自 <strong style="color: #141311; text-decoration: underline;">Dan Koe (@thedankoe)</strong>《HUMAN 3.0》</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="https://github.com/suoha888/human-3-quiz" target="_blank" rel="noopener" style="color: #4A453D; text-decoration: none;">
+                    开源仓库 GitHub
+                </a>
+                <a href="https://x.com/SUOHA_AI" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 0.6rem; color: inherit; text-decoration: none;">
+                    <img src="https://unavatar.io/x/SUOHA_AI" crossorigin="anonymous" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=SH&background=C84B28&color=FAF7F0&bold=true&size=128'" alt="梭哈.AI" style="width: 34px; height: 34px; border-radius: 9999px; object-fit: cover; border: 2px solid #C84B28;">
+                    <span>互动系统由 <strong style="color: #141311; text-decoration: underline;">梭哈.AI (@SUOHA_AI)</strong> 制作出品</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var QUIZ_ITEMS = [
+            {
+                quad: "MIND", pill: "QUADRANT I · MIND 心智象限 (个人内在)",
+                q: "当你独自一人、没有任何外部任务需要应付时，你的大脑默认会发生什么？",
+                sub: "评估个人内在（Interior-Individual）的多巴胺主权与元认知清晰度。",
+                opts: [
+                    { score: 1.0, badge: "1.0 顺从态 · 算法劫持", shortTag: "一闲下来就刷短视频/热搜麻痹自己", text: "忍受不了几分钟的无聊，会下意识摸出手机刷短视频、社交动态或打游戏来填满空白。" },
+                    { score: 1.6, badge: "1.2 失调期 · 内耗自责", shortTag: "明知刷手机空虚却停不下来、事后自责", text: "明知刷手机很空虚但控制不住手指，关掉屏幕后常常陷入深深的懊悔与精神内耗。" },
+                    { score: 2.2, badge: "2.0 控制态 · 生产力强迫", shortTag: "不敢放松，逼自己听播客看干货抵抗焦虑", text: "产生“不能浪费时间”的紧绷感，强迫自己听播客、看干货或列计划，一旦休息就有负罪感。" },
+                    { score: 3.0, badge: "3.0 整合态 · 澄明心流", shortTag: "享受安静留白，能平静观察念头流转", text: "享受安静与心智留白，能像旁观者一样平静观察念头，许多创造性灵感常在放空时自然涌现。" }
+                ]
+            },
+            {
+                quad: "MIND", pill: "QUADRANT I · MIND 心智象限 (个人内在)",
+                q: "回顾过去半年你收藏的文章、购买的课程或读过的书，它们转化为你的真实行动了吗？",
+                sub: "检验是否存在“把囤积干货的快感误当成真实成长”的心智漏洞。",
+                opts: [
+                    { score: 1.0, badge: "1.0 被动态 · 停止深度输入", shortTag: "极少深度阅读，观点顺从热搜与大众", text: "很少主动进行深度阅读，日常观点和情绪基本顺从于热搜与身边人的普遍看法。" },
+                    { score: 1.6, badge: "1.3 松鼠症 · 收藏从不落地", shortTag: "收藏夹塞满干货，看完热血沸腾却从不行动", text: "收藏夹塞满了硬核干货，看的时候觉得醍醐灌顶，但合上屏幕后生活没有任何改变。" },
+                    { score: 2.3, badge: "2.1 体系狂 · 过度准备拖延", shortTag: "沉迷记精美笔记和搭体系，因过度思考推迟实战", text: "做了大量双链笔记和思维导图，试图构建完美体系，但常因“觉得还没准备好”而推迟行动。" },
+                    { score: 3.0, badge: "3.0 创造态 · 即时输出闭环", shortTag: "以解决问题和做作品为导向，48 小时内必转化输出", text: "只围绕“当前正在解决的课题或创作的作品”精准学习（JIT），学完 48 小时内必转化为实践输出。" }
+                ]
+            },
+            {
+                quad: "BODY", pill: "QUADRANT II · BODY 身体象限 (个人外在)",
+                q: "你每天清晨醒来时的精力，以及下午两三点钟的身体状态是怎样的？",
+                sub: "大脑是身体的一部分，低劣的生理硬件会直接锁死高维思考与志业的上限。",
+                opts: [
+                    { score: 1.0, badge: "1.0 透支态 · 熬夜脑雾", shortTag: "报复性熬夜、起床昏沉、靠外卖甜食续命", text: "经常报复性熬夜，起床昏沉痛苦，下午严重犯困脑雾，习惯靠重口味外卖或高糖零食慰藉自己。" },
+                    { score: 1.6, badge: "1.2 反复期 · 三分钟热度", shortTag: "间歇性立早睡运动 Flag，但常被压力打回原形", text: "常立下早睡或运动 Flag，但往往坚持三天就被工作压力或惰性打回原形，精力起伏极大。" },
+                    { score: 2.2, badge: "2.0 外挂态 · 咖啡因硬撑", shortTag: "压缩睡眠靠浓咖啡硬顶，带着焦虑感打卡健身", text: "为了多干活常压缩睡眠，白天靠浓咖啡或功能饮料硬撑；运动和控制饮食时常带着任务感与焦虑。" },
+                    { score: 3.0, badge: "3.0 本能态 · 生物反应堆", shortTag: "充足睡眠、干净饮食与规律训练已内化为享受", text: "8 小时深度睡眠、原生态干净饮食与规律训练已成为日常享受，全天精力如山泉般清澈稳定。" }
+                ]
+            },
+            {
+                quad: "BODY", pill: "QUADRANT II · BODY 身体象限 (个人外在)",
+                q: "环顾你此刻所在的办公桌面、房间环境与日常穿搭形象，它们处于什么状态？",
+                sub: "个人外在环境是你内在心智秩序的物理投射。",
+                opts: [
+                    { score: 1.0, badge: "1.0 无序态 · 杂物堆积", shortTag: "桌面与房间杂物堆积，无视物理环境对注意力的消耗", text: "桌面和房间经常杂物堆积，穿着随意凑合，不太在意物理环境对注意力的暗中消耗。" },
+                    { score: 1.7, badge: "1.3 波动期 · 忙乱失序", shortTag: "偶尔整理房间，但一忙起来环境就迅速恢复混乱", text: "偶尔心血来潮会大扫除，但只要工作一忙或情绪低落，周围环境就会迅速恢复混乱。" },
+                    { score: 2.3, badge: "2.1 装备态 · 符号消费", shortTag: "热衷购买昂贵生产力装备，但产出一半靠心理安慰", text: "在意外表体面，或花重金购置了人体工学椅、显示器等生产力装备，但有时只是为了满足消费欲。" },
+                    { score: 3.0, badge: "3.0 心流场 · 极简秩序", shortTag: "物理空间极简通透，一坐到桌前就能秒进心流", text: "物理空间极简、通透且充满审美秩序，外在清爽干练，一坐到书桌前就能在 30 秒内进入专注状态。" }
+                ]
+            },
+            {
+                quad: "SPIRIT", pill: "QUADRANT III · SPIRIT 精神象限 (集体内在)",
+                q: "在朋友交往、伴侣关系或社群连接中，你目前最真实的日常体验是什么？",
+                sub: "精神象限关乎你如何超越狭隘自我，与世界建立深度共鸣。",
+                opts: [
+                    { score: 1.0, badge: "1.0 迎合态 · 讨好消耗", shortTag: "害怕冲突与孤独，在无效饭局八卦中讨好迎合", text: "害怕孤独或冲突，常参加言不由衷的饭局与八卦闲聊，习惯委屈自己迎合他人，热闹后倍感空虚。" },
+                    { score: 1.7, badge: "1.3 疏离期 · 社交荒原", shortTag: "已远离酒肉朋友，但尚未建立深度同频连接", text: "已经厌倦并远离了浅层社交与酒肉朋友，但还没有找到真正能深度对话的同频人群。" },
+                    { score: 2.2, badge: "2.0 孤岛态 · 功利独狼", shortTag: "奉行独狼苦行切断社交，或纯以利益衡量人脉", text: "奉行极端的“独狼苦行”，认为社交全是浪费时间；或者只用利益和资源交换来衡量一切人脉。" },
+                    { score: 3.0, badge: "3.0 共创态 · 同频部落", shortTag: "人格独立完整，拥有深度互信的知己与共创部落", text: "既能安然享受独处，又拥有三五知己或同频部落（Tribe），彼此真诚照见盲区、激发高维灵感。" }
+                ]
+            },
+            {
+                quad: "SPIRIT", pill: "QUADRANT III · SPIRIT 精神象限 (集体内在)",
+                q: "关于“未来的成功目标”与“此时此刻的幸福感”，你内心的真实体会是？",
+                sub: "检测是否掉入“等我赚够钱才配快乐”的到达谬误（Arrival Fallacy）。",
+                opts: [
+                    { score: 1.0, badge: "1.0 逃避态 · 存在虚无", shortTag: "觉得日常枯燥无意义，靠周末睡懒产或娱乐打发时间", text: "觉得日复一日的生活枯燥乏味，看不到长远意义，只能靠周末睡懒觉或感官娱乐来打发时间。" },
+                    { score: 1.7, badge: "1.2 迷茫期 · 焦虑求索", shortTag: "渴望活出意义感，但面对现实压力常感迷茫无力", text: "渴望活出人生意义，经常思考未来方向，但面对现实生存压力时常常感到无力与焦虑。" },
+                    { score: 2.2, badge: "2.0 到达谬误 · 推迟幸福", shortTag: "紧绷冲刺，认为只有等赚够钱达成目标那天才能享受生活", text: "永远在紧绷冲刺，潜意识里觉得“只有等我赚到足够多的钱、功成名就那天，才配安心享受生活”。" },
+                    { score: 3.0, badge: "3.0 圆满态 · 过程即奖赏", shortTag: "既有长远愿景，又能在日常一杯茶与散步中体会圆满", text: "过程本身就是奖赏。在追逐宏大愿景的同时，依然能深刻品味日常一杯茶、一次散步的宁静。" }
+                ]
+            },
+            {
+                quad: "VOCATION", pill: "QUADRANT IV · VOCATION 志业象限 (集体外在)",
+                q: "你目前赖以谋生的工作或事业，与你的好奇心、时间自主权之间是什么关系？",
+                sub: "志业象限检验你如何将内在潜能转化为社会价值与自由杠杆。",
+                opts: [
+                    { score: 1.0, badge: "1.0 螺丝钉 · 出卖时间", shortTag: "干着随时可被替代的工作，出卖时间换死工资", text: "干着按部就班、随时可被替代的工作，纯粹出卖时间换取死工资，对星期一充满抗拒。" },
+                    { score: 1.7, badge: "1.3 试探期 · 副业摸索", shortTag: "意识到死工资危机并尝试副业，但尚未跑通闭环", text: "已经意识到死工资的危机，开始探索副业或学习新技能，但尚未跑通稳定的自主商业闭环。" },
+                    { score: 2.2, badge: "2.0 黄金牢笼 · 高压工作狂", shortTag: "高薪或创业中，但沦为 7×24 小时不敢停工的工作狂", text: "拥有高薪技能或正在搞副业/创业，收入不错但沦为 7×24 小时工作狂，一旦停工就充满焦虑。" },
+                    { score: 3.0, badge: "3.0 无限游戏 · 复利资产", shortTag: "构建了内容/代码/产品等复利资产，工作即玩耍", text: "通过内容、代码、产品或系统构建了复利资产，工作与个人热情高度合一，享受创造的自主权。" }
+                ]
+            },
+            {
+                quad: "VOCATION", pill: "QUADRANT IV · VOCATION 志业象限 (集体外在)",
+                q: "在互联网或你的专业领域里，你是“沉默的消费者”还是“公开发布作品的创造者”？",
+                sub: "这是检验“言行一致性”最核心的试金石。",
+                opts: [
+                    { score: 1.0, badge: "1.0 纯消费者 · 害怕评判", shortTag: "只看不发，因害怕别人评价从未公开发表过作品", text: "几乎只是旁观者和消费者，害怕别人评头论足，从未在公开场合持续发表过自己的作品或产品。" },
+                    { score: 1.6, badge: "1.2 完美主义 · 草稿囤积", shortTag: "脑子里有很多企划草稿，总想等完美再发导致迟迟未上线", text: "脑子里有很多企划和草稿，总是想等“准备到完美”再发出来，结果迟迟没有真正上线。" },
+                    { score: 2.3, badge: "2.1 流量迎合 · 算法苦工", shortTag: "持续输出内容，但常为迎合流量算法妥协导致表达欲枯竭", text: "有在持续输出内容或交付项目，但常为了迎合流量算法或甲方口味而妥协，表达欲逐渐枯竭。" },
+                    { score: 3.0, badge: "3.0 真诚构建 · 进化变现", shortTag: "把攻克人生课题的过程做成公开作品与产品完成变现", text: "把自己攻克人生痛点的过程做成作品或产品公开发布，以独特审美吸引同频受众并实现商业闭环。" }
+                ]
+            }
+        ];
+
+        var CROSS_MATRIX = {
+            "MIND_VOCATION": {
+                archetype: "象牙塔里的认知屯粮者",
+                glitchTitle: "侦测到「高维语言伪装」：用头脑的渊博掩盖创造上的怯懦",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「心智象限」得分最高，但「志业象限」却处于垫底位置。你热爱研究认知模型、记双链笔记、看深度长文，在精神世界里拥有很高的审美与洞察。",
+                    "【虚假蜕变机制】：在 Dan Koe 的模型里，这是最典型的“高维逃避”——头脑的渊博成了你的安全屋。你用“我还在学习准备”的幻觉，逃避把作品公开发布到真实市场去接受检验。"
+                ]
+            },
+            "MIND_BODY": {
+                archetype: "悬浮的缸中之脑",
+                glitchTitle: "侦测到「生理底座悬空」：试图在疲惫发炎的躯体上运行高维思想",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「心智象限」最为活跃，但「身体与环境象限」严重拖后腿。你习惯在思维世界里高速运转，却忽视了肉身硬件的维护。",
+                    "【虚假蜕变机制】：大脑本质上是身体的一个高耗能器官。长期的睡眠亏空、久坐脑雾或物理环境杂乱，正在直接切断前额叶的能量供给，让你频繁陷入“想得极明白、动起来却没力气”的执行瘫痪。"
+                ]
+            },
+            "MIND_SPIRIT": {
+                archetype: "冷酷的理性孤岛",
+                glitchTitle: "侦测到「过度理性防御」：用逻辑分析隔离真实的情感与意义连接",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「心智象限」占优，但「精神与关系象限」处于低谷。你习惯把一切问题都简化为头脑里的逻辑推导与效率计算。",
+                    "【虚假蜕变机制】：当理性变成一种防御外壳，你在无意间关闭了感知当下幸福与深度人际共鸣的通道。缺乏同频部落（Tribe）的照见，再精密的头脑也容易在深夜独处时陷入存在主义虚无。"
+                ]
+            },
+            "VOCATION_BODY": {
+                archetype: "透支躯体的掘金机器",
+                glitchTitle: "侦测到「生理透支外挂 (Glitch)」：用摧毁生物硬件换取短期产出",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「志业象限」冲在最前，但「身体象限」已亮起红灯。你正处于典型的 2.0 苦行僧模式——依靠压缩睡眠、久坐加班或咖啡因强行维持世俗产出。",
+                    "【虚假蜕变机制】：这就像给没有机油的发动机猛踩油门。如果不立刻修复睡眠与生理基线，这种靠透支肾上腺素维持的“高产出”终将迎来一场强制清零的倦怠崩盘。"
+                ]
+            },
+            "VOCATION_SPIRIT": {
+                archetype: "困在黄金牢笼的独狼",
+                glitchTitle: "侦测到「到达谬误 (Arrival Fallacy)」：赢了世俗 KPI，却丢了灵魂温度",
+                glitchParas: [
+                    "【象限拉扯表象】：你在「志业象限」表现强悍，但「精神与关系象限」略显荒芜。你习惯用高强度的工作和搞钱目标来填满所有时间，以此麻痹内心的疏离感。",
+                    "【虚假蜕变机制】：你潜意识里掉入了“等我财务自由那天就会快乐”的到达谬误。但如果你在攀登时毫无喜悦与同频连接，到达山顶那天等待你的往往不是解脱，而是更巨大的空虚。"
+                ]
+            },
+            "VOCATION_MIND": {
+                archetype: "盲目狂奔的战术苦工",
+                glitchTitle: "侦测到「低水平勤奋陷阱」：用机械的忙碌逃避深度思考",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「志业象限」很拼，但「心智象限」得分偏低。你每天被工作流、外部需求或流量算法推着连轴转，看上去一刻也没有停歇。",
+                    "【虚假蜕变机制】：用战术上的连轴转掩盖战略上的懒惰，是最隐蔽的内耗。缺乏独处留白、元认知审视与跨学科深度输入，外在动作越快，越容易困在低杠杆的苦力循环里。"
+                ]
+            },
+            "BODY_VOCATION": {
+                archetype: "逃避战场的自律苦行僧",
+                glitchTitle: "侦测到「替代性成就感」：用生活习惯的自律，逃避真正的事业破局",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「身体与生活秩序」保持得不错，但「志业象限」明显滞后。你在作息、运动或环境整理上井井有条，但在个人事业与公开创造上迟迟未破局。",
+                    "【虚假蜕变机制】：这是 Dan Koe 专门点破的一种隐蔽逃避——因为打造个人产品、公开发布作品并接受市场检验充满挫败感，所以你退回到更容易掌控的健身、整理房间或作息打卡里获取替代性安慰。"
+                ]
+            },
+            "BODY_MIND": {
+                archetype: "机械执行的习惯打卡者",
+                glitchTitle: "侦测到「认知引擎休眠」：硬件电量充沛，却缺乏高维心智导航",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「身体象限」状态良好，拥有不错的生理精力底座，但「心智象限」仍处于被动顺从或浅层碎片输入状态。",
+                    "【虚假蜕变机制】：健康的体魄为你提供了优质的生物反应堆，但如果大脑注意力依然被短期多巴胺算法劫持，充沛的体能就无法转化为深度阅读、独立思考与创造性心流。"
+                ]
+            },
+            "BODY_SPIRIT": {
+                archetype: "精密运转的孤独载具",
+                glitchTitle: "侦测到「情感屏障」：外在秩序井然，内在缺乏深度共鸣与松弛感",
+                glitchParas: [
+                    "【象限拉扯表象】：你在「身体与物理秩序」上高度受控，但「精神与关系象限」得分偏低。你把自己管理得像一台严丝合缝的精密仪器。",
+                    "【虚假蜕变机制】：过度的外在控制感往往伴随内在的紧绷。你很难在亲密关系、同频社群共创与日常微小的审美体验中彻底卸下防备，生命缺少了流动的温度。"
+                ]
+            },
+            "SPIRIT_VOCATION": {
+                archetype: "温室里的佛系哲人",
+                glitchTitle: "侦测到「精神修道院幻觉」：内心温和通透，却逃避世俗价值交换",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「精神与关系象限」得分最高，重视内心平静与真诚连接，但「志业象限」处于低位，尚未建立起稳固的个人商业或作品杠杆。",
+                    "【虚假蜕变机制】：你潜意识里对“商业变现、打造个人品牌、向市场证明价值”存在抗拒或恐惧。但在现实世界里，没有经济自主权支撑的精神自由往往是脆弱且被动的。"
+                ]
+            },
+            "SPIRIT_BODY": {
+                archetype: "忽略肉身的性灵漫游者",
+                glitchTitle: "侦测到「具身连接断裂」：注重精神共鸣，却任由物理生活失序",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「精神象限」丰富敏感，向往意义感与深度连接，但「身体与物理空间」得分滞后，日常作息或房间秩序常处于失控状态。",
+                    "【虚假蜕变机制】：精神能量不能飘在半空中。忽略了规律睡眠、力量训练与极简桌面秩序，你的高维灵感就会因为生理能量低迷而无法在现实世界中扎根落地。"
+                ]
+            },
+            "SPIRIT_MIND": {
+                archetype: "感性驱动的共情者",
+                glitchTitle: "侦测到「系统结构缺失」：重感情与当下体验，但缺乏锐利的认知框架",
+                glitchParas: [
+                    "【象限拉扯表象】：你的「精神与关系」得分领先，富有同理心与生活感知力，但「心智象限」的系统化思考、注意力保护与知识转化闭环偏弱。",
+                    "【虚假蜕变机制】：当感性体验缺乏强大的元认知框架支撑时，你的情绪和注意力极易受周围人际氛围的裹挟，难以将人生感悟沉淀为可复用的思维体系。"
+                ]
+            },
+            "BALANCED_HIGH": {
+                archetype: "全象限心流架构师",
+                glitchTitle: "系统协同态：四大象限已形成正向飞轮，警惕“舒适区微停滞”",
+                glitchParas: [
+                    "【全象限协同表象】：恭喜！你的心智、身体、精神与志业四大象限高度均衡且均处于高段位区间。自律对你而言已不再是咬牙坚持的苦役，而是内化为顺其自然的生活审美。",
+                    "【3.0 持续进化机制】：在 Human 3.0 阶段，最大的敌人不再是混乱，而是“现有成功系统带来的无聊感”。请继续提高你公开作品与数字资产的挑战难度，在更高维度的创造中保持心流张力。"
+                ]
+            }
+        };
+
+        var MED_BY_LEVEL = {
+            MIND: {
+                low: {
+                    tag: "【1.x 破局处方 · 夺回多巴胺主权】",
+                    action: "今日微行动：今天傍晚把手机锁进抽屉，只带一张白纸和笔出门散步 25 分钟。把脑子里乱糟糟的焦虑、待办与念头全部倾倒在纸上，体验一次久违的“大脑净空”。",
+                    why: "底层逻辑：1.0 阶段的心智被算法填满，只有先制造物理留白（Boredom），前额叶的元认知导航系统才能重新启动。"
+                },
+                mid: {
+                    tag: "【2.x 进阶处方 · 终结知识松鼠症】",
+                    action: "今日微行动：未来 48 小时内严禁收藏新干货！立刻从你过去的收藏夹里挑出 1 篇最认同的文章，结合个人经历写成 300 字的实践复盘并发布出来。",
+                    why: "底层逻辑：打破“输入成瘾”的唯一解药是强制输出。只有经过输出摩擦的信息，才会真正长进你的神经网络里。"
+                }
+            },
+            BODY: {
+                low: {
+                    tag: "【1.x 破局处方 · 重启生物反应堆】",
+                    action: "今日微行动：今晚 22:45 准时将手机放到卧室门外充电（彻底斩断深夜刷手机通路）；现在立刻花 5 分钟把你的办公桌面清理到只剩电脑和一杯水。",
+                    why: "底层逻辑：外在物理秩序是内在心智秩序的最低成本抓手。桌面净空与睡眠复位，能让第二天的基础意志力直接翻倍。"
+                },
+                mid: {
+                    tag: "【2.x 进阶处方 · 戒除透支型外挂】",
+                    action: "今日微行动：未来 3 天下午 14:00 后严禁摄入任何咖啡因或高糖零食，用 25 分钟户外快走或力量训练替代“靠冰美式硬撑”，把 8 小时睡眠排在所有日程之首。",
+                    why: "底层逻辑：唯有把身体从“慢性应激态”切换回“自然节律态”，你才能拥有全天候可持续的稳定心流。"
+                }
+            },
+            SPIRIT: {
+                low: {
+                    tag: "【1.x 破局处方 · 斩断无效消耗社交】",
+                    action: "今日微行动：本周主动推掉 1 场言不由衷的饭局或八卦闲聊；今晚留出 20 分钟不看任何屏幕，安静独处或与真正在乎的人进行一次走心对话。",
+                    why: "底层逻辑：停止向消耗你能量的人际关系交税，收回向外讨好的注意力，是建立独立人格与高质量部落的第一步。"
+                },
+                mid: {
+                    tag: "【2.x 进阶处方 · 打破“到达谬误”】",
+                    action: "今日微行动：今天下班后彻底关掉工作消息，约一位你真正欣赏的同频朋友深聊一次（不谈功利与 KPI），并在睡前写下 3 件“今天当下就让你感到圆满”的小事。",
+                    why: "底层逻辑：幸福不是终点线上的奖牌，而是你在攀登途中感知当下的能力。连接同频灵魂能瞬间消解独狼式的紧绷感。"
+                }
+            },
+            VOCATION: {
+                low: {
+                    tag: "【1.x 破局处方 · 跨越“害怕被评判”】",
+                    action: "今日微行动：在未来 24 小时内，把你过去半年解决过的一个工作难题或个人痛点，写成一篇 300 字的短文公开发布到社交平台（哪怕只有 10 个人看，完成胜过完美）。",
+                    why: "底层逻辑：从“沉默消费者”跃迁为“创造者”的最大门槛是完美主义与羞耻感。先用一次粗糙但真诚的公开发布刺破恐惧。"
+                },
+                mid: {
+                    tag: "【2.x 进阶处方 · 脱离时间出卖牢笼】",
+                    action: "今日微行动：明天早上醒来后的前 60 分钟，严禁处理任何打工琐事或他人消息，雷打不动地推进一件 100% 属于你自己的高杠杆数字资产（个人专栏、小工具或独立产品）。",
+                    why: "底层逻辑：如果你把每天精力最充沛的第一小时卖给别人的剧本，你就永远没空构建自己的复利引擎。"
+                }
+            }
+        };
+
+        var curStep = 0;
+        var userScores = [null, null, null, null, null, null, null, null];
+        var userChoiceObjs = [null, null, null, null, null, null, null, null];
+        var userChoiceIdx = [null, null, null, null, null, null, null, null];
+        var latestReportData = null;
+        var generatedPosterDataURL = "";
+
+        function showScreen(screenId) {
+            var ids = ['screen-home', 'screen-quiz', 'screen-result'];
+            for (var i = 0; i < ids.length; i++) {
+                var el = document.getElementById(ids[i]);
+                if (el) el.classList.add('hidden');
+            }
+            var target = document.getElementById(screenId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('fade-in');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function startAssessment() {
+            curStep = 0;
+            userScores = [null, null, null, null, null, null, null, null];
+            userChoiceObjs = [null, null, null, null, null, null, null, null];
+            userChoiceIdx = [null, null, null, null, null, null, null, null];
+            showScreen('screen-quiz');
+            renderQuizStep();
+        }
+
+        function resetToHome() {
+            closePosterModal();
+            showScreen('screen-home');
+        }
+
+        function renderQuizStep() {
+            var item = QUIZ_ITEMS[curStep];
+            document.getElementById('q-quad-pill').innerText = item.pill;
+            document.getElementById('q-num-cur').innerText = '0' + (curStep + 1);
+            document.getElementById('q-progress-fill').style.width = (((curStep + 1) / 8) * 100) + '%';
+            document.getElementById('q-heading').innerText = item.q;
+            document.getElementById('q-subtitle').innerText = item.sub;
+
+            var letters = ['A', 'B', 'C', 'D'];
+            var picked = userChoiceIdx[curStep];
+            var list = document.getElementById('q-options-list');
+            list.innerHTML = '';
+
+            item.opts.forEach(function(opt, idx) {
+                var isSel = (picked === idx);
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'option-tile' + (isSel ? ' selected' : '');
+                btn.innerHTML =
+                    '<div style="flex: 1;">' +
+                        '<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">' +
+                            '<span class="mono" style="font-size: 12px; width: 24px; height: 24px; border-radius: 9999px; background: ' + (isSel ? '#C84B28' : '#141311') + '; color: #FAF7F0; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;">' + letters[idx] + '</span>' +
+                            '<span class="mono" style="font-size: 12px; padding: 2px 10px; border-radius: 6px; background: #FFFFFF; border: 1px solid #D8C9A8; color: #8A5212; font-weight: 700;">' + opt.badge + '</span>' +
+                        '</div>' +
+                        '<div style="font-size: 1.05rem; color: #141311; font-weight: 500; line-height: 1.6;">' + opt.text + '</div>' +
+                    '</div>' +
+                    '<span class="serif" style="font-size: 1.5rem; color: #C84B28; font-weight: 700; margin-top: 4px; flex-shrink: 0;">→</span>';
+
+                btn.onclick = function() {
+                    chooseAnswer(idx);
+                };
+                list.appendChild(btn);
+            });
+
+            var prevBtn = document.getElementById('btn-prev-question');
+            if (prevBtn) {
+                prevBtn.style.visibility = (curStep === 0) ? 'hidden' : 'visible';
+            }
+        }
+
+        function chooseAnswer(optIdx) {
+            var chosen = QUIZ_ITEMS[curStep].opts[optIdx];
+            userScores[curStep] = chosen.score;
+            userChoiceObjs[curStep] = chosen;
+            userChoiceIdx[curStep] = optIdx;
+            if (curStep < 7) {
+                curStep++;
+                renderQuizStep();
+            } else {
+                buildFinalReport();
+                showScreen('screen-result');
+            }
+        }
+
+        function prevQuestion() {
+            if (curStep > 0) {
+                curStep--;
+                renderQuizStep();
+            }
+        }
+
+        function calcSubPhase(val) {
+            if (val >= 2.85) return { code: "Phase 3.0 · 整合发现期", short: "3.0 整合态" };
+            var base = Math.floor(val);
+            var rem = val - base;
+            var sub = rem < 0.34 ? 1 : (rem < 0.67 ? 2 : 3);
+            var names = { 1: "失调期 Dissonance", 2: "不确定期 Uncertainty", 3: "发现期 Discovery" };
+            return { code: "Phase " + base + "." + sub + " · " + names[sub], short: base + "." + sub + " " + names[sub].split(' ')[0] };
+        }
+
+        function createConcentricSVG(q) {
+            var cx = 150, cy = 150;
+            function rMap(s) { return 24 + ((Math.max(1, Math.min(3, s)) - 1) / 2) * 90; }
+            function rad(deg) { return (deg * Math.PI) / 180; }
+            function pt(s, deg) {
+                return {
+                    x: (cx + rMap(s) * Math.cos(rad(deg))).toFixed(1),
+                    y: (cy + rMap(s) * Math.sin(rad(deg))).toFixed(1)
+                };
+            }
+            var pM = pt(q.MIND, -135), pB = pt(q.BODY, -45), pV = pt(q.VOCATION, 45), pS = pt(q.SPIRIT, 135);
+
+            return '<svg viewBox="0 0 300 300" style="width: 100%; max-width: 260px; margin: 0 auto; user-select: none;">' +
+                '<rect x="14" y="14" width="136" height="136" rx="12" fill="#FFFFFF" stroke="#DFD5BE" stroke-width="1.2"/>' +
+                '<rect x="150" y="14" width="136" height="136" rx="12" fill="#F3EAD6" fill-opacity="0.6" stroke="#DFD5BE" stroke-width="1.2"/>' +
+                '<rect x="14" y="150" width="136" height="136" rx="12" fill="#F3EAD6" fill-opacity="0.6" stroke="#DFD5BE" stroke-width="1.2"/>' +
+                '<rect x="150" y="150" width="136" height="136" rx="12" fill="#FFFFFF" stroke="#DFD5BE" stroke-width="1.2"/>' +
+                '<circle cx="150" cy="150" r="114" fill="none" stroke="#C7BFA8" stroke-dasharray="4 4"/>' +
+                '<circle cx="150" cy="150" r="69" fill="none" stroke="#C7BFA8" stroke-dasharray="4 4"/>' +
+                '<circle cx="150" cy="150" r="24" fill="none" stroke="#C7BFA8"/>' +
+                '<line x1="14" y1="150" x2="286" y2="150" stroke="#B8AF96" stroke-width="1.2"/>' +
+                '<line x1="150" y1="14" x2="150" y2="286" stroke="#B8AF96" stroke-width="1.2"/>' +
+                '<text x="154" y="123" fill="#7E766A" font-size="8" font-weight="600" font-family="monospace">1.0</text>' +
+                '<text x="154" y="78" fill="#7E766A" font-size="8" font-weight="600" font-family="monospace">2.0</text>' +
+                '<text x="154" y="33" fill="#7E766A" font-size="8" font-weight="600" font-family="monospace">3.0</text>' +
+                '<text x="24" y="32" fill="#141311" font-size="10" font-weight="700" font-family="monospace">MIND ' + q.MIND.toFixed(1) + '</text>' +
+                '<text x="276" y="32" text-anchor="end" fill="#141311" font-size="10" font-weight="700" font-family="monospace">BODY ' + q.BODY.toFixed(1) + '</text>' +
+                '<text x="24" y="274" fill="#141311" font-size="10" font-weight="700" font-family="monospace">SPIRIT ' + q.SPIRIT.toFixed(1) + '</text>' +
+                '<text x="276" y="274" text-anchor="end" fill="#141311" font-size="10" font-weight="700" font-family="monospace">VOCATION ' + q.VOCATION.toFixed(1) + '</text>' +
+                '<polygon points="' + pM.x + ',' + pM.y + ' ' + pB.x + ',' + pB.y + ' ' + pV.x + ',' + pV.y + ' ' + pS.x + ',' + pS.y + '" fill="rgba(200,75,40,0.22)" stroke="#C84B28" stroke-width="2.5"/>' +
+                '<circle cx="' + pM.x + '" cy="' + pM.y + '" r="5" fill="#141311" stroke="#FFFFFF" stroke-width="2"/>' +
+                '<circle cx="' + pB.x + '" cy="' + pB.y + '" r="5" fill="#141311" stroke="#FFFFFF" stroke-width="2"/>' +
+                '<circle cx="' + pV.x + '" cy="' + pV.y + '" r="5" fill="#141311" stroke="#FFFFFF" stroke-width="2"/>' +
+                '<circle cx="' + pS.x + '" cy="' + pS.y + '" r="5" fill="#141311" stroke="#FFFFFF" stroke-width="2"/>' +
+            '</svg>';
+        }
+
+        function buildFinalReport() {
+            var quads = {
+                MIND: (userScores[0] + userScores[1]) / 2,
+                BODY: (userScores[2] + userScores[3]) / 2,
+                SPIRIT: (userScores[4] + userScores[5]) / 2,
+                VOCATION: (userScores[6] + userScores[7]) / 2
+            };
+            var total = (quads.MIND + quads.BODY + quads.SPIRIT + quads.VOCATION) / 4;
+
+            var sorted = [
+                ['MIND', quads.MIND],
+                ['BODY', quads.BODY],
+                ['SPIRIT', quads.SPIRIT],
+                ['VOCATION', quads.VOCATION]
+            ].sort(function(a, b) { return a[1] - b[1]; });
+
+            var lowest = sorted[0][0];
+            var highest = sorted[3][0] === lowest ? sorted[2][0] : sorted[3][0];
+            var gapVal = sorted[3][1] - sorted[0][1];
+            var gap = gapVal.toFixed(2);
+            var isBalancedHigh = (total >= 2.75 && gapVal <= 0.35);
+
+            var totalSub = calcSubPhase(total);
+            var crossKey = isBalancedHigh ? "BALANCED_HIGH" : (highest + "_" + lowest);
+            var crossInfo = CROSS_MATRIX[crossKey] || CROSS_MATRIX["MIND_VOCATION"];
+
+            var tierBadge = total < 1.6 ? "HUMAN 1.x · 顺从者层级" : (total < 2.5 ? "HUMAN 2.x · 个体玩家层级" : "HUMAN 3.0 · 整合大师层级");
+            var finalTitle = "";
+            var finalDescParas = [];
+
+            if (isBalancedHigh) {
+                finalTitle = "全象限心流架构师";
+                finalDescParas = [
+                    "你的系统总段位达到 Lv." + total.toFixed(2) + "（" + totalSub.code + "），已正式踏入前 1% 的 Human 3.0 领地。",
+                    "你的心智、身体、精神与志业四个象限高度均衡且协同运转，自律已内化为毫不费力的生活本能，工作与创造即是你的无限游戏。"
+                ];
+            } else if (total <= 1.25 && gapVal <= 0.3) {
+                finalTitle = "默认脚本的顺从潜行者";
+                finalDescParas = [
+                    "你的系统总段位目前处于 Lv." + total.toFixed(2) + "（" + totalSub.code + "），四个象限均呈现 1.0 默认顺从态，日常注意力与时间基本被外部规则和短期多巴胺算法接管。",
+                    "诚实面对现状就是觉醒的第一秒，你无需同时改变所有事，只需先在下方【" + lowest + "】最短板建立一个微小秩序即可破局。"
+                ];
+            } else {
+                finalTitle = crossInfo.archetype;
+                finalDescParas = [
+                    "你的系统总段位为 Lv." + total.toFixed(2) + "（" + totalSub.code + "）。你在【" + highest + "】象限表现最强（Lv." + quads[highest].toFixed(2) + "），构成了你当下的核心支点。",
+                    "与此同时，你的【" + lowest + "】象限（Lv." + quads[lowest].toFixed(2) + "）形成了显著的木桶短板（象限极差 Δ" + gap + "），正在暗中消耗你的系统总能量。"
+                ];
+            }
+
+            document.getElementById('res-tier-badge').innerText = tierBadge;
+            document.getElementById('res-subphase-badge').innerText = totalSub.code;
+            document.getElementById('res-title').innerText = finalTitle;
+            document.getElementById('res-desc').innerHTML = finalDescParas.map(function(p) { return '<p style="margin: 0 0 8px 0;">' + p + '</p>'; }).join('');
+            document.getElementById('res-score-num').innerText = total.toFixed(2);
+            document.getElementById('res-archetype-code').innerText = "极差 Δ " + gap;
+            document.getElementById('res-svg-holder').innerHTML = createConcentricSVG(quads);
+
+            var names = {
+                MIND: "I. 心智 Mind (个人内在)",
+                BODY: "II. 身体 Body (个人外在)",
+                SPIRIT: "III. 精神 Spirit (集体内在)",
+                VOCATION: "IV. 志业 Vocation (集体外在)"
+            };
+            var keys = ['MIND', 'BODY', 'SPIRIT', 'VOCATION'];
+            document.getElementById('res-quad-bars').innerHTML = keys.map(function(k) {
+                var v = quads[k];
+                var isLow = !isBalancedHigh && k === lowest;
+                var isHigh = !isBalancedHigh && k === highest && gapVal > 0.2;
+                var pct = ((v - 1) / 2) * 100;
+                var subObj = calcSubPhase(v);
+                return '<div style="margin-bottom: 14px;">' +
+                    '<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px; font-size: 0.92rem; margin-bottom: 6px;">' +
+                        '<span style="color: ' + (isLow ? '#C84B28' : '#141311') + '; font-weight: ' + (isLow ? '700' : '600') + ';">' +
+                            names[k] + (isLow ? ' · [核心短板]' : (isHigh ? ' · [优势项]' : '')) +
+                        '</span>' +
+                        '<span class="mono" style="font-size: 0.85rem; font-weight: 700; color: #141311;">Lv.' + v.toFixed(2) + ' <span style="color: #7E766A; font-weight: 400;">(' + subObj.short + ')</span></span>' +
+                    '</div>' +
+                    '<div style="width: 100%; height: 10px; background: #E6DEC8; border-radius: 9999px; overflow: hidden;">' +
+                        '<div style="height: 100%; background: ' + (isLow ? '#C84B28' : '#141311') + '; width: ' + Math.max(12, pct) + '%;"></div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+
+            var gapLabel = isBalancedHigh
+                ? ("全象限协同 (极差 Δ" + gap + ")")
+                : ("优势 " + highest + " (" + quads[highest].toFixed(2) + ") × 短板 " + lowest + " (" + quads[lowest].toFixed(2) + ")");
+            document.getElementById('res-gap-tag').innerText = gapLabel;
+            document.getElementById('res-glitch-title').innerText = crossInfo.glitchTitle;
+            document.getElementById('res-glitch-body').innerHTML = crossInfo.glitchParas.map(function(p) { return '<p style="margin: 0 0 10px 0;">' + p + '</p>'; }).join('');
+
+            var quadIdxMap = { MIND: [0, 1], BODY: [2, 3], SPIRIT: [4, 5], VOCATION: [6, 7] };
+            var lowQIndices = quadIdxMap[lowest];
+            var highQIndices = quadIdxMap[highest];
+            var lowBehavior1 = (userChoiceObjs[lowQIndices[0]] && userChoiceObjs[lowQIndices[0]].shortTag) || "";
+            var lowBehavior2 = (userChoiceObjs[lowQIndices[1]] && userChoiceObjs[lowQIndices[1]].shortTag) || "";
+            var highBehavior1 = (userChoiceObjs[highQIndices[0]] && userChoiceObjs[highQIndices[0]].shortTag) || "";
+            var highBehavior2 = (userChoiceObjs[highQIndices[1]] && userChoiceObjs[highQIndices[1]].shortTag) || "";
+
+            var evidenceItems = [
+                "✦ 优势象限锚点【" + highest + "】：你在日常中已具备「" + highBehavior1 + "」与「" + highBehavior2 + "」的正向状态。",
+                "✦ 短板能量漏斗【" + lowest + "】：但你的真实行为同时暴露出「" + lowBehavior1 + "」以及「" + lowBehavior2 + "」。",
+                "✦ 全象限木桶定律：" + (isBalancedHigh
+                    ? ("你的四大象限已形成良性互哺，只需在【" + lowest + "】维度保持微迭代即可巩固 3.0 状态。")
+                    : ("如果不优先堵住【" + lowest + "】象限的这两个具体漏洞，你在【" + highest + "】象限投入的努力将被持续抵消。"))
+            ];
+
+            document.getElementById('res-specific-evidence').innerHTML =
+                '<strong style="color: #C84B28; display: block; padding-bottom: 6px; margin-bottom: 8px; border-bottom: 1px solid #ECE5D5;">📌 你的真实答题行为证据链回溯：</strong>' +
+                '<div>' +
+                    evidenceItems.map(function(line) { return '<p style="margin: 0 0 6px 0; color: #4A453D;">' + line + '</p>'; }).join('') +
+                '</div>';
+
+            var lowestScore = quads[lowest];
+            var medPool = MED_BY_LEVEL[lowest];
+            var selectedMed = lowestScore < 1.85 ? medPool.low : medPool.mid;
+            var medTargetText = "专攻 " + lowest + " 象限 (Lv." + lowestScore.toFixed(2) + " → Lv." + Math.min(3.0, lowestScore + 0.5).toFixed(1) + ")";
+            var channelTip = "✦ 7 天心流通道（Channel）开启条件：只要在未来 7 天内连续执行上述针对【" + lowest + "】的唯一微行动，你的跨象限内耗摩擦就会消除，正式进入下一演化层级。";
+
+            document.getElementById('res-med-target-tag').innerText = medTargetText;
+            document.getElementById('res-med-body').innerHTML =
+                '<div style="display: inline-block; padding: 4px 12px; border-radius: 6px; background: #F3EAD6; color: #C84B28; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px;">' + selectedMed.tag + '</div>' +
+                '<p style="font-size: 1.05rem; color: #141311; font-weight: 700; line-height: 1.7; margin: 0 0 8px 0;">' + selectedMed.action + '</p>' +
+                '<p style="font-size: 0.95rem; color: #4A453D; line-height: 1.7; margin: 0;">' + selectedMed.why + '</p>';
+            document.getElementById('res-channel-tip').innerText = channelTip;
+
+            latestReportData = {
+                quads: quads,
+                total: total.toFixed(2),
+                lowest: lowest,
+                highest: highest,
+                gap: gap,
+                isBalancedHigh: isBalancedHigh,
+                tierBadge: tierBadge,
+                subCode: totalSub.code,
+                finalTitle: finalTitle,
+                finalDescParas: finalDescParas,
+                glitchTitle: crossInfo.glitchTitle,
+                glitchParas: crossInfo.glitchParas,
+                evidenceItems: evidenceItems,
+                selectedMed: selectedMed,
+                medTargetText: medTargetText,
+                channelTip: channelTip,
+                gapLabel: gapLabel
+            };
+        }
+
+        // ==================== 一键复制推文结论 ====================
+        function copyResultText() {
+            if (!latestReportData) return;
+            var d = latestReportData;
+            var text = "刚测了 Dan Koe 的【HUMAN 3.0 全象限人生段位】：\n" +
+                "🎮 我的生命段位：Lv." + d.total + "（" + d.subCode + "）\n" +
+                "🏷️ 专属称号：【" + d.finalTitle + "】\n" +
+                "📊 象限分布：心智 " + d.quads.MIND.toFixed(1) + " | 身体 " + d.quads.BODY.toFixed(1) + " | 精神 " + d.quads.SPIRIT.toFixed(1) + " | 志业 " + d.quads.VOCATION.toFixed(1) + "\n" +
+                "⚡ 今日破局微行动：" + d.selectedMed.action + "\n\n" +
+                "🔥 2分钟在线测算 & 1080P海报生成：https://suoha888.github.io/human-3-quiz/\n" +
+                "制作出品：@SUOHA_AI";
+
+            function notifySuccess() {
+                var btn = document.getElementById('btn-copy-result');
+                if (btn) {
+                    var oldHtml = btn.innerHTML;
+                    btn.innerHTML = '✓ 已复制结论！可直接发推';
+                    btn.style.borderColor = '#C84B28';
+                    setTimeout(function() {
+                        btn.innerHTML = oldHtml;
+                        btn.style.borderColor = '#D8C9A8';
+                    }, 2500);
+                }
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(notifySuccess).catch(function() {
+                    prompt("请手动复制你的诊断结论：", text);
+                });
+            } else {
+                prompt("请手动复制你的诊断结论：", text);
+            }
+        }
+
+        // ==================== Canvas 1080P 动态流式海报引擎 ====================
+        function drawRoundRect(ctx, x, y, w, h, r, fill, stroke, lineWidth) {
+            var lw = lineWidth || 2;
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.arcTo(x + w, y, x + w, y + h, r);
+            ctx.arcTo(x + w, y + h, x, y + h, r);
+            ctx.arcTo(x, y + h, x, y, r);
+            ctx.arcTo(x, y, x + w, y, r);
+            ctx.closePath();
+            if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+            if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); }
+        }
+
+        var PUNCT_NO_START = "，。！？；：、）】》」』”’.,!?:;)%";
+
+        function wrapParas(ctx, textOrArray, maxWidth) {
+            var paras = Array.isArray(textOrArray) ? textOrArray : String(textOrArray || "").split('\n');
+            return paras.map(function(p) {
+                var chars = Array.from(String(p).trim());
+                var lines = [];
+                var line = "";
+                for (var i = 0; i < chars.length; i++) {
+                    var ch = chars[i];
+                    var testLine = line + ch;
+                    if (ctx.measureText(testLine).width > maxWidth && line.length > 0) {
+                        if (PUNCT_NO_START.indexOf(ch) !== -1) {
+                            line += ch;
+                            lines.push(line);
+                            line = "";
+                        } else {
+                            lines.push(line);
+                            line = ch === " " ? "" : ch;
+                        }
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+                return lines;
+            });
+        }
+
+        function calcH(paraLines, lineHeight, paraGap) {
+            var h = 0;
+            paraLines.forEach(function(lines, idx) {
+                h += lines.length * lineHeight;
+                if (idx < paraLines.length - 1) h += paraGap;
+            });
+            return h;
+        }
+
+        function drawParas(ctx, paraLines, x, startY, lineHeight, paraGap) {
+            ctx.save();
+            ctx.textBaseline = "top";
+            var curY = startY;
+            paraLines.forEach(function(lines, idx) {
+                lines.forEach(function(ln) {
+                    ctx.fillText(ln, x, curY);
+                    curY += lineHeight;
+                });
+                if (idx < paraLines.length - 1) curY += paraGap;
+            });
+            ctx.restore();
+            return curY;
+        }
+
+        function loadSafeAvatar(url) {
+            return new Promise(function(resolve) {
+                var done = false;
+                function finish(val) {
+                    if (!done) { done = true; resolve(val); }
+                }
+                var timer = setTimeout(function() { finish(null); }, 1000);
+                var img = new Image();
+                img.crossOrigin = "anonymous";
+                img.onload = function() { clearTimeout(timer); finish(img); };
+                img.onerror = function() { clearTimeout(timer); finish(null); };
+                img.src = url;
+            });
+        }
+
+        function drawCircleAvatar(ctx, img, cx, cy, r, fallbackText, borderColor) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, r, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.clip();
+            var drawn = false;
+            if (img) {
+                try {
+                    ctx.drawImage(img, cx - r, cy - r, r * 2, r * 2);
+                    drawn = true;
+                } catch (e) { drawn = false; }
+            }
+            if (!drawn) {
+                ctx.fillStyle = borderColor;
+                ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
+                ctx.fillStyle = "#FAF7F0";
+                ctx.font = "bold " + Math.round(r * 0.8) + "px sans-serif";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillText(fallbackText, cx, cy);
+            }
+            ctx.restore();
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, r, 0, Math.PI * 2);
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        async function generateAndShowPoster() {
+            if (!latestReportData) return;
+            var d = latestReportData;
+
+            var btn = document.getElementById('btn-gen-poster');
+            var oldHtml = btn ? btn.innerHTML : '';
+            if (btn) btn.innerHTML = '⏳ 正在排版生成 1080P 高清海报...';
+
+            var avatars = await Promise.all([
+                loadSafeAvatar("https://unavatar.io/x/thedankoe"),
+                loadSafeAvatar("https://unavatar.io/x/SUOHA_AI")
+            ]);
+
+            function buildPosterDataURL(useExtImg) {
+                var W = 1080;
+                var innerW = W - 216;
+                var mCanvas = document.createElement('canvas');
+                var mCtx = mCanvas.getContext('2d');
+
+                mCtx.font = "bold 46px 'Songti SC', 'Noto Serif SC', 'PingFang SC', serif";
+                var heroTitleLines = wrapParas(mCtx, d.finalTitle, 675);
+                var heroTitleH = calcH(heroTitleLines, 58, 0);
+
+                mCtx.font = "22px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                var heroDescLines = wrapParas(mCtx, d.finalDescParas, 675);
+                var heroDescH = calcH(heroDescLines, 35, 10);
+
+                var sec2H = Math.max(204, 44 + 18 + heroTitleH + 14 + heroDescH);
+
+                mCtx.font = "bold 27px 'Songti SC', 'Noto Serif SC', 'PingFang SC', serif";
+                var glitchTitleLines = wrapParas(mCtx, d.glitchTitle, innerW);
+                var glitchTitleH = calcH(glitchTitleLines, 38, 0);
+
+                mCtx.font = "21px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                var glitchBodyLines = wrapParas(mCtx, d.glitchParas, innerW);
+                var glitchBodyH = calcH(glitchBodyLines, 34, 14);
+
+                mCtx.font = "19.5px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                var evLines = wrapParas(mCtx, d.evidenceItems, innerW - 48);
+                var evTextH = calcH(evLines, 30, 10);
+                var evBoxH = 22 + 32 + 12 + evTextH + 22;
+
+                var sec4CardH = 30 + 36 + 16 + glitchTitleH + 14 + glitchBodyH + 22 + evBoxH + 30;
+
+                mCtx.font = "bold 22px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                var medActLines = wrapParas(mCtx, d.selectedMed.action, innerW);
+                var medActH = calcH(medActLines, 35, 0);
+
+                mCtx.font = "20px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                var medWhyLines = wrapParas(mCtx, d.selectedMed.why, innerW);
+                var medWhyH = calcH(medWhyLines, 32, 0);
+
+                mCtx.font = "18.5px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                var tipLines = wrapParas(mCtx, d.channelTip, innerW - 36);
+                var tipBoxH = calcH(tipLines, 28, 0) + 26;
+
+                var sec5CardH = 30 + 36 + 18 + 38 + 16 + medActH + 12 + medWhyH + 18 + tipBoxH + 30;
+
+                var sec2Y = 208;
+                var sec3Y = sec2Y + sec2H + 28;
+                var sec3CardH = 420;
+                var sec4Y = sec3Y + sec3CardH + 28;
+                var sec5Y = sec4Y + sec4CardH + 28;
+                var footerY = sec5Y + sec5CardH + 40;
+                var H = footerY + 88;
+
+                var canvas = document.createElement('canvas');
+                canvas.width = W;
+                canvas.height = H;
+                var ctx = canvas.getContext('2d');
+
+                ctx.fillStyle = "#FAF7F0";
+                ctx.fillRect(0, 0, W, H);
+                var grad = ctx.createRadialGradient(W * 0.85, 140, 20, W * 0.85, 140, 650);
+                grad.addColorStop(0, "#F3E6C8");
+                grad.addColorStop(1, "rgba(250, 247, 240, 0)");
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, W, H);
+
+                drawRoundRect(ctx, 36, 36, W - 72, H - 72, 36, "rgba(255,255,255,0.95)", "#141311", 4);
+
+                var img1 = useExtImg ? avatars[0] : null;
+                var img2 = useExtImg ? avatars[1] : null;
+
+                drawCircleAvatar(ctx, img1, 114, 112, 36, "DK", "#141311");
+                ctx.textAlign = "left";
+                ctx.textBaseline = "top";
+                ctx.fillStyle = "#C84B28";
+                ctx.font = "bold 17px monospace";
+                ctx.fillText("DAN KOE (@thedankoe) FRAMEWORK", 166, 82);
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 26px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                ctx.fillText("HUMAN 3.0 全象限演化诊断书", 166, 110);
+
+                drawRoundRect(ctx, 676, 68, 328, 88, 24, "#F3EAD6", "#D8C9A8", 2);
+                drawCircleAvatar(ctx, img2, 726, 112, 30, "梭", "#C84B28");
+                ctx.fillStyle = "#7E766A";
+                ctx.font = "bold 14px monospace";
+                ctx.fillText("TOOL BUILT BY 制作出品", 768, 86);
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 22px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                ctx.fillText("梭哈.AI @SUOHA_AI", 768, 112);
+
+                ctx.beginPath(); ctx.moveTo(76, 182); ctx.lineTo(W - 76, 182);
+                ctx.strokeStyle = "#DFD5BE"; ctx.lineWidth = 2; ctx.stroke();
+
+                ctx.font = "bold 18px 'PingFang SC', sans-serif";
+                var wTier = ctx.measureText(d.tierBadge).width + 32;
+                drawRoundRect(ctx, 76, sec2Y, wTier, 40, 10, "#F3EAD6", "#D8C9A8", 1.5);
+                ctx.fillStyle = "#8A5212";
+                ctx.fillText(d.tierBadge, 92, sec2Y + 10);
+
+                var xSub = 76 + wTier + 12;
+                var wSub = ctx.measureText(d.subCode).width + 32;
+                drawRoundRect(ctx, xSub, sec2Y, wSub, 40, 10, "#FAF7F0", "#DFD5BE", 1.5);
+                ctx.fillStyle = "#141311";
+                ctx.fillText(d.subCode, xSub + 16, sec2Y + 10);
+
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 46px 'Songti SC', 'Noto Serif SC', 'PingFang SC', serif";
+                var curHeroY = drawParas(ctx, heroTitleLines, 76, sec2Y + 58, 58, 0);
+
+                ctx.fillStyle = "#4A453D";
+                ctx.font = "22px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                drawParas(ctx, heroDescLines, 76, curHeroY + 12, 35, 10);
+
+                drawRoundRect(ctx, 786, sec2Y, 218, 200, 30, "#F3EAD6", "#141311", 3.5);
+                ctx.textAlign = "center";
+                ctx.fillStyle = "#4A453D";
+                ctx.font = "bold 15px monospace";
+                ctx.fillText("LIFE OS LEVEL", 895, sec2Y + 44);
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 76px 'Songti SC', 'Noto Serif SC', serif";
+                ctx.fillText(d.total, 895, sec2Y + 120);
+                ctx.fillStyle = "#C84B28";
+                ctx.font = "bold 18px monospace";
+                ctx.fillText("极差 Δ " + d.gap + " / MAX 3.0", 895, sec2Y + 160);
+                ctx.textAlign = "left";
+
+                // 6. 全息星图 + 四象限分值条
+                drawRoundRect(ctx, 76, sec3Y, W - 152, sec3CardH, 28, "#FAF7F0", "#DFD5BE", 2);
+
+                var cx = 278, cy = sec3Y + 210;
+                drawRoundRect(ctx, cx - 164, cy - 164, 164, 164, 12, "#FFFFFF", "#DFD5BE", 1.5);
+                drawRoundRect(ctx, cx, cy - 164, 164, 164, 12, "#F3EAD6", "#DFD5BE", 1.5);
+                drawRoundRect(ctx, cx - 164, cy, 164, 164, 12, "#F3EAD6", "#DFD5BE", 1.5);
+                drawRoundRect(ctx, cx, cy, 164, 164, 12, "#FFFFFF", "#DFD5BE", 1.5);
+
+                [34, 90, 146].forEach(function(r) {
+                    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                    ctx.strokeStyle = "#C7BFA8"; ctx.lineWidth = 1.5;
+                    ctx.setLineDash([6, 6]); ctx.stroke(); ctx.setLineDash([]);
+                });
+
+                ctx.beginPath();
+                ctx.moveTo(cx - 164, cy); ctx.lineTo(cx + 164, cy);
+                ctx.moveTo(cx, cy - 164); ctx.lineTo(cx, cy + 164);
+                ctx.strokeStyle = "#B8AF96"; ctx.lineWidth = 2; ctx.stroke();
+
+                ctx.fillStyle = "#141311"; ctx.font = "bold 15px monospace";
+                ctx.fillText("MIND " + d.quads.MIND.toFixed(1), cx - 150, cy - 150);
+                ctx.fillText("SPIRIT " + d.quads.SPIRIT.toFixed(1), cx - 150, cy + 134);
+                ctx.textAlign = "right";
+                ctx.fillText("BODY " + d.quads.BODY.toFixed(1), cx + 150, cy - 150);
+                ctx.fillText("VOCATION " + d.quads.VOCATION.toFixed(1), cx + 150, cy + 134);
+                ctx.textAlign = "left";
+
+                function rScale(s) { return 34 + ((Math.max(1, Math.min(3, s)) - 1) / 2) * 112; }
+                function rad(deg) { return (deg * Math.PI) / 180; }
+                function getPt(s, deg) {
+                    return {
+                        x: cx + rScale(s) * Math.cos(rad(deg)),
+                        y: cy + rScale(s) * Math.sin(rad(deg))
+                    };
+                }
+                var pM = getPt(d.quads.MIND, -135);
+                var pB = getPt(d.quads.BODY, -45);
+                var pV = getPt(d.quads.VOCATION, 45);
+                var pS = getPt(d.quads.SPIRIT, 135);
+
+                ctx.beginPath();
+                ctx.moveTo(pM.x, pM.y); ctx.lineTo(pB.x, pB.y); ctx.lineTo(pV.x, pV.y); ctx.lineTo(pS.x, pS.y);
+                ctx.closePath();
+                ctx.fillStyle = "rgba(200, 75, 40, 0.24)"; ctx.fill();
+                ctx.strokeStyle = "#C84B28"; ctx.lineWidth = 4; ctx.stroke();
+
+                [pM, pB, pV, pS].forEach(function(p) {
+                    ctx.beginPath(); ctx.arc(p.x, p.y, 7, 0, Math.PI * 2);
+                    ctx.fillStyle = "#141311"; ctx.fill();
+                    ctx.strokeStyle = "#FFFFFF"; ctx.lineWidth = 3; ctx.stroke();
+                });
+
+                var qList = [
+                    { k: "MIND", label: "I. 心智 Mind (内在)" },
+                    { k: "BODY", label: "II. 身体 Body (外在)" },
+                    { k: "SPIRIT", label: "III. 精神 Spirit (关系)" },
+                    { k: "VOCATION", label: "IV. 志业 Vocation (事业)" }
+                ];
+                var barY = sec3Y + 46;
+                qList.forEach(function(item) {
+                    var val = d.quads[item.k];
+                    var isLow = !d.isBalancedHigh && item.k === d.lowest;
+                    var sub = calcSubPhase(val);
+                    ctx.fillStyle = isLow ? "#C84B28" : "#141311";
+                    ctx.font = "bold 20px 'PingFang SC', sans-serif";
+                    ctx.fillText(item.label + (isLow ? ' · [短板]' : ''), 484, barY);
+
+                    ctx.textAlign = "right";
+                    ctx.fillStyle = "#141311";
+                    ctx.font = "bold 19px monospace";
+                    ctx.fillText("Lv." + val.toFixed(2) + " (" + sub.short + ")", 968, barY);
+                    ctx.textAlign = "left";
+
+                    drawRoundRect(ctx, 484, barY + 32, 484, 18, 9, "#E6DEC8", null);
+                    var fillW = Math.max(46, ((val - 1) / 2) * 484);
+                    drawRoundRect(ctx, 484, barY + 32, fillW, 18, 9, isLow ? "#C84B28" : "#141311", null);
+                    barY += 90;
+                });
+
+                // 7. 跨象限交叉归因与真实答题行为回溯框
+                drawRoundRect(ctx, 76, sec4Y, W - 152, sec4CardH, 28, "#F3EAD6", "#D8C9A8", 2);
+
+                var c4Y = sec4Y + 30;
+                ctx.fillStyle = "#9A5210";
+                ctx.font = "bold 20px 'PingFang SC', sans-serif";
+                ctx.fillText("⚠️ 跨象限交叉归因 & 虚假蜕变侦测", 108, c4Y);
+
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#8A5212";
+                ctx.font = "bold 18px monospace";
+                ctx.fillText("[" + d.gapLabel + "]", W - 108, c4Y + 2);
+                ctx.textAlign = "left";
+
+                c4Y += 50;
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 27px 'Songti SC', 'Noto Serif SC', 'PingFang SC', serif";
+                c4Y = drawParas(ctx, glitchTitleLines, 108, c4Y, 38, 0);
+
+                c4Y += 14;
+                ctx.fillStyle = "#4A453D";
+                ctx.font = "21px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                c4Y = drawParas(ctx, glitchBodyLines, 108, c4Y, 34, 14);
+
+                c4Y += 22;
+                drawRoundRect(ctx, 108, c4Y, innerW, evBoxH, 18, "#FFFFFF", "#DFD5BE", 1.5);
+                ctx.fillStyle = "#C84B28";
+                ctx.font = "bold 19.5px 'PingFang SC', sans-serif";
+                ctx.fillText("📌 你的真实答题行为证据链回溯：", 132, c4Y + 22);
+
+                ctx.fillStyle = "#141311";
+                ctx.font = "19.5px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                drawParas(ctx, evLines, 132, c4Y + 64, 30, 10);
+
+                // 8. 24小时最小有效处方 (MED) 黑框卡
+                drawRoundRect(ctx, 76, sec5Y, W - 152, sec5CardH, 28, "#FFFFFF", "#141311", 3.5);
+
+                var c5Y = sec5Y + 30;
+                ctx.fillStyle = "#C84B28";
+                ctx.font = "bold 20px monospace";
+                ctx.fillText("⚡ MINIMUM EFFECTIVE DOSE · " + d.medTargetText, 108, c5Y);
+
+                c5Y += 52;
+                ctx.font = "bold 20px 'PingFang SC', sans-serif";
+                var tagW = ctx.measureText(d.selectedMed.tag).width + 28;
+                drawRoundRect(ctx, 108, c5Y, tagW, 38, 10, "#F3EAD6", "#D8C9A8", 1.5);
+                ctx.fillStyle = "#C84B28";
+                ctx.fillText(d.selectedMed.tag, 122, c5Y + 9);
+
+                c5Y += 54;
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 22px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                c5Y = drawParas(ctx, medActLines, 108, c5Y, 35, 0);
+
+                c5Y += 12;
+                ctx.fillStyle = "#4A453D";
+                ctx.font = "20px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                c5Y = drawParas(ctx, medWhyLines, 108, c5Y, 32, 0);
+
+                c5Y += 18;
+                drawRoundRect(ctx, 108, c5Y, innerW, tipBoxH, 14, "#FAF7F0", "#E2D9C3", 1.5);
+                ctx.fillStyle = "#4A453D";
+                ctx.font = "18.5px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+                drawParas(ctx, tipLines, 126, c5Y + 13, 28, 0);
+
+                // 9. 海报底部双作者大头像与署名水印
+                drawCircleAvatar(ctx, img1, 104, footerY, 24, "DK", "#141311");
+                ctx.fillStyle = "#4A453D";
+                ctx.font = "bold 20px 'PingFang SC', sans-serif";
+                ctx.fillText("理论原著：Dan Koe (@thedankoe)《HUMAN 3.0》", 140, footerY - 11);
+
+                drawCircleAvatar(ctx, img2, 624, footerY, 24, "梭", "#C84B28");
+                ctx.fillStyle = "#141311";
+                ctx.font = "bold 20px 'PingFang SC', sans-serif";
+                ctx.fillText("互动系统制作出品：梭哈.AI (@SUOHA_AI)", 660, footerY - 11);
+
+                // 海报右下角在线测算网址印章
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#8A5212";
+                ctx.font = "bold 16px monospace";
+                ctx.fillText("在线体验: suoha888.github.io/human-3-quiz", W - 104, footerY + 22);
+                ctx.textAlign = "left";
+
+                try {
+                    return canvas.toDataURL("image/png");
+                } catch (e) {
+                    if (useExtImg) {
+                        return buildPosterDataURL(false);
+                    }
+                    throw e;
+                }
+            } // end buildPosterDataURL
+
+            try {
+                generatedPosterDataURL = buildPosterDataURL(true);
+                document.getElementById('poster-preview-img').src = generatedPosterDataURL;
+                document.getElementById('poster-modal').classList.remove('hidden');
+            } catch (err) {
+                console.error("生成海报失败:", err);
+                alert("生成海报时遇到异常，请重试");
+            } finally {
+                if (btn) btn.innerHTML = oldHtml;
+            }
+        } // end generateAndShowPoster
+
+        function closePosterModal() {
+            var modal = document.getElementById('poster-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function triggerPosterDownload() {
+            if (!generatedPosterDataURL) return;
+            var a = document.createElement('a');
+            a.download = "HUMAN-3.0-全象限诊断书-梭哈AI.png";
+            a.href = generatedPosterDataURL;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // ==================== 全局事件统一监听与双保险绑定 ====================
+        function bindAllEvents() {
+            var btnStart = document.getElementById('btn-start-quiz');
+            if (btnStart) btnStart.onclick = startAssessment;
+
+            var btnPrev = document.getElementById('btn-prev-question');
+            if (btnPrev) btnPrev.onclick = prevQuestion;
+
+            var btnRestart = document.getElementById('btn-restart-quiz');
+            if (btnRestart) btnRestart.onclick = startAssessment;
+
+            var btnCopy = document.getElementById('btn-copy-result');
+            if (btnCopy) btnCopy.onclick = copyResultText;
+
+            var navLogo = document.getElementById('nav-home-logo');
+            if (navLogo) navLogo.onclick = resetToHome;
+            var navReset = document.getElementById('btn-nav-reset');
+            if (navReset) navReset.onclick = resetToHome;
+
+            var btnGenPoster = document.getElementById('btn-gen-poster');
+            if (btnGenPoster) btnGenPoster.onclick = generateAndShowPoster;
+
+            var btnCloseX = document.getElementById('btn-close-modal-x');
+            if (btnCloseX) btnCloseX.onclick = closePosterModal;
+
+            var btnCloseCancel = document.getElementById('btn-close-modal-cancel');
+            if (btnCloseCancel) btnCloseCancel.onclick = closePosterModal;
+
+            var btnDownload = document.getElementById('btn-download-poster');
+            if (btnDownload) btnDownload.onclick = triggerPosterDownload;
+
+            var modal = document.getElementById('poster-modal');
+            if (modal) {
+                modal.onclick = function(e) {
+                    if (e.target === modal) closePosterModal();
+                };
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bindAllEvents);
+        } else {
+            bindAllEvents();
+        }
+    </script>
+</body>
+</html>
