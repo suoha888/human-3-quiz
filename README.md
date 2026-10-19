@@ -1,78 +1,68 @@
-# HUMAN 3.0 · 全象限人生段位评估与破局系统 🎮
+# 📚 DAN KOE 超级个体进化工具箱 (Dan Koe Super-Individual Toolkit)
 
-> **你在人生这场游戏里，活成了几级玩家？**
-> 基于顶级思想创作者 **Dan Koe (@thedankoe)** 的《HUMAN 3.0》全象限演化哲学，由 **梭哈.AI (@SUOHA_AI)** 独立工程化提炼制作的 8 题行为诊断、全息同心圆雷达与 1080P 杂志级分享海报生成系统。
-
-[![Online Test](https://img.shields.io/badge/Live_Demo-在线体验-C84B28?style=for-the-badge&logo=google-chrome&logoColor=white)](https://suoha888.github.io/human-3-quiz/)
-[![Twitter Follow](https://img.shields.io/badge/Twitter-@SUOHA__AI-141311?style=for-the-badge&logo=x&logoColor=white)](https://x.com/SUOHA_AI)
-[![License: MIT](https://img.shields.io/badge/License-MIT-8A5212?style=for-the-badge)](./LICENSE)
+> **理论模型原著**：Dan Koe ([@thedankoe](https://x.com/thedankoe))  
+> **交互系统制作出品**：梭哈.AI ([@SUOHA_AI](https://x.com/SUOHA_AI))  
+> **开源系列大本营**：[https://github.com/suoha888/human-3-quiz](https://github.com/suoha888/human-3-quiz)  
+> **在线体验入口**：[https://suoha888.github.io/human-3-quiz/](https://suoha888.github.io/human-3-quiz/)
 
 ---
 
-## 🌟 为什么要做这个小工具？
+## 🌟 系列诞生背景与定位
 
-Dan Koe 在推特上发布的《HUMAN 3.0》长文拥有超过 **470 万** 浏览量，提出了一个震撼性的认知框架：
-> **大多数人终其一生困在 1.0 顺从者（NPC）的默认剧本里，或者在 2.0 苦行者 的紧绷自律中痛苦内耗；只有前 1% 的人能打通四个象限，进入“工作即玩耍”的 3.0 觉醒者 境界。**
+Dan Koe 是全球顶级超级个体知识架构师，全网拥有超 400 万深度关注者。他将古典哲学、现代认知科学、注意力经济学与一人公司（One-Person Business）高度熔合，提出了一整套让普通人摆脱 NPC 命运、构建高维个人资产的硬核认知体系。
 
-然而，原版推荐的 AI 对话 Prompt 门槛极高 —— 需要用户向 Claude 输入上千字隐私信息，多轮采访不仅耗费心力，AI 还容易中途停止追问或给出平庸客套话。
-
-**本工具将整套复杂的质性访谈逻辑彻底工程化：**
-- ⚡ **零输入门槛**：精心设计 8 个过去 30 天真实高频行为场景，2 分钟单选作答；
-- 📐 **跨象限交叉算法**：不仅计算均分，更计算四大象限（心智、身体、精神、志业）的极差（Δ），精准识别 12 种“虚假蜕变”原型（如 *悬浮的缸中之脑*、*透支躯体的掘金机器*、*逃避战场的自律苦行僧* 等）；
-- 🎨 **1080P 杂志级分享海报**：原生 HTML5 Canvas 离屏流式排版，生成包含全息同心圆星图、行为证据链与 24h MED 处方的高清长图。
+为了让国内以及中文互联网的朋友彻底告别“看书很感动、现实一动不动”的内耗，**梭哈.AI (@SUOHA_AI)** 将 Dan Koe 的全套理论模型工程化提炼，做成了开箱即用的**自适应互动诊断工具箱与子文档库**，100% 完全开源，纯静态零后端，终身免费使用。
 
 ---
 
-## 🧭 四大象限评估模型
+## 📑 系列子文档目录与在线体验入口
 
-```
-           [I. 心智 Mind (个人内在)]
-            元认知 · 注意力主权 · 输出闭环
-                         |
-  [III. 精神 Spirit] ----+---- [II. 身体 Body]
-   深度关系 · 当下圆满   |      生物能量 · 空间秩序
-                         |
-          [IV. 志业 Vocation (集体外在)]
-           高杠杆资产 · 商业闭环 · 工作即玩耍
-```
+| 章节 | 核心理论体系 | 子文档路由路径 | 线上诊断站链接 | 状态 |
+| :--- | :--- | :--- | :--- | :--- |
+| **第 01 章** | **HUMAN 3.0 · 全象限心流演化论** | `/` (根目录) | [立即前往自测 (已破1.8万浏览) ↗](https://suoha888.github.io/human-3-quiz/) | 🟢 已上线 |
+| **第 02 章** | **THE ANTI-VISION · 反向愿景与止损底线协议** | `/anti-vision/` (子文档) | [直达第 2 章测试 ↗](https://suoha888.github.io/human-3-quiz/anti-vision/) | 🟢 **全新上线** |
+| **第 03 章** | **THE ONE-PERSON BUSINESS · 一人公司资产闭环** | `/one-person-biz/` | 筹备中 | 🟡 制作中 |
+| **第 04 章** | **THE ART OF FOCUS · 注意力主权与数字断食** | `/art-of-focus/` | 筹备中 | ⚪ 规划中 |
+| **第 05 章** | **THE FUTURE OF WORK · 超级个体内容引擎** | `/content-engine/` | 筹备中 | ⚪ 规划中 |
 
 ---
 
-## 📸 诊断海报效果预览
+## 🛠️ 子文档 01：HUMAN 3.0 全象限演化模型
 
-海报采用经典象牙暖白纸质美学排版（#FAF7F0 / #141311 / #C84B28），直出 1080P 高清长图：
-
-- **称号与段位**：计算 Level（1.0 ~ 3.0）与失调/不确定/发现三级子阶段
-- **全息同心圆星图**：四维多边形张力场直观呈现系统是否稳固
-- **虚假努力侦测**：指出你用哪个象限的高光掩盖了哪个象限的怯懦
-- **24h 最小有效剂量 (MED)**：拒绝假大空，只给今天唯一一个具体微行动
+* **理论内核**：人生由【心智 Mind】、【身体 Body】、【精神 Spirit】、【事业 Business】四大象限组成。绝大多数人被困在 1.0 NPC 剧本或 2.0 假自律苦行僧模式中。
+* **工程化实现**：8 道真实生活场景题，计算出你的象限得分与雷达分布，一键生成 1080P 专属诊断报告。
+* **在线路径**：`https://suoha888.github.io/human-3-quiz/`
 
 ---
 
-## 🚀 本地运行与二次开发
+## 🛑 子文档 02：THE ANTI-VISION PROTOCOL 反向愿景与止损底线协议
 
-本项目为纯静态单文件架构（Zero-Dependencies），无需任何 npm 构建，开箱即用：
-
-```bash
-# 1. 克隆本仓库
-git clone https://github.com/suoha888/human-3-quiz.git
-
-# 2. 进入目录并直接在浏览器中打开 index.html
-cd human-3-quiz
-start index.html # Windows
-open index.html  # macOS
-```
-
----
-
-## 🤝 致敬与致谢
-
-- **理论框架原著**：[@thedankoe](https://x.com/thedankoe) 《HUMAN 3.0 – A Map To Reach The Top 1%》
-- **启发与引用**：[@cheery9998](https://x.com/cheery9998)
-- **互动系统制作出品**：[梭哈.AI (@SUOHA_AI)](https://x.com/SUOHA_AI)
+* **理论内核**：人类远古大脑对“逃离厌恶与痛苦”的动力远大于“追求美好愿景”。只有极其残忍、直白地写下你绝不能容忍的平庸终局，改变才会真正发生。
+* **工程化实现**：
+  1. **8 道致命反向拷问**：深度取证慢性容忍、推演 5 年后令人生理作呕的恐怖周二镜像，刺破用来逃避行动的隐秘自我保护。
+  2. **沉沦危险指数（%）与 4 大毒性原型**：
+     * 【温水煮青蛙 · 算法麻痹型】
+     * 【生理透支型 · 悬崖飞车手】
+     * 【齿轮出卖型 · 黄金牢笼囚徒】
+     * 【社交迎合型 · 能量被吸血者】
+  3. **倒推 5 大不可动摇的每日防御红线**：醒来首小时数字戒严、无聊禁止摸手机、48 小时极速交付等。
+  4. **1080P 杂志级动态警戒令海报**：自适应 Canvas 排版，跨域安全沙箱，一键保存手机壁纸。
+* **在线路径**：
+  * 主仓子文档：`https://suoha888.github.io/human-3-quiz/anti-vision/`
+  * 独立路由镜像：`https://suoha888.github.io/anti-vision-protocol/`
 
 ---
 
-## 📄 开源许可
+## 🎨 视觉与工程设计标准
 
-本项目基于 [MIT License](./LICENSE) 完全开源，欢迎自由 Fork、二次开发或嵌入到你自己的知识库与 AI Agent 产品中。
+1. **象牙暖白研报美学**：采用 `#FAF7F0` / `#F3EAD6` 羊皮纸温润底色、`#141311` 焦墨高对比文字、`#C84B28` 熟褐朱砂重点点缀，坚决摒弃压抑沉闷的暗黑风格。
+2. **纯前端免登录架构**：所有数据纯本地计算，不存任何服务器，保护个人心智隐私。
+3. **响应式与多端适配**：完美适配 iPhone / Android 竖屏触摸操作与桌面大屏端，支持一键复制推文分享。
+
+---
+
+## 📜 许可证 (License)
+
+本项目基于 [MIT 许可证](LICENSE) 完全开源。欢迎 Star ⭐，Fork 并二次创作属于你自己的个人认知诊断工具！
+
+制作出品：研究员梭哈.AI [@SUOHA_AI](https://x.com/SUOHA_AI)
